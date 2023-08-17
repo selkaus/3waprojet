@@ -1,0 +1,121 @@
+/*Général*/
+body  {
+  margin: 0;
+  font-family: sans-serif;
+  width: 100vw;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: orange;
+}
+
+/*Fin Général*/
+
+
+/*DÉBUT HEADER*/
+
+#burger {
+  height: 2rem;
+  fill: white;
+  
+}
+
+header {
+  background-color: black;
+  height: 5rem;
+  margin: 0;
+  padding: 0 5px 0 5px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header>#logo {
+  height: 90%;
+  border: none;
+}
+
+/*psudo element pour centrer les élements sans avoir à mettre une div vide ou un grid dans le HTLM*/
+header::after {
+  content: "";
+}
+
+/*FIN HEADER*/
+
+
+
+/*DÉBUT NAV*/
+
+nav {
+}
+
+
+#navigation {
+  width: 100%;
+  padding: 5px;
+  background-color: black;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: .5rem;
+  align-items: center;
+  max-height: 15rem;
+  transition: max-height .5s, opacity .5s ease-out;
+  opacity: 1;
+}
+
+#navigation a {
+  color: white;
+  font-size: 2rem;
+}
+
+#navigation a:hover {
+  color: orange;
+  
+}
+
+/*FIN NAV*/
+
+/*DÉBUT FOOTER*/
+
+footer {
+  background-color: black;
+}
+
+a {
+  color: white;
+}
+
+#ig {
+    height: 2rem;
+    fill: white;
+}
+
+iframe {
+  height: 20rem;
+  width: 100%;
+}
+
+
+/*JAVASCRIPT DISPLAY*/
+#navigation.hidden {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+
+
+@media only screen and (min-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+  header {
+    height: 7rem;
+  }
+  
+}
