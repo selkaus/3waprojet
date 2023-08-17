@@ -1,12 +1,5 @@
 <?php
 
-$host = "db.3wa.io";
-$user = "";
-$pwd = "";
-$db = "";
-$dsn = "";
-$dbh = new PDO($dsn, $user, $pwd);
-
 class Db {
     private static $instance = null; // Instance
     
@@ -21,7 +14,7 @@ class Db {
         $this->host = "db.3wa.io";
         $this->user = "selenafall";
         $this->pwd = "b6ee84be5c18b8b871b4f70b77c5eb35";
-        $this->db = "selenafall_formulaire";
+        $this->db = "selenafall_symbolique";
         $this->dsn = "mysql:dbname=".$this->db.";host=".$this->host;
         $this->dbh = new PDO($this->dsn, $this->user, $this->pwd);
     }
