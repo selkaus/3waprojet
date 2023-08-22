@@ -92,7 +92,7 @@ class User {
     
     
     // Function pour récuperer les noms d'utilisateurs de la BDD
-    public static function findByUsername(string $username): ?User {
+    public static function findByUsername(string $username): mixed {
         $query = "SELECT * FROM user WHERE username=:username";
         $sth = Db::getDbh()->prepare($query);
         $sth->execute([
@@ -103,7 +103,7 @@ class User {
     }
 
     // Function pour récuperer les email de la BDD
-    public static function findByEmail(string $email): ?User {
+    public static function findByEmail(string $email): mixed {
         $query = "SELECT * FROM user WHERE email=:email";
         $sth = Db::getDbh()->prepare($query);
         $sth->execute([
