@@ -10,16 +10,27 @@ class UserController {
             // Mettre les valeurs POST dans l'objet User
             $user->setNom($_POST['nom']);
             $user->setPrenom($_POST['prenom']);
+            $user->setEmail($_POST['email']);
             $user->setUsername($_POST['username']);
             $user->setPassword($_POST['password']);
             
             // Vérification des valeurs de l'objet user
-            if ($user->checkInscriptionForm($_POST['password2'])){
+            $result = $user->checkInscriptionForm($_POST['password2']);
+            // from checkinscri si result est bool=
+            if ($result === true) {
                 // Si tout est ok, on sauvegarde l'user
                 $user->save();
-                // En cas d'échec de connexion
-            } else {
-                echo "Ca marche pas";
+                //header("Location: index.php");
+                header( "refresh:11;url=index.php" );
+                
+                echo "Inscription confirmée, vous pouvez vous connecter.<br>Redirection vers la page de connexion dans 10 secondes.";
+                
+                die;
+            }
+            
+            // En cas d'échec d'inscription
+            else {
+                echo "Erreur d'inscription, veuillez verifier les données entrées : $result";
             }
         }
         
@@ -40,9 +51,9 @@ class UserController {
             
             // Vérifier les données dans la bdd
             if ($user->checkConnexionForm()){
-                echo "c'est bon";
+                echo "Vous êtes connecté";
             } else {
-                echo "Ca marche pas";
+                echo "Le nom d'utilisateur et/ou le mot de passe n'existe(nt) pas.";
             }
         }
         require_once("view/connexion.phtml");

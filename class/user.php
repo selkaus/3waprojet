@@ -4,6 +4,7 @@ class User {
     private $id;
     private $nom;
     private $prenom;
+    private $email;
     private $username;
     private $password;
     private $admin;
@@ -29,6 +30,13 @@ class User {
         $this->prenom = $prenom;
     }
     
+    public function getEmail(): string {
+        return $this->email;
+    }
+    public function setEmail(string $email): void {
+        $this->email = $email;
+    }
+    
     public function getUsername(): string {
         return $this->username;
     }
@@ -51,53 +59,87 @@ class User {
     }
     
     
-    public function checkInscriptionForm($password2=""): bool{
+    // Function vérifiant la validité du formulaire d'inscription
+    public function checkInscriptionForm($password2=""): mixed {
         if (empty($this->nom)) {
-            return false;
+            return "Le nom n'a pas été saisi";
         }
         if (empty($this->prenom)) {
-            return false;
+            return "Le prénom n'a pas été saisi";
+        }
+        if (empty($this->email)) {
+            return "L'email n'a pas été saisi";
         }
         if (empty($this->username)) {
-            return false;
+            return "Le nom d'utilisateur n'a pas été saisi";
         }
         if (empty($this->password)) {
-            return false;
+            return "Le mot de passe n'a pas été saisi";
         }
         if ($this->password != $password2) {
-            return false;
+            return "Les mots de passe ne correspondent pas";
+        }
+        // Si le nom d'utilisateur est déjà dans la BDD
+        if (User::findByUsername($this->username)) {
+            return "Ce nom d'utilisateur existe déjà";
+        }
+        // Si l'email est déjà dans la BDD
+        if (User::findByEmail($this->email)) {
+            return "cet email existe déjà";
         }
         return true;
     }
     
+    
+    // Function pour récuperer les noms d'utilisateurs de la BDD
+    public static function findByUsername(string $username): ?User {
+        $query = "SELECT * FROM user WHERE username=:username";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute([
+            ":username" => $username,
+        ]);
+        $sth->setFetchMode(PDO::FETCH_CLASS, "User");
+        return $sth->fetch();
+    }
+
+    // Function pour récuperer les email de la BDD
+    public static function findByEmail(string $email): ?User {
+        $query = "SELECT * FROM user WHERE email=:email";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute([
+            ":email" => $email,
+        ]);
+        $sth->setFetchMode(PDO::FETCH_CLASS, "User");
+        return $sth->fetch();
+    }
+    
+    // Fonction qui enregistre l'utilisateur dans la BDD
     public function save(){
+        //Si email, username, et id n'existent pas, la sauvegarde dans la BDD s'effectue
         if (empty($this->id)) {
-            // Pas d'id = création = insert
-            $query="INSERT INTO user (nom, prenom, username, password) VALUES (:nom, :prenom, :username, :password)";
+            $query="INSERT INTO user (nom, prenom, email, username, password) VALUES (:nom, :prenom, :email, :username, :password)";
             $sth = Db::getDbh()->prepare($query);
             $sth->execute([
                 ':nom' => $this->nom,
                 ':prenom' => $this->prenom,
+                ':email' => $this->email,
                 ':username' => $this->username,
                 ':password' => password_hash($this->password, PASSWORD_DEFAULT),
             ]);
-        }
-        else {
-            // id = modification = update
         }
     }
     
     
     public function checkConnexionForm(){
         
-        // Test avec la BDD
+        // Check que l'utilisteur existe dans la BDD
         $query = "SELECT id, username, password, admin FROM user WHERE username=:username";
         $sth = Db::getDbh()->prepare($query);
         $sth->execute([
             ":username" => $this->username,
         ]);
         
-        // Test password
+        // Verifie que le mot de passe entré matche le mot de passe de la BDD
         $row = $sth->fetch(PDO::FETCH_ASSOC);
         
         if ($row) {

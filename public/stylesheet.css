@@ -112,7 +112,7 @@ iframe {
 
 @media only screen and (min-width: 768px) {
   body {
-    background-color: lightblue;
+    background-color: white;
   }
   header {
     height: 7rem;
