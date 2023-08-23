@@ -16,14 +16,14 @@ class UserController {
             
             // Vérification des valeurs de l'objet user
             $result = $user->checkInscriptionForm($_POST['password2']);
-            // from checkinscri si result est bool=
+            
+            // Si pas d'erreur dans les infos d'inscription
             if ($result === true) {
                 // Si tout est ok, on sauvegarde l'user
                 $user->save();
-                //header("Location: index.php");
-                header( "refresh:11;url=index.php" );
+                header( "refresh:5;url=index.php" );
                 
-                echo "Inscription confirmée, vous pouvez vous connecter.<br>Redirection vers la page de connexion dans 10 secondes.";
+                echo "Inscription confirmée, vous pouvez vous connecter.<br>Redirection vers la page de connexion.";
                 
                 die;
             }
@@ -51,12 +51,23 @@ class UserController {
             
             // Vérifier les données dans la bdd
             if ($user->checkConnexionForm()){
-                echo "Vous êtes connecté";
+                header( "refresh:5;url=index.php" );
+                echo "Vous êtes connecté. Redirection vers votre page personnelle.";
             } else {
                 echo "Le nom d'utilisateur et/ou le mot de passe n'existe(nt) pas.";
             }
         }
-        require_once("view/connexion.phtml");
+        
+        //Affichage de la vue
+        $vue = "view/connexion.phtml";
+        require_once("view/template.phtml");
+
+    }
+    
+    public static function contact(){
+        //Affichage de la vue
+        $vue = "view/contactUsers.phtml";
+        require_once("view/template.phtml");
 
     }
 }
