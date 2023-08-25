@@ -1,0 +1,17 @@
+<div>Liste des utilisateurs:
+
+<?php 
+//Affiche la liste des utilisateurs
+foreach ($users as $user) {
+    echo $user->getUsername();
+    echo $user->getNom();
+    echo $user->getPrenom();
+    echo $user->getUsername();
+}
+?>
+
+</div>
+
+<button>Messagerie</button>
+<button>Ajouter des objets</button>
+<button>Modifier des objets</button>

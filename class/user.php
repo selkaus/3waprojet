@@ -109,7 +109,7 @@ class User {
         $sth->execute([
             ":email" => $email,
         ]);
-        $sth->setFetchMode(PDO::FETCH_CLASS, "User");
+        $sth->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
         return $sth->fetch();
     }
     
@@ -154,4 +154,10 @@ class User {
         return false;
     }
     
+    public static function listAllUsers(): mixed {
+        $query = "SELECT * FROM user";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
+    }
 }
