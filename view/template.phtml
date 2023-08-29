@@ -16,10 +16,14 @@
         
         <nav id="navigation" class="hidden">
             <a href="index.php">Accueil</a>
-            <a href="index.php?page=items">Nos pièces</a>
+            <a href="index.php?page=categories">Nos pièces</a>
             <a href="index.php?page=contact">Contact</a>
-            <a href="index.php?page=inscription">Inscription</a>
-            <a href="index.php?page=connexion">Connexion</a>
+                <?php if (isset($_SESSION['ID'])) { ?>
+                    <a href="index.php?page=deconnexion">Déconnexion</a>
+                <?php } else { ?>
+                    <a href="index.php?page=inscription">Inscription</a>
+                    <a href="index.php?page=connexion">Connexion</a>
+                <?php } ?>
         </nav>
         
         <main>

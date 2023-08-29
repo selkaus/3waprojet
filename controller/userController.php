@@ -51,8 +51,8 @@ class UserController {
             
             // Vérifier les données dans la bdd
             if ($user->checkConnexionForm()){
-                header( "refresh:5;url=index.php" );
-                echo "Vous êtes connecté. Redirection vers votre page personnelle.";
+                $vue = "view/index.phtml";
+                require_once("view/template.phtml");
             } else {
                 echo "Le nom d'utilisateur et/ou le mot de passe n'existe(nt) pas.";
             }
@@ -64,9 +64,24 @@ class UserController {
 
     }
     
+    public static function deconnexion() {
+        //Retire la session de l'utilisateur
+        $_SESSION['ID'] = null;         
+        unset($_SESSION['ID']);     
+        session_destroy();
+        
+        //Redirection vers la page de connexion
+        header( "refresh:3;url=index.php?page=connexion" );
+        
+        //Affichage de la vue
+        $vue = "view/deconnexion.phtml";
+        require_once("view/template.phtml");
+        }
+        
+    
     public static function contact(){
         //Affichage de la vue
-        $vue = "view/contactUsers.phtml";
+        $vue = "view/contact.phtml";
         require_once("view/template.phtml");
 
     }

@@ -132,7 +132,7 @@ class User {
     
     public function checkConnexionForm(){
         
-        // Check que l'utilisteur existe dans la BDD
+        // Vérifie que l'utilisteur existe dans la BDD
         $query = "SELECT id, username, password, admin FROM user WHERE username=:username";
         $sth = Db::getDbh()->prepare($query);
         $sth->execute([

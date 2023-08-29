@@ -1,17 +1,54 @@
 <div>Liste des utilisateurs:
 
 <?php 
-//Affiche la liste des utilisateurs
+/*//Affiche la liste des utilisateurs
 foreach ($users as $user) {
     echo $user->getUsername();
     echo $user->getNom();
     echo $user->getPrenom();
-    echo $user->getUsername();
+    echo $user->getEmail();
+}
+*/
+//Affichage tout les utilisateurs en tableau
+if (!empty($users)) {
+?>
+<table>
+    <thead>
+        <tr>
+            <th>Utilisateur</th>
+        </tr>
+        <tr>
+            <th>Nom</th>
+        </tr>
+        <tr>
+            <th>Prénom</th>
+        </tr>
+        <tr>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+<?php
+    foreach ($users as $user) {
+?>
+        <tr>
+            <td><?= $user->getUsername() ?></td>
+            <td><?= $user->getNom() ?></td>
+            <td><?= $user->getPrenom() ?></td>
+            <td><?= $user->getEmail() ?></td>
+        </tr>
+<?php
+    }
+?>
+    </tbody>
+</table>
+<?php
 }
 ?>
 
 </div>
 
-<button>Messagerie</button>
 <button>Ajouter des objets</button>
 <button>Modifier des objets</button>
+
+<!--TODO : Messagerie-->

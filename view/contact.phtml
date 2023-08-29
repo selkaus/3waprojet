@@ -10,10 +10,21 @@
     <p>kauslaurent@yahoo.fr</p>
 </div>
 
-<!--Pour les utilisateur NON connectés-->
+
+<?php if (isset($_SESSION['ID'])) { ?>
+
+<h5>Contactez-nous directement via ce formulaire</h5>
+<form>
+    <input type="textarea"/>
+</form>
+
+<?php } else { ?>
+
 <p>Vous avez eu un coup de coeur ?<br>
 Connectez vous pour nous contacter immédiatement !</p>
 <a href="index.php?page=connexion">Se connecter</a>
 
 <p>Pas de compte? Inscrivez-vous !</p>
- <a href="index.php?page=inscription">S'inscrire</a>
+<a href="index.php?page=inscription">S'inscrire</a>
+
+<?php } ?>

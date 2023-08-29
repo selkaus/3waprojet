@@ -3,6 +3,14 @@
 class Router {
     public static function route() {
         if (isset($_GET['page'])) {
+            
+            //Page des catégories
+            if ($_GET['page'] == "categories") {
+                itemController::listeCategories();
+            }
+            
+            //Page des objets
+            
             //Page d'inscription
             if ($_GET['page'] == "inscription") {
                 UserController::inscription();
@@ -13,15 +21,14 @@ class Router {
                 UserController::connexion();
             }
             
+            //Page de déconnexion
+            if ($_GET['page'] == "deconnexion") {
+                UserController::deconnexion();
+            }
+            
             //Page de contact
             if ($_GET['page'] == "contact") {
-                if (isset($_SESSION['ID'])) {
-                    // Accès à la page de contact en tant qu'utilisateur (connecté)
-                    UserController::contact();
-                } else {
-                    // Accès à la page de contact en tant que visiteur (non connecté)
-                    ViewerController::contact();
-                }
+                UserController::contact();
             }
             
             //Page de l'administrateur + liste des utilisateurs
@@ -34,14 +41,13 @@ class Router {
                 }
             }
             
-            
             //Page d'ajout d'objet pour l'admin
             if ($_GET['page'] == "additem") {
                 if (isset($_SESSION['admin'])) {
                     // Accès à la page de contact en tant qu'utilisateur (connecté)
                     AdminController::addItem();
                 } else {
-                    // @TODO : Redirection page des catégorie d'objets
+                    // @TODO : Redirection page des catégories d'objets
                 }
             }
             
@@ -50,7 +56,8 @@ class Router {
         }
         else {
         // Affichage de la page principale
-        require_once("view/index.phtml");   
+        $vue = "view/index.phtml";
+        require_once("view/template.phtml");        
         }
     
     }

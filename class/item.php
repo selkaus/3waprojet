@@ -73,7 +73,7 @@ class Item {
     }
         
         
-        // Function pour récuperer le nom de la BDD
+    // Function pour récuperer le nom de la BDD
     public static function findByNom(string $nom): mixed {
         $query = "SELECT * FROM item WHERE nom=:nom";
         $sth = Db::getDbh()->prepare($query);
