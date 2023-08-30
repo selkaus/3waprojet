@@ -73,12 +73,24 @@ class Item {
     }
         
         
-    // Function pour récuperer le nom de la BDD
+    // Function pour récuperer le nom dans la BDD
     public static function findByNom(string $nom): mixed {
         $query = "SELECT * FROM item WHERE nom=:nom";
         $sth = Db::getDbh()->prepare($query);
         $sth->execute([
             ":nom" => $nom,
+        ]);
+        $sth->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Item");
+        return $sth->fetch();
+    }
+    
+    
+    // Function pour récuperer l'Id dans la BDD
+    public static function findById(int $id): mixed {
+        $query = "SELECT * FROM item WHERE id=:id";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute([
+            ":id" => $id,
         ]);
         $sth->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Item");
         return $sth->fetch();
@@ -99,7 +111,36 @@ class Item {
             ]);
         }
     }
+    
+    public function editItem(){
+        if (!empty($this->id)) {
+            $query="UPDATE item SET categorie=:categorie, nom=:nom, description=:description, prix=:prix, image=:image WHERE id=:id";
+            $sth = Db::getDbh()->prepare($query);
+            $sth->execute([
+                ':categorie' => $this->categorie,
+                ':nom' => $this->nom,
+                ':description' => $this->description,
+                ':prix' => $this->prix,
+                ':image' => $this->image,
+                ':id' => $this->id,
+            ]);
+        }
+    }
+    
+    
+    public static function listAllItems(): mixed {
+        $query = "SELECT * FROM item";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Item");
+    }
         
-        
+    public static function supprime($id): void {
+        $query = "DELETE FROM item WHERE id=:id";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute([
+            ':id' => $id
+        ]);
+    }
 }
     

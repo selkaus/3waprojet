@@ -34,25 +34,50 @@ class Router {
             //Page de l'administrateur + liste des utilisateurs
             if ($_GET['page'] == "administration") {
                 if (isset($_SESSION['admin'])) {
-                    // Accès à la page de contact en tant qu'utilisateur (connecté)
                     AdminController::accueilAdmin();
-                } else {
-                    // @TODO : Redirection page des catégorie d'objets
+                } 
+                //Pour la sécurité, si un user accède à la page administrative, redirection automatique vers la page des catégories d'objets
+                else {
+                    header("Location: index.php?page=categories");
+                    die;
                 }
             }
             
-            //Page d'ajout d'objet pour l'admin
+            //Page d'ajout d'objet pour l'administrateur
             if ($_GET['page'] == "additem") {
                 if (isset($_SESSION['admin'])) {
-                    // Accès à la page de contact en tant qu'utilisateur (connecté)
                     AdminController::addItem();
-                } else {
-                    // @TODO : Redirection page des catégories d'objets
+                }
+                //Ditto
+                else {
+                    header("Location: index.php?page=categories");
+                    die;
                 }
             }
             
-            //Page de modification d'objets
+            //Page de gestion des objets
+            if ($_GET['page'] == "gestionitem") {
+                if (isset($_SESSION['admin'])) {
+                    AdminController::gestionItem();
+                }
+                //Ditto
+                else {
+                    header("Location: index.php?page=categories");
+                    die;
+                }
+            }
             
+            //Formulaire de modification d'objet
+            if ($_GET['page'] == "modifitem") {
+                if (isset($_SESSION['admin'])) {
+                    AdminController::modifItem();
+                }
+                //Ditto
+                else {
+                    header("Location: index.php?page=categories");
+                    die;
+                }
+            }
         }
         else {
         // Affichage de la page principale
