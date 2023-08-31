@@ -34,7 +34,7 @@ class UserController {
             }
         }
         
-        //Affichage de la vue
+        // Affichage de la vue
         $vue = "view/inscription.phtml";
         require_once("view/template.phtml");
 
@@ -58,29 +58,44 @@ class UserController {
             }
         }
         
-        //Affichage de la vue
+        // Affichage de la vue
         $vue = "view/connexion.phtml";
         require_once("view/template.phtml");
 
     }
     
     public static function deconnexion() {
-        //Retire la session de l'utilisateur
+        // Retire la session de l'utilisateur
         $_SESSION['ID'] = null;         
         unset($_SESSION['ID']);     
         session_destroy();
         
-        //Redirection vers la page de connexion
+        // Redirection vers la page de connexion
         header( "refresh:3;url=index.php?page=connexion" );
         
-        //Affichage de la vue
+        // Affichage de la vue
         $vue = "view/deconnexion.phtml";
         require_once("view/template.phtml");
         }
-        
+    
+    public static function espacePersonnel() {
+
+        // Vérifie que l'user est connecté
+        if (!isset($_SESSION['ID'])) {
+            header("Location: index.php");
+            die();
+        }
+
+        $user = new User();
+        $user = $user->findById($_SESSION['ID']);
+
+        // Affichage de la vue
+        $vue = "view/espacePersonnel.phtml";
+        require_once("view/template.phtml");
+    }
     
     public static function contact(){
-        //Affichage de la vue
+        // Affichage de la vue
         $vue = "view/contact.phtml";
         require_once("view/template.phtml");
 

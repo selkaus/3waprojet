@@ -1,5 +1,6 @@
 <?php  
 
+// Utilisateurs connectés au site
 class User {
     private $id;
     private $nom;
@@ -91,6 +92,18 @@ class User {
     }
     
     
+    // Récupère l'Id
+    public static function findById(int $id): mixed {
+        $query = "SELECT * FROM user WHERE id=:id";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute([
+            ":id" => $id,
+        ]);
+        $sth->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
+        return $sth->fetch();
+    }
+    
+    
     // Function pour récuperer les noms d'utilisateurs de la BDD
     public static function findByUsername(string $username): mixed {
         $query = "SELECT * FROM user WHERE username=:username";
@@ -115,7 +128,7 @@ class User {
     
     // Fonction qui enregistre l'utilisateur dans la BDD
     public function save(){
-        //Si email, username, et id n'existent pas, la sauvegarde dans la BDD s'effectue
+        // Si email, username, et id n'existent pas, la sauvegarde dans la BDD s'effectue
         if (empty($this->id)) {
             $query="INSERT INTO user (nom, prenom, email, username, password) VALUES (:nom, :prenom, :email, :username, :password)";
             $sth = Db::getDbh()->prepare($query);
@@ -129,7 +142,7 @@ class User {
         }
     }
     
-    
+    // Vérifie que le formulaire est correct
     public function checkConnexionForm(){
         
         // Vérifie que l'utilisteur existe dans la BDD

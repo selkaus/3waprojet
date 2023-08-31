@@ -31,6 +31,11 @@ class Router {
                 UserController::contact();
             }
             
+                    //Page de personnelle
+                    if ($_GET['page'] == "espace") {
+                        UserController::espacePersonnel();
+                    }
+            
             //Page de l'administrateur + liste des utilisateurs
             if ($_GET['page'] == "administration") {
                 if (isset($_SESSION['admin'])) {

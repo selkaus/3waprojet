@@ -19,7 +19,7 @@
             <a href="index.php?page=categories">Nos pièces</a>
             <a href="index.php?page=contact">Contact</a>
                 <?php if (isset($_SESSION['ID'])) { ?>
-                    
+                    <a href="index.php?page=espace">Espace Personnel</a>
                     <a href="index.php?page=deconnexion">Déconnexion</a>
                     <?php if (isset($_SESSION['admin'])) { ?>
                         <a href="index.php?page=administration">Administration</a>

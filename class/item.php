@@ -1,5 +1,6 @@
 <?php  
 
+//Objets mis en vente sur le site par l'administrateur du site
 class Item {
     private $id;
     private $categorie;
@@ -95,6 +96,7 @@ class Item {
         $sth->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Item");
         return $sth->fetch();
     }
+    
 
     // Fonction qui ajoute l'item dans la BDD
     public function saveItem(){
@@ -112,6 +114,7 @@ class Item {
         }
     }
     
+    
     public function editItem(){
         if (!empty($this->id)) {
             $query="UPDATE item SET categorie=:categorie, nom=:nom, description=:description, prix=:prix, image=:image WHERE id=:id";
@@ -127,11 +130,20 @@ class Item {
         }
     }
     
-    
+
     public static function listAllItems(): mixed {
         $query = "SELECT * FROM item";
         $sth = Db::getDbh()->prepare($query);
         $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Item");
+    }
+    
+    public static function listAllItemsByCategory($categorie): mixed {
+        $query = "SELECT * FROM item WHERE categorie=:categorie";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute([
+            ':categorie' => $categorie
+            ]);
         return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Item");
     }
         

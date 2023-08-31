@@ -1,9 +1,17 @@
 <h3>Que recherchez-vous ?</h3>
 
 <div>
-    <span>Bague</span>
-    <span>Bracelet</span>
-    <span>Collier</span>
-    <span>Boucles d'oreilles</span>
-    <span>Autre</span>
+    <a href="index.php?page=categories&categorie=bagues">Bagues</a>
+    <a href="index.php?page=categories&categorie=bracelets">Bracelets</a>
+    <a href="index.php?page=categories&categorie=colliers">Colliers</a>
+    <a href="index.php?page=categories&categorie=earrings">Boucles d'oreilles</a>
+    <a href="index.php?page=categories&categorie=autre">Autre</a>
 </div>
+
+<?php
+    foreach ($items as $item) {
+?>
+    <span><?= $item->getNom() ?></span>
+<?php
+    }
+?>
