@@ -3,11 +3,11 @@
 class UserController {
     public static function inscription(){
         // Traitement
-        if (isset($_POST['inscription'])){
+        if (isset($_POST['inscription'])) {
             // Instancier un objet User
             $user = new User();
 
-            // Mettre les valeurs POST dans l'objet User
+            // Mettre les valeurs POST dans l'objet
             $user->setNom($_POST['nom']);
             $user->setPrenom($_POST['prenom']);
             $user->setEmail($_POST['email']);
@@ -51,8 +51,9 @@ class UserController {
             
             // Vérifier les données dans la bdd
             if ($user->checkConnexionForm()){
-                $vue = "view/index.phtml";
-                require_once("view/template.phtml");
+                //Si bien connecté, redirection vers la page personnelle
+                header("Location: index.php?page=espace");
+                die();
             } else {
                 echo "Le nom d'utilisateur et/ou le mot de passe n'existe(nt) pas.";
             }

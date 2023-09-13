@@ -14,8 +14,8 @@
 <?php if (isset($_SESSION['ID'])) { ?>
 
 <h5>Contactez-nous directement via ce formulaire</h5>
-<form method="POST">
-    <input type="textarea" name="messageForm"/>
+<form method="POST" action="index.php?page=sendmessage">
+    <textarea name="text"></textarea>
     <button name="sendMessage">Envoyer</button>
 </form>
 

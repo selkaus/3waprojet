@@ -1,4 +1,4 @@
-<form id="addItemForm" method="POST">
+<form id="addItemForm" method="POST" enctype="multipart/form-data">
     <label for="addCategorie">Catégorie</label>
     
     <select name="categorie" id="addCategorie">
@@ -13,6 +13,6 @@
     <label for="addNom">Titre/Nom de l'objet</label><input type="text" name="nom" id="addNom"/><br>
     <label for="addDescription">Description</label><input type="textarea" name="description" id="addDescription"/><br>
     <label for="addPrix">Prix</label><input type="number" name="prix" id="addPrix"/><br>
-    <label for="addImage">Image</label><input type="url" name="image" id="addImage"/><br>
+    <label for="addImageFile">Image Fichier</label><input type="file" name="imagefile" id="addImageFile"/><br>
     <button name="add">Ajouter</button>
 </form>

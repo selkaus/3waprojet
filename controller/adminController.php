@@ -23,11 +23,36 @@ class AdminController {
             $item->setPrix(intval($_POST['prix']));
             $item->setImage($_POST['image']);
             
-        // Vérification des valeurs de l'objet user
-        $result = $item->checkAddItemForm();
-        
-        // Si pas d'erreurs
+            // Vérification des valeurs de l'objet user
+            $result = $item->checkAddItemForm();
+            
+            // Si pas d'erreurs
             if ($result === true) {
+                // Traitement du fichier
+                // Basé sur : https://www.w3schools.com/php/php_file_upload.asp
+                
+                $target_dir = "public/uploads/";
+                $target_file = $target_dir . basename($_FILES["imagefile"]["name"]);
+                $uploadOk = true;
+                
+                //Securite = vérifier le type de fichier (l'extension)
+                //$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                
+                // Check if image file is a actual image or fake image
+                $check = getimagesize($_FILES["imagefile"]["tmp_name"]);
+                if ($check === true) {
+                    //echo "File is an image - " . $check["mime"] . ".";
+                    $uploadOk = true;
+                } else {
+                    //echo "File is not an image.";
+                    $uploadOk = false;
+                }
+                
+                move_uploaded_file($_FILES["imagefile"]["tmp_name"], $target_file);
+                
+                // Lien entre fichier et BDD
+                $item->setImage($target_file);
+                
                 // Si tout est ok, l'objet est ajouté dans la BDD
                 $item->saveItem();
                 header("Location: index.php?page=additem&success");                

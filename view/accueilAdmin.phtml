@@ -1,15 +1,7 @@
 <div>Liste des utilisateurs:
 
 <?php 
-/*//Affiche la liste des utilisateurs
-foreach ($users as $user) {
-    echo $user->getUsername();
-    echo $user->getNom();
-    echo $user->getPrenom();
-    echo $user->getEmail();
-}
-*/
-//Affichage tout les utilisateurs en tableau
+
 if (!empty($users)) {
 ?>
 <table>
@@ -44,4 +36,4 @@ if (!empty($users)) {
 
 <a href="index.php?page=additem">Ajouter des objets</a>
 <a href="index.php?page=gestionitem">Gérer les objets</a>
-<a href="#">Messagerie</a>
+<a href="index.php?page=messagerie">Messagerie</a>

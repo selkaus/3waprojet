@@ -51,6 +51,7 @@ class Item {
         $this->image = $image;
     }
     
+    
     // Function vérifiant la validité du formulaire d'ajout d'objet
     public function checkAddItemForm(): mixed {
         if (empty($this->categorie)) {

@@ -1,29 +1,35 @@
 <?php
 
 class MessageController {
-    public function sendMessage() {
+    
+    public static function sendMessage() {
         if (isset($_POST['sendMessage'])) {
             
-            $text = $_POST['message'];
-            $userId = $_SESSION['user_id']; // Assuming you have user authentication and session management
-
-            // Code to create a new message and store it in the database
+            // Instancie un objet message
             $message = new Message();
-            $message->setText($text);
-            $message->setUserId($userId);
+            
+            // Met les valeurs POST dans l'objet
+            $message->setText($_POST['text']);
+            $message->setIdUser($_SESSION['ID']);
             $message->save();
 
-            // Redirect or display a success message
+            // Redirection vers la page de contact
+            header("refresh:5;url=index.php?page=contact");
+            
+            // Affichage de la vue
+            $vue = "view/confirmMessage.phtml";
+            require_once("view/template.phtml");
+            
         }
     }
-
-    public function showAdminMessages() {
-        // Assuming you have an authentication system for admin users
+    
+   /* public function AdminMessages() {
+        
         if ($_SESSION['admin']) {
             // Code to fetch and display admin's messages
             $messages = Message::getAdminMessages();
             include('views/admin_messages.php');
         }
-    }
+    }*/
 
 }

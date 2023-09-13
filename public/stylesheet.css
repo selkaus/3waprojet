@@ -1,8 +1,11 @@
 /*Général*/
 body  {
   margin: 0;
-  font-family: sans-serif;
-  width: 100vw;
+  font-family: 'Roboto Condensed', sans-serif;
+  
+  min-height: 100vh;
+  position: relative;
+  /*width: 100vw;*/
 }
 
 a {
@@ -26,7 +29,9 @@ a:hover {
 }
 
 header {
+
   background-color: black;
+  width: 100%;
   height: 5rem;
   margin: 0;
   padding: 0 5px 0 5px;
@@ -36,15 +41,17 @@ header {
   align-items: center;
 }
 
-header>#logo {
-  height: 90%;
-  border: none;
+#logoLink {
+  display: flex;
+  height: 8em;
 }
 
-/*psudo element pour centrer les élements sans avoir à mettre une div vide ou un grid dans le HTLM*/
-header::after {
-  content: "";
+#logo {
+  align-self: center;
+  height: 70%;
+  width: 70%;
 }
+
 
 /*FIN HEADER*/
 
@@ -57,12 +64,11 @@ nav {
 
 
 #navigation {
-  width: 100%;
+  min-width: 100%;
   padding: 5px;
   background-color: black;
   display: flex;
   flex-flow: column nowrap;
-  gap: .5rem;
   align-items: center;
   max-height: 15rem;
   transition: max-height .5s, opacity .5s ease-out;
@@ -71,7 +77,10 @@ nav {
 
 #navigation a {
   color: white;
-  font-size: 2rem;
+  font-size: 2em;
+  
+  font-family: 'Grandiflora One', serif;
+
 }
 
 #navigation a:hover {
@@ -81,26 +90,79 @@ nav {
 
 /*FIN NAV*/
 
+/*DÉBUT MAIN ACCUEIL*/
+
+main {
+  padding-bottom: 2.5rem;
+}
+
+#divAccueilPic {
+  display: flex;
+  justify-content: center;
+  margin-top: .5rem;
+}
+
+#photoAccueil {  
+  max-width: 20rem;
+
+}
+
+#messageAccueil {
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+#map {
+  display: none;
+  height: 20rem;
+  /*width: 100%;*/
+  margin: 1em 0 1em 0;
+}
+
+#whiteSquare {
+  margin: 0;
+  background-color: white;
+  height: 17rem;
+  width: 25%;
+  
+  position: absolute;
+  top: 24em;
+}
+
+iframe {
+  min-width: 100%;
+  height: 100%;
+}
+
+/*FIN MAIN ACCUEIL*/
+
+
+
 /*DÉBUT FOOTER*/
 
 footer {
+position: absolute;
+bottom: 0;  
+
   background-color: black;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  color: black;
 }
 
 footer>a {
   color: white;
 }
 
-#ig {
+#instagram {
     height: 2rem;
     fill: white;
 }
 
-iframe {
-  height: 20rem;
-  width: 100%;
-}
-
+/*FIN FOOTER*/
 
 /*JAVASCRIPT DISPLAY*/
 #navigation.hidden {
@@ -114,8 +176,43 @@ iframe {
   body {
     background-color: white;
   }
+  
   header {
     height: 7rem;
   }
   
+  /*pseudo element pour centrer les élements sans avoir à mettre une div vide ou un grid dans le header*/
+  header::after {
+    content: "";
+  }
+
+  #logo {
+  height: 100%;
+  width: 100%;
+  }
+  
+/*CARTE*/
+
+  #map {
+  display: block;
+  height: 20rem;
+  /*width: 100%;*/
+  margin: 1em 0 1em 0;
+}
+
+#whiteSquare {
+  margin: 0;
+  background-color: white;
+  height: 21rem;
+  width: 30%;
+  
+  position: absolute;
+  top: 24em;
+}
+
+iframe {
+  min-width: 100%;
+  height: 100%;
+}
+
 }

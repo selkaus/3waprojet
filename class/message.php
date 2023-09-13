@@ -1,10 +1,10 @@
 <?php
 
-class User {
+class Message {
     private $id;
     private $date;
     private $text;
-    private $user_id;
+    private $id_user;
     
     public function getId(): int {
         return $this->id;
@@ -27,10 +27,24 @@ class User {
         $this->text = $text;
     }
     
-    public function getUserId(): int {
-        return $this->user_id;
+    public function getIdUser(): int {
+        return $this->id_user;
     }
-    public function setUserId(int $id): void {
-        $this->user_id = $user_id;
+    public function setIdUser(int $id_user): void {
+        $this->id_user = $id_user;
     }
+    
+    
+    // @TODO: Vérifier que le message n'est pas vide
+
+
+    // Fonction qui enregistre le message dans la BDD
+    public function save(){
+            $query="INSERT INTO message (date, text, id_user) VALUES (NOW(), :text, :id_user)";
+            $sth = Db::getDbh()->prepare($query);
+            $sth->execute([
+                ':text' => $this->text,
+                ':id_user' => $this->id_user,
+            ]);
+        }
 }

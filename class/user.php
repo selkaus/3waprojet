@@ -126,6 +126,7 @@ class User {
         return $sth->fetch();
     }
     
+    
     // Fonction qui enregistre l'utilisateur dans la BDD
     public function save(){
         // Si email, username, et id n'existent pas, la sauvegarde dans la BDD s'effectue
@@ -166,6 +167,7 @@ class User {
         }
         return false;
     }
+    
     
     public static function listAllUsers(): mixed {
         $query = "SELECT * FROM user";
