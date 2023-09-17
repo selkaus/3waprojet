@@ -9,11 +9,12 @@ document.addEventListener("DOMContentLoaded", function()
     });
     
     
+    //Confirmation de suppression d'objets
     let formDelete = document.querySelectorAll(".form-delete");
     formDelete.forEach((form) => {
         form.addEventListener("submit", (e) => {
             if (!confirm("Voulez-vous vraiment supprimer cet objet ?")) {
-                e.preventDefault(); //Annule l'envoi
+                e.preventDefault(); //Annule l'envoi de la suppression
             }
         });
     });

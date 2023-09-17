@@ -1,0 +1,169 @@
+@charset "UTF-8";
+/*Variables*/
+body {
+  /*Début du CSS Général*/
+  margin: 0;
+  font-family: "Cormorant", serif, serif;
+  min-height: 100vh;
+  position: relative;
+  /*width: 100vw;*/
+  /*DÉBUT HEADER*/
+  /*FIN HEADER*/
+  /*DÉBUT NAV*/
+  /*JAVASCRIPT DISPLAY*/
+  /*FIN NAV*/
+  /*DÉBUT FOOTER*/
+  /*FIN FOOTER*/
+  /*Fin du CSS Général*/
+  /*DÉBUT MAIN ACCUEIL index.phtml*/
+  /*FIN MAIN ACCUEIL index.phtml*/
+}
+body a {
+  text-decoration: none;
+  color: black;
+}
+body a:hover {
+  color: #f39b96;
+}
+body header {
+  background-color: black;
+  height: 6rem;
+  margin: 0;
+  padding: 0 0.5em 0 0.5em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+body header #burger {
+  height: 3em;
+  fill: white;
+}
+body header #logoLink {
+  display: flex;
+  justify-content: center;
+  height: 5.5em;
+}
+body header #logoLink #logo {
+  align-self: center;
+  height: 80%;
+  width: auto;
+  /*overflow: hidden;*/
+}
+body header #instagram {
+  height: 2em;
+  fill: white;
+}
+body #navigation {
+  max-width: 100%;
+  padding: 5px;
+  background-color: black;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  max-height: 22rem;
+  transition: max-height 0.5s, opacity 0.5s ease-out;
+  opacity: 1;
+}
+body #navigation a {
+  color: white;
+  font-size: 2em;
+  font-family: "Grandiflora One", serif;
+}
+body #navigation a:hover {
+  color: #f39b96;
+}
+body #navigation.hidden {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+body footer {
+  position: absolute;
+  bottom: 0;
+  background-color: black;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  color: black;
+}
+body footer a {
+  color: white;
+  font-family: "Grandiflora One", serif;
+}
+body main {
+  padding-bottom: 2.5rem;
+}
+body main #divAccueil {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+body main #divAccueil #photoAccueil {
+  max-width: 20rem;
+  padding: 0.5em;
+  border: 0.3em double black;
+  align-self: center;
+}
+body main #divAccueil #messageAccueil {
+  text-align: center;
+  font-family: "Cormorant", serif;
+  font-size: 1.5rem;
+  align-self: center;
+}
+body main #map {
+  display: none;
+  height: 20rem;
+  /*width: 100%;*/
+  margin: 1em 0 1em 0;
+}
+body main #map iframe {
+  min-width: 100%;
+  height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    background-color: white;
+  }
+  header {
+    height: 7rem;
+  }
+  #logo {
+    height: 100%;
+    width: 100%;
+  }
+  /* DEBUT MAIN ACCUEIL*/
+  #divAccueil {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    margin: 1rem;
+  }
+  #photoAccueil {
+    max-width: 20rem;
+    padding: 0.6em;
+    border: 0.5em double black;
+  }
+  #messageAccueil {
+    text-align: center;
+    align-self: center;
+  }
+  /*CARTE*/
+  #map {
+    display: block;
+    height: 20rem;
+    /*width: 100%;*/
+    margin: 1em 0 1em 0;
+  }
+  iframe {
+    min-width: 100%;
+    height: 100%;
+  }
+  /*FIN MAIN ACCUEIL*/
+}
+
+/*# sourceMappingURL=compiledSCSS.css.map */
