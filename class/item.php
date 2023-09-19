@@ -64,7 +64,7 @@ class Item {
             return "La description n'a pas été saisie";
         }
         if (empty($this->image)) {
-            return "L'url de l'image n'a pas été saisie";
+            return "L'image n'a pas été selectionnée";
         }
         
         // Si le nom/titre de l'objet est déjà dans la BDD

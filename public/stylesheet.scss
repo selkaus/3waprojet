@@ -5,8 +5,6 @@ $linkFont: 'Grandiflora One', serif;
 $textFont: 'Cormorant', serif;
 
 
-
-
 body  {
   
 /*Début du CSS Général*/
@@ -104,14 +102,17 @@ body  {
   footer {
     position: absolute;
     bottom: 0;  
-  
+    
     background-color: black;
     width: 100%;
     height: 5rem;
     display: flex;
     flex-flow: row nowrap;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
     color: black;
+
     
     a {
       color: white;
@@ -123,12 +124,15 @@ body  {
   /*FIN FOOTER*/
   
 /*Fin du CSS Général*/
-  
-  
-  /*DÉBUT MAIN ACCUEIL index.phtml*/
+
+
+/*Début CSS MAIN*/
   
   main {
+  
     padding-bottom: 2.5rem;
+  
+    /*DÉBUT ACCUEIL index.phtml*/
     
     #divAccueil {
       display: flex;
@@ -162,64 +166,104 @@ body  {
         height: 100%;
       }
     }
-  }
+    /*FIN ACCUEIL index.phtml*/
+    
+    
+    /*DÉBUT AJOUT OBJET ADMIN addItemForm.phtml*/
   
-  /*FIN MAIN ACCUEIL index.phtml*/
-  
-}
-
-
-@media only screen and (min-width: 768px) {
-  body {
-    background-color: white;
+      #addItemForm {
+      max-width: 35em;
+      margin: 1em;
+      padding: 2em;
+      border: .3em double black;
+      border-radius: .5em;
+    
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+    
+      select,
+      input[type="text"],
+      input[type="number"],
+      input[type="file"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 16px;
+      }
+    
+      button {
+        background-color: #f90101;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        font-size: 16px;
+        cursor: pointer;
+    
+        &:hover {
+          background-color: $hoverColor;
+        }
+      }
+    }
+    /*FIN AJOUT OBJET ADMIN addItemForm.phtml*/
+    
   }
-  
-  header {
-    height: 7rem;
-  }
-  
-  
-  #logo {
-    height: 100%;
-    width: 100%;
-  }
+  /*Fin CSS MAIN*/
   
 
-/* DEBUT MAIN ACCUEIL*/
-
-#divAccueil {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
-  margin: 1rem;
-}
-
-#photoAccueil {  
-  max-width: 20rem;
-  padding: .6em;
-  border: .5em double black;
-
-}
-
-#messageAccueil {
-  text-align: center;
-  align-self: center;
-}
-
-/*CARTE*/
-
-  #map {
-    display: block;
-    height: 20rem;
-    /*width: 100%;*/
-    margin: 1em 0 1em 0;
+  @media only screen and (min-width: 768px) {
+      
+      header {
+        height: 7rem;
+      
+        #logo {
+          height: 100%;
+          width: 100%;
+        }
+      }
+  
+    /* DEBUT MAIN ACCUEIL*/
+    
+    #divAccueil {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-evenly;
+      margin: 1rem;
+    
+      #photoAccueil {  
+        max-width: 20rem;
+        padding: .6em;
+        border: .5em double black;
+      
+      }
+    
+      #messageAccueil {
+        text-align: center;
+        align-self: center;
+      } 
+      
+    }
+    
+    /*CARTE*/
+    
+      #map {
+        display: block;
+        height: 20rem;
+        /*width: 100%;*/
+        margin: 1em 0 1em 0;
+          
+        iframe {
+          min-width: 100%;
+          height: 100%;
+          }
+      }
+    
+    /*FIN MAIN ACCUEIL*/ 
+      
   }
-
-  iframe {
-    min-width: 100%;
-    height: 100%;
-  }
-
-/*FIN MAIN ACCUEIL*/
-
 }

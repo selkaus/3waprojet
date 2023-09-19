@@ -27,6 +27,7 @@ class AdminController {
             $result = $item->checkAddItemForm();
             
             // Si pas d'erreurs
+            
             if ($result === true) {
                 // Traitement du fichier
                 // Basé sur : https://www.w3schools.com/php/php_file_upload.asp
