@@ -63,9 +63,6 @@ class Item {
         if (empty($this->description)) {
             return "La description n'a pas été saisie";
         }
-        if (empty($this->image)) {
-            return "L'image n'a pas été selectionnée";
-        }
         
         // Si le nom/titre de l'objet est déjà dans la BDD
         if (Item::findByNom($this->nom)) {

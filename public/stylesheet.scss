@@ -188,12 +188,16 @@ body  {
       input[type="number"],
       input[type="file"],
       textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        font-size: 16px;
+        width: 90%;
+        padding: .1em;
+        margin-bottom: .2em;
+        border: 1px solid #ffcbc4;
+        border-radius: .2em;
+        font-size: 1em;
+      }
+      textarea {
+        height: 120px; 
+        resize: vertical;
       }
     
       button {

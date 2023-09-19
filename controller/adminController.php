@@ -21,8 +21,7 @@ class AdminController {
             $item->setNom($_POST['nom']);
             $item->setDescription($_POST['description']);
             $item->setPrix(intval($_POST['prix']));
-            $item->setImage($_POST['image']);
-            
+
             // Vérification des valeurs de l'objet user
             $result = $item->checkAddItemForm();
             
@@ -33,14 +32,14 @@ class AdminController {
                 // Basé sur : https://www.w3schools.com/php/php_file_upload.asp
                 
                 $target_dir = "public/uploads/";
-                $target_file = $target_dir . basename($_FILES["imagefile"]["name"]);
+                $target_file = $target_dir . basename($_FILES["image"]["name"]);
                 $uploadOk = true;
                 
                 //Securite = vérifier le type de fichier (l'extension)
                 //$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                 
                 // Check if image file is a actual image or fake image
-                $check = getimagesize($_FILES["imagefile"]["tmp_name"]);
+                $check = getimagesize($_FILES["image"]["tmp_name"]);
                 if ($check === true) {
                     //echo "File is an image - " . $check["mime"] . ".";
                     $uploadOk = true;
@@ -49,7 +48,7 @@ class AdminController {
                     $uploadOk = false;
                 }
                 
-                move_uploaded_file($_FILES["imagefile"]["tmp_name"], $target_file);
+                move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
                 
                 // Lien entre fichier et BDD
                 $item->setImage($target_file);
@@ -83,8 +82,7 @@ class AdminController {
                 $item->setNom($_POST['nom']);
                 $item->setDescription($_POST['description']);
                 $item->setPrix(intval($_POST['prix']));
-                $item->setImage($_POST['image']);
-                
+
                 $item->editItem();
                 
                 header("Location: index.php?page=gestionitem");
