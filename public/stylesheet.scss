@@ -1,27 +1,57 @@
+/*Polices importées*/
+
+@font-face {
+  font-family: 'Foglihtenno06-VyZB';
+  src: url('fonts/Vogue.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 /*Variables*/
 
-$hoverColor: #f39b96;
-$linkFont: 'Grandiflora One', serif;
-$textFont: 'Cormorant', serif;
+
+$button-color: linear-gradient(to right, #5ED3C2, #9FCDC3);
+$button-hover: linear-gradient(to right, #9FCDC3, #5ED3C2);
+$link-font: 'Grandiflora One', serif;
+$link-hover: #39dfc6;
+$text-font: 'Cormorant', serif;
+$title-font: 'Foglihtenno06-VyZB', serif;
+$header-font: 'Poiret One', serif;
+
 
 
 body  {
   
 /*Début du CSS Général*/
-  
+
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+
   margin: 0;
-  font-family: $textFont, serif;
+  font-family: $text-font, serif;
   
   min-height: 100vh;
   position: relative;
-  /*width: 100vw;*/
-
+  
+  
+  h1 {
+    font-family: $title-font;
+    margin: .3em;
+    letter-spacing: .1em;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
   a {
     text-decoration: none;
     color: black;
     
     &:hover {
-        color: $hoverColor;
+        color: $link-hover;
     }
   }
   
@@ -43,7 +73,7 @@ body  {
       fill: white;
     }
     
-    #logoLink {
+    #logo-link {
       display: flex;
       justify-content: center;
       height: 5.5em;
@@ -59,6 +89,10 @@ body  {
     #instagram {
       height: 2em;
       fill: white;
+    }
+    
+    #navigation-desktop {
+      display: none;
     }
     
   }
@@ -80,10 +114,10 @@ body  {
     a {
       color: white;
       font-size: 2em;
-      font-family: $linkFont;
+      font-family: $link-font;
       
       &:hover {
-        color: $hoverColor;
+        color: $link-hover;
       }
     }
   }
@@ -100,8 +134,8 @@ body  {
   /*DÉBUT FOOTER*/
   
   footer {
-    position: absolute;
-    bottom: 0;  
+    /*position: absolute;
+    bottom: 0;  */
     
     background-color: black;
     width: 100%;
@@ -109,14 +143,14 @@ body  {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 2rem;
     color: black;
 
     
     a {
       color: white;
-      font-family: $linkFont;
+      font-family: $link-font;
     }
     
   }
@@ -129,145 +163,307 @@ body  {
 /*Début CSS MAIN*/
   
   main {
-  
-    padding-bottom: 2.5rem;
-  
+    
+  flex-grow: 1;
+    
     /*DÉBUT ACCUEIL index.phtml*/
     
-    #divAccueil {
+    #div-accueil {
       display: flex;
       flex-flow: column nowrap;
       justify-content: center;
       margin-top: .5rem;
   
-      #photoAccueil {  
+      #photo-accueil {  
         max-width: 20rem;
         padding: .5em;
+        margin-left: 1em;
         border: .3em double black;
         align-self: center;
       }
-  
-      #messageAccueil {
+      
+      hr {
+        width: 90%;
+        border: 0;
+        height: 1px;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+        background-image: linear-gradient(to right, white, #adadad, BLACK, #adadad, white);
+      }
+      
+      #message-accueil {
+        padding: .5em .1em 0 .5em;
         text-align: center;
-        font-family: $textFont;
+        font-family: $text-font;
         font-size: 1.5rem;
         align-self: center;
       }  
     }
-  
-    #map {
-      display: none;
-      height: 20rem;
-      /*width: 100%;*/
-      margin: 1em 0 1em 0;
-        
-      iframe {
-        min-width: 100%;
-        height: 100%;
+    
+    #adresse-accueil {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: .8em;
+      
+      .contact-redirect {
+        display: inline-block;
+        margin-top: .4em;
+        padding: .3em .3em;
+        background: $button-color;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background: $button-hover;
+        }
       }
     }
+    
+    #map {
+      display: none;
+      }
     /*FIN ACCUEIL index.phtml*/
     
     
     /*DÉBUT AJOUT OBJET ADMIN addItemForm.phtml*/
+      
+    #additemform-wrapper{
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      
+      
+      #additem-form {
+        max-width: 35em;
+        margin: 1em;
+        padding: 2em;
+        border: .3em double black;
+        border-radius: .5em;
   
-      #addItemForm {
-      max-width: 35em;
-      margin: 1em;
-      padding: 2em;
-      border: .3em double black;
-      border-radius: .5em;
-    
-      label {
-        display: block;
-        margin-bottom: 5px;
-      }
-    
-      select,
-      input[type="text"],
-      input[type="number"],
-      input[type="file"],
-      textarea {
-        width: 90%;
-        padding: .1em;
-        margin-bottom: .2em;
-        border: 1px solid #ffcbc4;
-        border-radius: .2em;
-        font-size: 1em;
-      }
-      textarea {
-        height: 120px; 
-        resize: vertical;
-      }
-    
-      button {
-        background-color: #f90101;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 3px;
-        font-size: 16px;
-        cursor: pointer;
-    
-        &:hover {
-          background-color: $hoverColor;
+        label {
+          display: block;
+          margin-bottom: .1em;
+          font-size: 1.2em;
+        }
+      
+        #add-categorie,
+        #add-nom,
+        #add-prix,
+        #add-image,
+        #add-description
+        {
+          width: 90%;
+          padding: .1em;
+          margin-bottom: .3em;
+          border: 1px solid #ffcbc4;
+          border-radius: .2em;
+          font-size: 1em;
+          
+          &:focus { 
+            outline: none;
+            border: 1px solid #39cfdf;
+            background-color: #f4f9f9;
+  
+          }
+        }
+        
+        #add-image {
+          border: none;
+        }
+      
+        #additemform-button {
+          background: $button-color;
+          color: #fff;
+          padding: .4em .6em;
+          border: none;
+          border-radius: 3px;
+          font-size: 16px;
+          cursor: pointer;
+          margin-left: 80%;
+      
+          &:hover {
+            background: $button-hover;
+          }
         }
       }
     }
     /*FIN AJOUT OBJET ADMIN addItemForm.phtml*/
     
-  }
-  /*Fin CSS MAIN*/
+    /*DÉBUT INSCRIPTION inscription.phtml*/
+    
+    #inscription-wrapper{
+      margin-top: .5em;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      
+      
+      #inscription-form {
+        max-width: 35em;
+        margin: .8em 1em 1em 1em;
+        padding: 2em 2em 1em 2em;
+        border: .3em double black;
+        border-radius: .5em;
   
+        label {
+          display: block;
+          margin-bottom: .1em;
+          font-size: 1.2em;
+        }
+      
+        #inscription-nom,
+        #inscription-prenom,
+        #inscription-email,
+        #inscription-username,
+        #inscription-password,
+        #confirmation-password
+        {
+          width: 90%;
+          padding: .1em;
+          margin-bottom: .3em;
+          border: 1px solid #ffcbc4;
+          border-radius: .2em;
+          font-size: 1em;
+          
+          &:focus { 
+            outline: none;
+            border: 1px solid #39cfdf;
+            background-color: #f4f9f9;
+  
+          }
+        }
+        
+        #inscription-button {
+          background: $button-color;
+          color: #fff;
+          margin-top: 1em;
+          padding: .4em .6em;
+          border: none;
+          border-radius: 3px;
+          font-size: 16px;
+          cursor: pointer;
+          margin-left: 63%;
+      
+          &:hover {
+            background: $button-hover;
+          }
+        }
+      }
+      
+      .connexion-redirect {
+        display: inline-block;
+        margin: .4em 0 .7em 0;
+        padding: .3em .3em;
+        background: $button-color;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background: $button-hover;
+        }
+      }
+    }
+    
+    /*FIN INSCRIPTION inscription.phtml*/
+  
+  /*Fin CSS MAIN*/
+  }
+  
+/*RESPONSIVE POUR DESKTOP*/
 
   @media only screen and (min-width: 768px) {
       
       header {
+        width: auto;
         height: 7rem;
-      
+        display: grid;
+        grid-template-columns: 6fr 1fr 70%;
+        
+        
         #logo {
+          grid-column: 1 / 2;
           height: 100%;
           width: 100%;
         }
+        
+        #insta-link {
+          grid-column: 2 / 3;
+          justify-self: center;
+        }
+        
+        #navigation-desktop {
+          grid-column: 3 / 4;
+          
+          display: flex;
+          justify-content: space-evenly;
+          
+          a {
+            color: white;
+            font-family: $header-font;
+            font-size: 1.3em;
+            
+            &:hover {
+            color: $link-hover;
+            }
+          }
+        }
       }
+      
+      #navigation,
+      #burger,
+      #adresse-accueil{
+        display: none;
+      }
+      
   
     /* DEBUT MAIN ACCUEIL*/
     
-    #divAccueil {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-evenly;
-      margin: 1rem;
+    main {
     
-      #photoAccueil {  
-        max-width: 20rem;
-        padding: .6em;
-        border: .5em double black;
+      #div-accueil {
+        display: flex;
+        flex-flow: row nowrap; 
+        justify-content: space-evenly;
+        margin: 1rem;
       
+        #photo-accueil {  
+          max-width: 20rem;
+          padding: .6em;
+          border: .5em double black;
+        }
+        
+        #message-accueil {
+          font-size: 1.7em;
+          word-spacing: .09em;
+          padding: 0 2em 0 2em;
+        } 
+        
+        hr {
+          display: none;
+        }
+        
       }
-    
-      #messageAccueil {
-        text-align: center;
-        align-self: center;
-      } 
       
-    }
-    
-    /*CARTE*/
-    
+      /*CARTE*/
+      
       #map {
         display: block;
         height: 20rem;
         /*width: 100%;*/
         margin: 1em 0 1em 0;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+
           
         iframe {
           min-width: 100%;
           height: 100%;
           }
       }
-    
+    }
     /*FIN MAIN ACCUEIL*/ 
-      
+
   }
 }

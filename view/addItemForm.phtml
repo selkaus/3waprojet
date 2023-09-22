@@ -1,20 +1,23 @@
-<form id="addItemForm" method="POST" enctype="multipart/form-data">
-    <label for="addCategorie">Catégorie</label>
+<div id="additemform-wrapper">
+    <h1 id="additem-title">Formulaire d'ajout d'objets</h1>
+    <form id="additem-form" method="POST" enctype="multipart/form-data">
+        <label for="add-categorie">Catégorie</label>
+        
+        <select name="categorie" id="add-categorie">
+        <option value="" disabled selected>Selectionnez une catégorie</option>
+        <option value="bagues">Bagues</option>
+        <option value="bracelets">Bracelets</option>
+        <option value="colliers">Colliers</option>
+        <option value="earrings">Boucles d'oreilles</option>
+        <option value="autre">Autre</option>
+        </select>
+      
+        <label for="add-nom">Titre/Nom de l'objet</label><input type="text" name="nom" id="add-nom"/>
+        <label for="add-description">Description</label><input type="textarea" name="description" id="add-description"/>
+        <label for="add-prix">Prix</label><input type="number" name="prix" id="add-prix"/>
+        <label for="add-image">Image Fichier</label><input type="file" name="image" id="add-image"/>
+        <button name="add" id="additemform-button">Ajouter</button>
+    </form>
     
-    <select name="categorie" id="addCategorie">
-    <option value="" disabled>Selectionnez une catégorie</option>
-    <option value="bagues">Bagues</option>
-    <option value="bracelets">Bracelets</option>
-    <option value="colliers">Colliers</option>
-    <option value="earrings">Boucles d'oreilles</option>
-    <option value="autre">Autre</option>
-    </select><br>
-  
-    <label for="addNom">Titre/Nom de l'objet</label><input type="text" name="nom" id="addNom"/><br>
-    <label for="addDescription">Description</label><input type="textarea" name="description" id="addDescription"/><br>
-    <label for="addPrix">Prix</label><input type="number" name="prix" id="addPrix"/><br>
-    <label for="addImageFile">Image Fichier</label><input type="file" name="image" id="addImageFile"/><br>
-    <button name="add">Ajouter</button>
-</form>
-
-<a href="index.php?page=administration">Retour page administration</a>
+    <a href="index.php?page=administration">Retour à la page d'administration</a>
+</div>

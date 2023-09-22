@@ -81,9 +81,14 @@ class UserController {
     
     public static function espacePersonnel() {
 
-        // Vérifie que l'user est connecté
+        // Si l'user n'est pas connecté
         if (!isset($_SESSION['ID'])) {
             header("Location: index.php");
+            die();
+        }
+        // Si l'user est connecté en tant qu'admin, page personnelle = page admin
+        if (isset($_SESSION['admin'])) {
+            header("Location: index.php?page=administration");
             die();
         }
 

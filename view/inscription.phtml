@@ -1,14 +1,16 @@
-<h1>Inscription</h1>
-
-<form id="inscriptionForm" method="POST">
-    <label for="inscriNom">Nom </label><input type="text" name="nom" id="inscriNom"/><br>
-    <label for="inscriPrenom">Prénom </label><input type="text" name="prenom" id="inscriPrenom"/><br>
-    <label for="inscriEmail">Email </label><input type="email" name="email" id="inscriEmail"/><br>
-    <label for="inscriUsername">Choisissez un nom d'utilisateur </label><input type="text" name="username" id="inscriUsername"/><br>
-    <label for="inscriPassword">Choisissez un mot de passe </label><input type="password" name="password" id="inscriPassword"/><br>
-    <label for="inscriPassword2">Confirmez le mot de passe </label><input type="password" name="password2" id="inscriPassword2" /><br>
-    <button name="inscription">S'inscrire</button>
-</form>
-
-<p>Vous possédez déjà un compte ? Connectez-vous !</p>
-<a href="index.php?page=connexion">Connexion</a>
+<div id="inscription-wrapper">    
+    <h1>Inscription</h1>
+    
+    <form id="inscription-form" method="POST">
+        <label for="inscription-nom">Nom </label><input type="text" name="nom" id="inscription-nom"/>
+        <label for="inscription-prenom">Prénom </label><input type="text" name="prenom" id="inscription-prenom"/>
+        <label for="inscription-email">Email </label><input type="email" name="email" id="inscription-email"/>
+        <label for="inscription-username">Choisissez un nom d'utilisateur </label><input type="text" name="username" id="inscription-username"/>
+        <label for="inscription-password">Choisissez un mot de passe </label><input type="password" name="password" id="inscription-password"/>
+        <label for="confirmation-password">Confirmez le mot de passe </label><input type="password" name="password2" id="confirmation-password" />
+        <button id="inscription-button" name="inscription">S'inscrire</button>
+    </form>
+    
+    <p>Vous possédez déjà un compte ? Connectez-vous !</p>
+    <a class="connexion-redirect" href="index.php?page=connexion">Connexion</a>
+</div>
