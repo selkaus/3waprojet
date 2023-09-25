@@ -1,51 +1,52 @@
-<div>Liste des objets actuellement en vente:
-
-<?php 
-if (!empty($items)) {
-?>
-<table>
-    <thead>
-        <tr>
-            <th>Catégorie</th>
-            <th>Nom</th>
-            <th>Description</th>
-            <th>Prix</th>
-            <th>Image</th>
-            <th>Modifier</th>
-            <th>Supprimer</th>
-        </tr>
-    </thead>
-    <tbody>
-<?php
-    foreach ($items as $item) {
-?>
-        <tr>
-            <td><?= $item->getCategorie() ?></td>
-            <td><?= $item->getNom() ?></td>
-            <td><?= $item->getDescription() ?></td>
-            <td><?= $item->getPrix() ?></td>
-            <td><img src="<?= $item->getImage() ?>" alt="<?= $item->getNom() ?>"></td>
-            <td>
-                <form method="POST">
-                    <button name="modifItem" value="<?= $item->getId() ?>">Modifier</button>
-                </form>
-            </td>
-            <td>
-                <form method="POST" class="form-delete">
-                    <button name="supprItem" value="<?= $item->getId() ?>">Supprimer</button>                
-                </form>
-            </td>
-            
-        </tr>
-<?php
+<div id="gestionitem-wrapper">
+    
+    <h1>Liste des objets actuellement en vente:</h1>
+    
+    <?php 
+    if (!empty($items)) {
+    ?>
+    <div id="tableitem-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Catégorie</th>
+                    <th>Nom/Titre</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th>Image</th>
+                    <th>Modifier/Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php
+            foreach ($items as $item) {
+        ?>
+                <tr>
+                    <td><?= $item->getCategorie() ?></td>
+                    <td><?= $item->getNom() ?></td>
+                    <td><?= $item->getDescription() ?></td>
+                    <td><?= $item->getPrix() ?></td>
+                    <td><img src="<?= $item->getImage() ?>" alt="<?= $item->getNom() ?>"></td>
+                    <td>
+                        <form method="POST">
+                            <button name="modifItem" value="<?= $item->getId() ?>">Modifier</button>
+                        </form>
+                        <form method="POST" class="form-delete">
+                            <button name="supprItem" value="<?= $item->getId() ?>">Supprimer</button>                
+                        </form>
+                    </td>
+                    
+                </tr>
+        <?php
+            }
+        ?>
+            </tbody>
+        </table>
+    </div>
+    <?php
     }
-?>
-    </tbody>
-</table>
-<?php
-}
-?>
-
+    ?>
+    
 </div>
 
 <a href="index.php?page=administration">Retour page administration</a>

@@ -1,8 +1,20 @@
 @charset "UTF-8";
 /*Polices importées*/
 @font-face {
-  font-family: "Foglihtenno06-VyZB";
+  font-family: "Vogue";
   src: url("fonts/Vogue.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "LT Novelty";
+  src: url("fonts/LT-Novelty.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Foglihtenno06-VyZB";
+  src: url("fonts/Foglihtenno06-VyZB.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -16,11 +28,22 @@ body {
   position: relative;
 }
 body h1 {
+  font-family: "Vogue", serif;
   text-align: center;
-  font-family: "Foglihtenno06-VyZB", serif;
   font-size: 1.7em;
   margin: 0.3em;
   letter-spacing: 0.1em;
+}
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-family: "Cormorant", serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
 }
 body p {
   margin: 0;
@@ -144,7 +167,7 @@ body main #accueil-wrapper #div-photo-accueil hr {
   height: 1px;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
-  background-image: linear-gradient(to right, white, #adadad, BLACK, #adadad, white);
+  background-image: linear-gradient(to right, white, #adadad, black, #adadad, white);
 }
 body main #accueil-wrapper #div-photo-accueil #message-accueil {
   padding: 1em 1em 0.5em 1em;
@@ -192,9 +215,56 @@ body main #categories-wrapper {
   display: flex;
   flex-flow: column nowrap;
 }
-body main #categories-wrapper #items-list .item-unique {
+body main #categories-wrapper #categories-list {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+body main #categories-wrapper #categories-list a {
+  font-family: "LT Novelty", serif;
+  margin: 0 1em 1em 0;
+  padding: 0.4em 0.6em;
+  border: 0.1em solid #ffcbc4;
+  border-radius: 4px;
+  cursor: pointer;
+}
+body main #categories-wrapper #categories-list a:hover {
+  color: black;
+  border: 0.1em solid #39dfc6;
+}
+body main #categories-wrapper #items-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1em;
+}
+body main #categories-wrapper #items-list .item-unique {
+  margin: 0.5em;
+  padding: 0.5em 0.5em 0 0.5em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: justify;
+  width: 15em;
+  height: 24em;
+  border: 0.2em double #9FCDC3;
+}
+body main #categories-wrapper #items-list .item-unique h4 {
+  padding-bottom: 0.2em;
+}
+body main #categories-wrapper #items-list .item-unique img {
+  background-color: #9FCDC3;
+  max-width: 10em;
+  padding: 0.4em;
+}
+body main #categories-wrapper #items-list .item-unique p:nth-child(3) {
+  margin-top: 1em;
+}
+body main #categories-wrapper #items-list .item-unique p:last-child {
+  margin-top: auto;
+  margin-bottom: 0.5em;
+  align-self: start;
+  text-shadow: black 0px 0.2px;
 }
 body main #additemform-wrapper {
   display: flex;
@@ -249,6 +319,13 @@ body main #additemform-wrapper #additem-form #additemform-button {
 }
 body main #additemform-wrapper #additem-form #additemform-button:hover {
   background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+}
+body main #gestionitem-wrapper td,
+body main #gestionitem-wrapper th {
+  border: 0.1em solid black;
+}
+body main #gestionitem-wrapper img {
+  max-height: 3em;
 }
 body main #inscription-wrapper {
   margin-top: 0.5em;
@@ -486,7 +563,9 @@ body main #privacypolicy-wrapper ul li {
   body header #navigation-desktop {
     grid-column: 3/4;
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-evenly;
+    align-items: center;
   }
   body header #navigation-desktop a {
     color: white;

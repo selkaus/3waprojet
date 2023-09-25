@@ -1,8 +1,22 @@
 /*Polices importées*/
 
 @font-face {
-  font-family: 'Foglihtenno06-VyZB';
+  font-family: 'Vogue';
   src: url('fonts/Vogue.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LT Novelty';
+  src: url('fonts/LT-Novelty.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Foglihtenno06-VyZB';
+  src: url('fonts/Foglihtenno06-VyZB.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -10,14 +24,19 @@
 
 /*Variables*/
 
+$link-font: 'Poiret One', serif;
+$text-font: 'Cormorant', serif;
+$title-font: 'Vogue', serif;
+$header-font: 'Foglihtenno06-VyZB', serif;
+$long-text-font: 'Linden Hill', serif;
+$buttonlike-link-font: 'LT Novelty', serif;
 
 $button-color: linear-gradient(to right, #5ED3C2, #9FCDC3);
 $button-hover: linear-gradient(to right, #9FCDC3, #5ED3C2);
-$link-font: 'Poiret One', serif;
 $link-hover: #39dfc6;
-$text-font: 'Cormorant', serif;
-$title-font: 'Foglihtenno06-VyZB', serif;
-$long-text-font: 'Linden Hill', serif;
+
+$peach: #ffcbc4;
+
 
 
 
@@ -36,11 +55,23 @@ body  {
   
   
   h1 {
-    text-align: center;
     font-family: $title-font;
+    text-align: center;
     font-size: 1.7em;
     margin: .3em;
     letter-spacing: .1em;
+  }
+  
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $text-font;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
   }
   
   p {
@@ -212,7 +243,7 @@ body  {
           height: 1px;
           margin-top: 1.5em;
           margin-bottom: 1.5em;
-          background-image: linear-gradient(to right, white, #adadad, BLACK, #adadad, white);
+          background-image: linear-gradient(to right, white, #adadad, black, #adadad, white);
         }
         
         #message-accueil {
@@ -273,12 +304,65 @@ body  {
     #categories-wrapper {
       display: flex;
       flex-flow: column nowrap;
+      
+      #categories-list {
+        display: flex;
+        flex-flow: row wrap; 
+        justify-content: center;
+
+        a {
+          font-family: $buttonlike-link-font;
+          margin: 0 1em 1em 0;
+          padding: .4em .6em;
+          border: .1em solid $peach;
+          border-radius: 4px;
+          cursor: pointer;
+  
+          &:hover {
+            color: black;
+            border: .1em solid $link-hover;
+          }
+        }
+      }
 
       #items-list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: 1em;
         
         .item-unique {
+          
+          margin: .5em;
+          padding: .5em .5em 0 .5em;
           display: flex;
-          flex-flow: row nowrap;
+          flex-flow: column nowrap;
+          align-items: center;
+          text-align: justify;
+          width: 15em;
+          height: 24em;
+          border: .2em double #9FCDC3; 
+          
+          h4 {
+            padding-bottom: .2em;
+          }
+          
+          img {
+            background-color: #9FCDC3;
+            max-width: 10em;
+            padding: .4em;
+          }
+          
+          p:nth-child(3) {
+            margin-top: 1em;
+          }
+          
+          p:last-child {
+            margin-top: auto;
+            margin-bottom: .5em;
+            align-self: start;
+            text-shadow: black 0px .2px;
+          }
         }
         
       }
@@ -318,7 +402,7 @@ body  {
           width: 90%;
           padding: .1em;
           margin-bottom: .3em;
-          border: 1px solid #ffcbc4;
+          border: 1px solid $peach;
           border-radius: .2em;
           font-size: 1em;
           
@@ -352,6 +436,29 @@ body  {
     }
     //FIN AJOUT OBJET ADMIN addItemForm.phtml
     
+    
+    
+    //DÉBUT GESTION DES OBJETS gestionItem.phtml
+    
+    #gestionitem-wrapper {
+      
+      #tableitem-wrapper {
+        display: block;
+        overflow-x: auto;
+        margin-top: 10px;
+        
+        img {
+          max-height: 5em;
+        } 
+       
+      }
+      
+    }
+    
+    //FIN GESTION DES OBJETS gestionItem.phtml
+
+    
+    
     //DÉBUT INSCRIPTION inscription.phtml
     
     #inscription-wrapper{
@@ -384,7 +491,7 @@ body  {
           width: 90%;
           padding: .1em;
           margin-bottom: .3em;
-          border: 1px solid #ffcbc4;
+          border: 1px solid $peach;
           border-radius: .2em;
           font-size: 1em;
           
@@ -446,7 +553,7 @@ body  {
           width: 90%;
           padding: .1em;
           margin-bottom: .3em;
-          border: 1px solid #ffcbc4;
+          border: 1px solid $peach;
           border-radius: .2em;
           font-size: 1em;
           
@@ -535,7 +642,7 @@ body  {
             width: 100%;
             padding: .1em;
             margin-bottom: .3em;
-            border: 1px solid #ffcbc4;
+            border: 1px solid $peach;
             border-radius: .2em;
             font-size: 1em;
             
@@ -641,7 +748,9 @@ body  {
         grid-column: 3 / 4;
         
         display: flex;
+        flex-flow: row wrap;
         justify-content: space-evenly;
+        align-items: center;
         
         a {
           color: white;
