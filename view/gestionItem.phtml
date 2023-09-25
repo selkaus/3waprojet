@@ -24,7 +24,7 @@ if (!empty($items)) {
             <td><?= $item->getNom() ?></td>
             <td><?= $item->getDescription() ?></td>
             <td><?= $item->getPrix() ?></td>
-            <td><?= $item->getImage() ?></td>
+            <td><img src="<?= $item->getImage() ?>" alt="<?= $item->getNom() ?>"></td>
             <td>
                 <form method="POST">
                     <button name="modifItem" value="<?= $item->getId() ?>">Modifier</button>

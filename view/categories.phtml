@@ -1,17 +1,26 @@
-<h3>Que recherchez-vous ?</h3>
-
-<div>
-    <a href="index.php?page=categories&categorie=bagues">Bagues</a>
-    <a href="index.php?page=categories&categorie=bracelets">Bracelets</a>
-    <a href="index.php?page=categories&categorie=colliers">Colliers</a>
-    <a href="index.php?page=categories&categorie=earrings">Boucles d'oreilles</a>
-    <a href="index.php?page=categories&categorie=autre">Autre</a>
-</div>
-
-<?php
-    foreach ($items as $item) {
-?>
-    <span><?= $item->getNom() ?></span>
-<?php
-    }
-?>
+<div id="categories-wrapper">
+    <h3>Que recherchez-vous ?</h3>
+    
+    <div>
+        <a href="index.php?page=categories&categorie=bagues">Bagues</a>
+        <a href="index.php?page=categories&categorie=bracelets">Bracelets</a>
+        <a href="index.php?page=categories&categorie=colliers">Colliers</a>
+        <a href="index.php?page=categories&categorie=earrings">Boucles d'oreilles</a>
+        <a href="index.php?page=categories&categorie=autre">Autre</a>
+    </div>
+    
+    <div id="items-list">
+        <?php
+            foreach ($items as $item) {
+        ?>
+            <div class="item-unique">
+                <h4><?= $item->getNom() ?></h4>
+                <img src="<?= $item->getImage() ?>" alt="<?= $item->getNom() ?>">
+                <p><?= $item->getDescription() ?></p>
+                <p>Prix: <?= $item->getPrix() ?> euros</p>
+            </div>
+        <?php
+            }
+        ?>
+    </div>
+</div>    

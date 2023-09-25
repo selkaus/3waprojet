@@ -1,31 +1,35 @@
-<h1 id="Cont">Pour nous contacter</h1>
-
-<div>
-    <p>Par téléphone</p>
-    <p>06.23.26.02.51</p>
+<div id="contact-wrapper">
+    <h1 id="Cont">Pour nous contacter</h1>
+    
+    <div class="contact-infos">
+        <p>Par téléphone</p>
+        <span>06.23.26.02.51</span>
+    </div>
+    
+    <div class="contact-infos">
+        <p>Par email</p>
+        <span>symbolique_paris@yahoo.com</span>
+    </div>
+    
+    
+    <?php if (isset($_SESSION['ID'])) { ?>
+    
+    <div id="contact-form-wrapper">
+        <span id="contact-us-onwebsite">Contactez-nous sur le site</span>
+        <form id="contact-form" method="POST" action="index.php?page=sendmessage">
+            <span>Message de </span>
+            <textarea rows="7" cols="70" id="text-message-sent" name="text" placeholder="N'hésitez-pas à ajouter votre numéro de téléphone si vous souhaitez être recontacté par ce moyen plutôt que par email"></textarea>
+            <button id="send-message-button" name="sendMessage">Envoyer</button>
+        </form>
+    </div>
+    <?php } else { ?>
+    <div id="contact-redirection">
+        <p>Vous avez eu un coup de cœur ?<br>
+        Connectez vous pour nous contacter immédiatement !</p>
+        <a class="connexion-redirect" href="index.php?page=connexion">Se connecter</a>
+        
+        <p>Pas de compte? Inscrivez-vous !</p>
+        <a class="inscription-redirect" href="index.php?page=inscription">S'inscrire</a>
+    </div>
+    <?php } ?>
 </div>
-
-<div>
-    <p>Par email</p>
-    <p>kauslaurent@yahoo.fr</p>
-</div>
-
-
-<?php if (isset($_SESSION['ID'])) { ?>
-
-<h5>Contactez-nous directement via ce formulaire</h5>
-<form method="POST" action="index.php?page=sendmessage">
-    <textarea name="text"></textarea>
-    <button name="sendMessage">Envoyer</button>
-</form>
-
-<?php } else { ?>
-
-<p>Vous avez eu un coup de coeur ?<br>
-Connectez vous pour nous contacter immédiatement !</p>
-<a href="index.php?page=connexion">Se connecter</a>
-
-<p>Pas de compte? Inscrivez-vous !</p>
-<a href="index.php?page=inscription">S'inscrire</a>
-
-<?php } ?>

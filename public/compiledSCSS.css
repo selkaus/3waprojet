@@ -8,32 +8,23 @@
 }
 /*Variables*/
 body {
-  /*Début du CSS Général*/
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   margin: 0;
   font-family: "Cormorant", serif, serif;
   min-height: 100vh;
   position: relative;
-  /*DÉBUT HEADER*/
-  /*FIN HEADER*/
-  /*DÉBUT NAV*/
-  /*JAVASCRIPT DISPLAY*/
-  /*FIN NAV*/
-  /*DÉBUT FOOTER*/
-  /*FIN FOOTER*/
-  /*Fin du CSS Général*/
-  /*Début CSS MAIN*/
-  /*RESPONSIVE POUR DESKTOP*/
 }
 body h1 {
+  text-align: center;
   font-family: "Foglihtenno06-VyZB", serif;
+  font-size: 1.7em;
   margin: 0.3em;
   letter-spacing: 0.1em;
 }
 body p {
   margin: 0;
+  font-size: 1.2em;
 }
 body a {
   text-decoration: none;
@@ -76,10 +67,11 @@ body header #navigation-desktop {
 }
 body #navigation {
   max-width: 100%;
-  padding: 5px;
+  padding: 0.7em;
   background-color: black;
   display: flex;
   flex-flow: column nowrap;
+  gap: 0.7em;
   align-items: center;
   max-height: 22rem;
   transition: max-height 0.5s, opacity 0.5s ease-out;
@@ -88,7 +80,7 @@ body #navigation {
 body #navigation a {
   color: white;
   font-size: 2em;
-  font-family: "Grandiflora One", serif;
+  font-family: "Poiret One", serif;
 }
 body #navigation a:hover {
   color: #39dfc6;
@@ -102,6 +94,7 @@ body footer {
   /*position: absolute;
   bottom: 0;  */
   background-color: black;
+  text-align: center;
   width: 100%;
   height: 5rem;
   display: flex;
@@ -109,36 +102,43 @@ body footer {
   align-items: center;
   justify-content: space-evenly;
   gap: 2rem;
-  color: black;
 }
 body footer a {
   color: white;
-  font-family: "Grandiflora One", serif;
+  font-family: "Poiret One", serif;
 }
 body main {
   flex-grow: 1;
-  /*DÉBUT ACCUEIL index.phtml*/
-  /*FIN ACCUEIL index.phtml*/
-  /*DÉBUT AJOUT OBJET ADMIN addItemForm.phtml*/
-  /*FIN AJOUT OBJET ADMIN addItemForm.phtml*/
-  /*DÉBUT INSCRIPTION inscription.phtml*/
-  /*FIN INSCRIPTION inscription.phtml*/
-  /*Fin CSS MAIN*/
 }
-body main #div-accueil {
+body main .connexion-redirect,
+body main .inscription-redirect,
+body main .admin-redirect {
+  display: inline-block;
+  margin: 0.4em 0 0.7em 0;
+  padding: 0.4em 0.6em;
+  background: linear-gradient(to right, #5ED3C2, #9FCDC3);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+body main .connexion-redirect:hover,
+body main .inscription-redirect:hover,
+body main .admin-redirect:hover {
+  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+}
+body main #accueil-wrapper #div-photo-accueil {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   margin-top: 0.5rem;
 }
-body main #div-accueil #photo-accueil {
+body main #accueil-wrapper #div-photo-accueil #photo-accueil {
   max-width: 20rem;
   padding: 0.5em;
-  margin-left: 1em;
   border: 0.3em double black;
   align-self: center;
 }
-body main #div-accueil hr {
+body main #accueil-wrapper #div-photo-accueil hr {
   width: 90%;
   border: 0;
   height: 1px;
@@ -146,19 +146,34 @@ body main #div-accueil hr {
   margin-bottom: 1.5em;
   background-image: linear-gradient(to right, white, #adadad, BLACK, #adadad, white);
 }
-body main #div-accueil #message-accueil {
-  padding: 0.5em 0.1em 0 0.5em;
-  text-align: center;
+body main #accueil-wrapper #div-photo-accueil #message-accueil {
+  padding: 1em 1em 0.5em 1em;
+  text-align: justify;
   font-family: "Cormorant", serif;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   align-self: center;
 }
-body main #adresse-accueil {
+body main #accueil-wrapper #adresse-accueil {
   text-align: center;
   font-size: 1.5em;
   margin-bottom: 0.8em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
-body main #adresse-accueil .contact-redirect {
+body main #accueil-wrapper #adresse-accueil span:nth-child(2) {
+  text-shadow: black 0px 0.2px;
+  display: inline-block;
+  background-image: linear-gradient(to right, white, #9FCDC3, #5ED3C2, #9FCDC3, white);
+  padding-bottom: 0.15em;
+  background-size: 90% 0.1em;
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+}
+body main #accueil-wrapper #adresse-accueil span:nth-child(3) {
+  padding-top: 1em;
+}
+body main #accueil-wrapper #adresse-accueil .contact-redirect {
   display: inline-block;
   margin-top: 0.4em;
   padding: 0.3em 0.3em;
@@ -167,11 +182,19 @@ body main #adresse-accueil .contact-redirect {
   border-radius: 4px;
   cursor: pointer;
 }
-body main #adresse-accueil .contact-redirect:hover {
+body main #accueil-wrapper #adresse-accueil .contact-redirect:hover {
   background: linear-gradient(to right, #9FCDC3, #5ED3C2);
 }
-body main #map {
+body main #accueil-wrapper #map {
   display: none;
+}
+body main #categories-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+}
+body main #categories-wrapper #items-list .item-unique {
+  display: flex;
+  flex-flow: row nowrap;
 }
 body main #additemform-wrapper {
   display: flex;
@@ -274,31 +297,177 @@ body main #inscription-wrapper #inscription-form #inscription-button {
   margin-top: 1em;
   padding: 0.4em 0.6em;
   border: none;
-  border-radius: 3px;
-  font-size: 16px;
+  border-radius: 4px;
   cursor: pointer;
-  margin-left: 63%;
+  margin-left: 65%;
+  font-family: "Cormorant", serif;
+  font-size: 1em;
 }
 body main #inscription-wrapper #inscription-form #inscription-button:hover {
   background: linear-gradient(to right, #9FCDC3, #5ED3C2);
 }
-body main #inscription-wrapper .connexion-redirect {
-  display: inline-block;
-  margin: 0.4em 0 0.7em 0;
-  padding: 0.3em 0.3em;
+body main #connexion-wrapper {
+  margin-top: 0.5em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+body main #connexion-wrapper #connexion-form {
+  max-width: 35em;
+  margin: 0.8em 1em 1em 1em;
+  padding: 2em 2em 1em 2em;
+  border: 0.3em double black;
+  border-radius: 0.5em;
+}
+body main #connexion-wrapper #connexion-form label {
+  display: block;
+  margin-bottom: 0.1em;
+  font-size: 1.2em;
+}
+body main #connexion-wrapper #connexion-form #connexion-username,
+body main #connexion-wrapper #connexion-form #connexion-password {
+  width: 90%;
+  padding: 0.1em;
+  margin-bottom: 0.3em;
+  border: 1px solid #ffcbc4;
+  border-radius: 0.2em;
+  font-size: 1em;
+}
+body main #connexion-wrapper #connexion-form #connexion-username:focus,
+body main #connexion-wrapper #connexion-form #connexion-password:focus {
+  outline: none;
+  border: 1px solid #39cfdf;
+  background-color: #f4f9f9;
+}
+body main #connexion-wrapper #connexion-form #connexion-button {
   background: linear-gradient(to right, #5ED3C2, #9FCDC3);
   color: #fff;
+  margin-top: 1em;
+  padding: 0.4em 0.6em;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-left: 56%;
+  font-family: "Cormorant", serif;
+  font-size: 1em;
 }
-body main #inscription-wrapper .connexion-redirect:hover {
+body main #connexion-wrapper #connexion-form #connexion-button:hover {
   background: linear-gradient(to right, #9FCDC3, #5ED3C2);
 }
+body main #contact-wrapper {
+  margin-top: 0.5em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+body main #contact-wrapper .contact-infos {
+  margin-bottom: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+body main #contact-wrapper .contact-infos p {
+  font-size: 1.4em;
+}
+body main #contact-wrapper .contact-infos span:last-child {
+  display: inline-block;
+  font-size: 1.4em;
+  background-image: linear-gradient(to right, white, #9FCDC3, #5ED3C2, #9FCDC3, white);
+  padding-bottom: 0.15em;
+  background-size: 100% 0.1em;
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  text-shadow: black 0px 0.2px;
+}
+body main #contact-wrapper #contact-form-wrapper {
+  margin-top: 0.5em;
+  font-size: 1.5em;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-us-onwebsite {
+  margin-left: 1em;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-form {
+  max-width: 35em;
+  margin: 1em 1em 1em 1em;
+  /*padding: 2em 2em 1em 2em;
+  border: .3em double black;
+  border-radius: .5em;*/
+  /*label {
+    display: block;
+    margin-bottom: .1em;
+    font-size: 1.2em;
+  }*/
+}
+body main #contact-wrapper #contact-form-wrapper #contact-form #text-message-sent {
+  width: 100%;
+  padding: 0.1em;
+  margin-bottom: 0.3em;
+  border: 1px solid #ffcbc4;
+  border-radius: 0.2em;
+  font-size: 1em;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-form #text-message-sent:focus {
+  outline: none;
+  border: 1px solid #39cfdf;
+  background-color: #f4f9f9;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-form #send-message-button {
+  background: linear-gradient(to right, #5ED3C2, #9FCDC3);
+  color: #fff;
+  margin-top: 1em;
+  padding: 0.4em 0.6em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 65%;
+  font-family: "Cormorant", serif;
+  font-size: 1em;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-form #send-message-button:hover {
+  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+}
+body main #contact-wrapper #contact-redirection {
+  margin-top: 1.5em;
+  text-align: center;
+  font-size: 1.1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+body main #cgu-wrapper,
+body main #ml-wrapper,
+body main #aboutus-wrapper,
+body main #privacypolicy-wrapper {
+  margin: 0.4em;
+}
+body main #cgu-wrapper h1,
+body main #ml-wrapper h1,
+body main #aboutus-wrapper h1,
+body main #privacypolicy-wrapper h1 {
+  text-align: center;
+}
+body main #cgu-wrapper p,
+body main #ml-wrapper p,
+body main #aboutus-wrapper p,
+body main #privacypolicy-wrapper p {
+  font-family: "Linden Hill", serif;
+  margin-top: 0.7em;
+}
+body main #cgu-wrapper #thx-text,
+body main #ml-wrapper #thx-text,
+body main #aboutus-wrapper #thx-text,
+body main #privacypolicy-wrapper #thx-text {
+  text-align: justify;
+  margin: 1em 0 1em 0;
+  font-size: 1.3em;
+}
+body main #cgu-wrapper ul li,
+body main #ml-wrapper ul li,
+body main #aboutus-wrapper ul li,
+body main #privacypolicy-wrapper ul li {
+  font-family: "Linden Hill", serif;
+}
 @media only screen and (min-width: 768px) {
-  body {
-    /* DEBUT MAIN ACCUEIL*/
-    /*FIN MAIN ACCUEIL*/
-  }
   body header {
     width: auto;
     height: 7rem;
@@ -328,33 +497,32 @@ body main #inscription-wrapper .connexion-redirect:hover {
     color: #39dfc6;
   }
   body #navigation,
-  body #burger,
-  body #adresse-accueil {
+  body #burger {
     display: none;
   }
-  body main {
-    /*CARTE*/
-  }
-  body main #div-accueil {
+  body main #accueil-wrapper #div-photo-accueil {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
     margin: 1rem;
   }
-  body main #div-accueil #photo-accueil {
+  body main #accueil-wrapper #div-photo-accueil #photo-accueil {
     max-width: 20rem;
     padding: 0.6em;
     border: 0.5em double black;
   }
-  body main #div-accueil #message-accueil {
+  body main #accueil-wrapper #div-photo-accueil #message-accueil {
     font-size: 1.7em;
     word-spacing: 0.09em;
     padding: 0 2em 0 2em;
   }
-  body main #div-accueil hr {
+  body main #accueil-wrapper #div-photo-accueil hr {
     display: none;
   }
-  body main #map {
+  body main #accueil-wrapper #adresse-accueil {
+    display: none;
+  }
+  body main #accueil-wrapper #map {
     display: block;
     height: 20rem;
     /*width: 100%;*/
@@ -362,7 +530,7 @@ body main #inscription-wrapper .connexion-redirect:hover {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
   }
-  body main #map iframe {
+  body main #accueil-wrapper #map iframe {
     min-width: 100%;
     height: 100%;
   }

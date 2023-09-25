@@ -1,4 +1,4 @@
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     
     <select name="categorie">
         <option value="bagues" <?php if ($item->getCategorie()==="bagues") { echo "selected"; } ?>>Bagues</option>
@@ -8,9 +8,10 @@
         <option value="autre" <?php if ($item->getCategorie()==="autre") { echo "selected"; } ?>>Autre</option>
     </select><br>
     
-    <label for="editNom"><input type="text" name="nom" value="<?= $item->getNom() ?>"><br>
-    <label for="editDescription"><input type="text" name="description" value="<?= $item->getDescription() ?>"><br>
-    <label for="editPrix"><input type="number" name="prix" value="<?= $item->getPrix() ?>"/><br>
-    <label for="editImage"><input type="text" name="image" value="<?= $item->getImage() ?>"><br>
+    <label for="edit-nom"></label>Modifier le nom/titre<input type="text" name="nom" value="<?= $item->getNom() ?>" id="edit-nom"/><br>
+    <label for="edit-description">Modifier la description</label><input type="text" name="description" value="<?= $item->getDescription() ?>" id="edit-description"/><br>
+    <label for="edit-prix">Modifier le prix</label><input type="number" name="prix" value="<?= $item->getPrix() ?>"id="edit-prix"/><br>
+    <label for="edit-image">Modifier l'image</label><input type="file" name="image" value="<?= $item->getImage() ?>" id="edit-image"/><br>
+    <input type="hidden" name="current_image" value="<?= $item->getImage() ?>" />
     <button type="submit" name="modifier">Modifier</button><br>
 </form>

@@ -71,6 +71,58 @@ class AdminController {
     }
     
     
+    
+    public static function modifItem() {
+        if (isset($_GET['id'])) {
+            $itemId = intval($_GET['id']);
+            $item = Item::findById($itemId);
+    
+            if ($item) {
+                if (isset($_POST['modifier'])) {
+                    // Retrieve the current image file path
+                    $currentImage = $_POST['current_image'];
+    
+                    // Update item properties
+                    $item->setCategorie($_POST['categorie']);
+                    $item->setNom($_POST['nom']);
+                    $item->setDescription($_POST['description']);
+                    $item->setPrix(intval($_POST['prix']));
+    
+                    // Check if a new image file was uploaded
+                    if (!empty($_FILES['image']['name'])) {
+                        // Process the uploaded image
+                        $target_dir = "public/uploads/";
+                        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                        
+                        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                            // Update the image file path if the upload was successful
+                            $item->setImage($target_file);
+                        }
+                    } else {
+                        // Keep the current image file path if no new image was uploaded
+                        $item->setImage($currentImage);
+                    }
+    
+                    // Save the updated item
+                    $item->editItem();
+    
+                    header("Location: index.php?page=gestionitem");
+                    die;
+                }
+    
+                $vue = "view/editItemForm.phtml";
+                require_once("view/template.phtml");
+            }
+        }  else {
+            $vue = "view/categorie.phtml";
+            require_once("view/template.phtml");
+        }
+    }
+    
+    
+    
+    
+    /*MODIF ITEM ORIGINAL
     public static function modifItem() {
         // Si l'objet existe, accès à sa page de modification
         if (isset($_GET['id'])) {
@@ -96,7 +148,7 @@ class AdminController {
             $vue = "view/gestionItem.phtml";
             require_once("view/template.phtml");
         }
-    }
+    }*/
     
     
     public static function gestionItem(){

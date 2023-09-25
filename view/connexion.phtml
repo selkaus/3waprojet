@@ -1,10 +1,12 @@
-<h1>Connexion</h1>
-
-<form id="connexionForm" method="POST">
-    <input type="text" name="username" placeholder="nom util"/>
-    <input type="password" name="password" placeholder="mot de passe"/>
-    <button name="connexion">Se connecter</button>
-</form>
-
-<p>Pas de compte ? Inscrivez-vous !</p>
-<a href="index.php?page=inscription">Inscription</a>
+<div id="connexion-wrapper">
+    <h1>Connexion</h1>
+    
+    <form id="connexion-form" method="POST">
+        <label for="connexion-username">Entrez votre nom d'utilisateur</label><input type="text" name="username" id="connexion-username"/>
+        <label for="connexion-password">Entrez votre mot de passe</label><input type="password" name="password" id="connexion-password"/>
+        <button name="connexion" id="connexion-button">Se Connecter</button>
+    </form>
+    
+    <p>Pas de compte ? Inscrivez-vous !</p>
+    <a class="inscription-redirect" href="index.php?page=inscription">Inscription</a>
+</div>

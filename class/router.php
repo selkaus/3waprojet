@@ -38,6 +38,30 @@ class Router {
             if ($_GET['page'] == "espace") {
                 UserController::espacePersonnel();
             }
+            
+            //Page des Mentions Légales
+            if ($_GET['page'] == "mention-legales") {
+                $vue = "view/mentionLegales.phtml";
+                require_once("view/template.phtml"); 
+            }
+            
+            //Page des Condition Générales d'Utilisation
+            if ($_GET['page'] == "cgu") {
+                $vue = "view/cgu.phtml";
+                require_once("view/template.phtml"); 
+            }
+            
+            //Page de la Politique de Confidentialité
+            if ($_GET['page'] == "politique-de-confidetialite") {
+                $vue = "view/privacyPolicy.phtml";
+                require_once("view/template.phtml"); 
+            }
+            
+            //Page A propos de nous
+            if ($_GET['page'] == "aboutus") {
+                $vue = "view/aboutUs.phtml";
+                require_once("view/template.phtml"); 
+            }
     
             //Page de l'administrateur + liste des utilisateurs
             if ($_GET['page'] == "administration") {

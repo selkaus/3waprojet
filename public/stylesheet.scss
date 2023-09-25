@@ -13,21 +13,20 @@
 
 $button-color: linear-gradient(to right, #5ED3C2, #9FCDC3);
 $button-hover: linear-gradient(to right, #9FCDC3, #5ED3C2);
-$link-font: 'Grandiflora One', serif;
+$link-font: 'Poiret One', serif;
 $link-hover: #39dfc6;
 $text-font: 'Cormorant', serif;
 $title-font: 'Foglihtenno06-VyZB', serif;
-$header-font: 'Poiret One', serif;
+$long-text-font: 'Linden Hill', serif;
 
 
 
 body  {
   
-/*Début du CSS Général*/
+//Début du CSS Général
 
-display: flex;
-flex-direction: column;
-min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   margin: 0;
   font-family: $text-font, serif;
@@ -37,13 +36,16 @@ min-height: 100vh;
   
   
   h1 {
+    text-align: center;
     font-family: $title-font;
+    font-size: 1.7em;
     margin: .3em;
     letter-spacing: .1em;
   }
   
   p {
     margin: 0;
+    font-size: 1.2em;
   }
   
   a {
@@ -53,9 +55,10 @@ min-height: 100vh;
     &:hover {
         color: $link-hover;
     }
+  
   }
   
-  /*DÉBUT HEADER*/
+  //DÉBUT HEADER
 
   header {
   
@@ -96,16 +99,17 @@ min-height: 100vh;
     }
     
   }
-  /*FIN HEADER*/
+  //FIN HEADER
   
-  /*DÉBUT NAV*/
+  //DÉBUT NAV
   
   #navigation {
     max-width: 100%;
-    padding: 5px;
+    padding: .7em;
     background-color: black;
     display: flex;
     flex-flow: column nowrap;
+    gap: .7em;
     align-items: center;
     max-height: 22rem;
     transition: max-height .5s, opacity .5s ease-out;
@@ -122,22 +126,23 @@ min-height: 100vh;
     }
   }
   
-  /*JAVASCRIPT DISPLAY*/
+  //JAVASCRIPT DISPLAY
   #navigation.hidden {
     overflow: hidden;
     max-height: 0;
     opacity: 0;
   }
   
-  /*FIN NAV*/
+  //FIN NAV
   
-  /*DÉBUT FOOTER*/
+  //DÉBUT FOOTER
   
   footer {
     /*position: absolute;
     bottom: 0;  */
     
     background-color: black;
+    text-align: center;
     width: 100%;
     height: 5rem;
     display: flex;
@@ -145,7 +150,6 @@ min-height: 100vh;
     align-items: center;
     justify-content: space-evenly;
     gap: 2rem;
-    color: black;
 
     
     a {
@@ -155,60 +159,24 @@ min-height: 100vh;
     
   }
   
-  /*FIN FOOTER*/
+  //FIN FOOTER
   
-/*Fin du CSS Général*/
+//Fin du CSS Général
 
 
-/*Début CSS MAIN*/
+//Début CSS MAIN
   
   main {
     
-  flex-grow: 1;
+    //Début du CSS Main Général
+    flex-grow: 1;
     
-    /*DÉBUT ACCUEIL index.phtml*/
-    
-    #div-accueil {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      margin-top: .5rem;
-  
-      #photo-accueil {  
-        max-width: 20rem;
-        padding: .5em;
-        margin-left: 1em;
-        border: .3em double black;
-        align-self: center;
-      }
-      
-      hr {
-        width: 90%;
-        border: 0;
-        height: 1px;
-        margin-top: 1.5em;
-        margin-bottom: 1.5em;
-        background-image: linear-gradient(to right, white, #adadad, BLACK, #adadad, white);
-      }
-      
-      #message-accueil {
-        padding: .5em .1em 0 .5em;
-        text-align: center;
-        font-family: $text-font;
-        font-size: 1.5rem;
-        align-self: center;
-      }  
-    }
-    
-    #adresse-accueil {
-      text-align: center;
-      font-size: 1.5em;
-      margin-bottom: .8em;
-      
-      .contact-redirect {
+    .connexion-redirect,
+    .inscription-redirect,
+    .admin-redirect{
         display: inline-block;
-        margin-top: .4em;
-        padding: .3em .3em;
+        margin: .4em 0 .7em 0;
+        padding: .4em .6em;
         background: $button-color;
         color: #fff;
         border-radius: 4px;
@@ -218,15 +186,109 @@ min-height: 100vh;
           background: $button-hover;
         }
       }
+    
+    //Fin du CSS Main Général
+    
+    //DÉBUT ACCUEIL index.phtml
+    
+    #accueil-wrapper {
+      
+      #div-photo-accueil {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        margin-top: .5rem;
+    
+        #photo-accueil {  
+          max-width: 20rem;
+          padding: .5em;
+          border: .3em double black;
+          align-self: center;
+        }
+        
+        hr {
+          width: 90%;
+          border: 0;
+          height: 1px;
+          margin-top: 1.5em;
+          margin-bottom: 1.5em;
+          background-image: linear-gradient(to right, white, #adadad, BLACK, #adadad, white);
+        }
+        
+        #message-accueil {
+          padding: 1em 1em 0.5em 1em;
+          text-align: justify;
+          font-family: $text-font;
+          font-size: 1.5em;
+          align-self: center;
+        }  
+      }
+      
+      #adresse-accueil {
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: .8em;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        
+        span:nth-child(2) {
+          text-shadow: black 0px .2px;
+          display: inline-block; 
+          background-image: linear-gradient(to right, white, #9FCDC3, #5ED3C2, #9FCDC3, white);
+          padding-bottom: .15em;
+          background-size: 90% .1em;
+          background-position: 0% 100%;
+          background-repeat: no-repeat;
+          }
+        span:nth-child(3) {
+          padding-top: 1em;
+        }
+        
+        .contact-redirect {
+          display: inline-block;
+          margin-top: .4em;
+          padding: .3em .3em;
+          background: $button-color;
+          color: #fff;
+          border-radius: 4px;
+          cursor: pointer;
+  
+          &:hover {
+            background: $button-hover;
+          }
+        }
+      }
+      
+      #map {
+        display: none;
+        }
+    
+    }
+    //FIN ACCUEIL index.phtml
+    
+    
+    //DÉBUT CATEGORIES categories.phtml
+    
+    #categories-wrapper {
+      display: flex;
+      flex-flow: column nowrap;
+
+      #items-list {
+        
+        .item-unique {
+          display: flex;
+          flex-flow: row nowrap;
+        }
+        
+      }
+      
     }
     
-    #map {
-      display: none;
-      }
-    /*FIN ACCUEIL index.phtml*/
+    //FIN CATEGORIES categories.phtml
     
     
-    /*DÉBUT AJOUT OBJET ADMIN addItemForm.phtml*/
+    //DÉBUT AJOUT OBJET ADMIN addItemForm.phtml
       
     #additemform-wrapper{
       display: flex;
@@ -288,9 +350,9 @@ min-height: 100vh;
         }
       }
     }
-    /*FIN AJOUT OBJET ADMIN addItemForm.phtml*/
+    //FIN AJOUT OBJET ADMIN addItemForm.phtml
     
-    /*DÉBUT INSCRIPTION inscription.phtml*/
+    //DÉBUT INSCRIPTION inscription.phtml
     
     #inscription-wrapper{
       margin-top: .5em;
@@ -340,130 +402,317 @@ min-height: 100vh;
           margin-top: 1em;
           padding: .4em .6em;
           border: none;
-          border-radius: 3px;
-          font-size: 16px;
+          border-radius: 4px;
           cursor: pointer;
-          margin-left: 63%;
+          margin-left: 65%;
+          font-family: $text-font;
+          font-size: 1em;
+
       
           &:hover {
             background: $button-hover;
           }
         }
       }
+    }
+    
+    //FIN INSCRIPTION inscription.phtml
+    
+    //DÉBUT CONNEXION connexion.phtml
+    
+    #connexion-wrapper{
+      margin-top: .5em;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
       
-      .connexion-redirect {
-        display: inline-block;
-        margin: .4em 0 .7em 0;
-        padding: .3em .3em;
-        background: $button-color;
-        color: #fff;
-        border-radius: 4px;
-        cursor: pointer;
+      
+      #connexion-form {
+        max-width: 35em;
+        margin: .8em 1em 1em 1em;
+        padding: 2em 2em 1em 2em;
+        border: .3em double black;
+        border-radius: .5em;
+  
+        label {
+          display: block;
+          margin-bottom: .1em;
+          font-size: 1.2em;
+        }
+      
+        #connexion-username,
+        #connexion-password,
+        {
+          width: 90%;
+          padding: .1em;
+          margin-bottom: .3em;
+          border: 1px solid #ffcbc4;
+          border-radius: .2em;
+          font-size: 1em;
+          
+          &:focus { 
+            outline: none;
+            border: 1px solid #39cfdf;
+            background-color: #f4f9f9;
+  
+          }
+        }
+        
+        #connexion-button {
+          background: $button-color;
+          color: #fff;
+          margin-top: 1em;
+          padding: .4em .6em;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-left: 56%;
+          font-family: $text-font;
+          font-size: 1em;
 
-        &:hover {
-          background: $button-hover;
+      
+          &:hover {
+            background: $button-hover;
+          }
         }
       }
     }
     
-    /*FIN INSCRIPTION inscription.phtml*/
-  
-  /*Fin CSS MAIN*/
-  }
-  
-/*RESPONSIVE POUR DESKTOP*/
-
-  @media only screen and (min-width: 768px) {
+    //FIN CONNEXION connexion.phtml
+    
+    //DÉBUT CONTACT contact.phtml
+    
+    #contact-wrapper {
+      margin-top: .5em;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
       
-      header {
-        width: auto;
-        height: 7rem;
-        display: grid;
-        grid-template-columns: 6fr 1fr 70%;
+      .contact-infos {
+        margin-bottom: 1em;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
         
-        
-        #logo {
-          grid-column: 1 / 2;
-          height: 100%;
-          width: 100%;
+        p {
+          font-size: 1.4em;
         }
         
-        #insta-link {
-          grid-column: 2 / 3;
-          justify-self: center;
+        span:last-child {
+            display: inline-block; 
+            font-size: 1.4em;
+            background-image: linear-gradient(to right, white, #9FCDC3, #5ED3C2, #9FCDC3, white);
+            padding-bottom: .15em;
+            background-size: 100% .1em;
+            background-position: 0% 100%;
+            background-repeat: no-repeat;
+            text-shadow: black 0px .2px;
+          }
+      }
+      
+      #contact-form-wrapper {
+        margin-top: .5em;
+        font-size: 1.5em;
+        
+        #contact-us-onwebsite {
+          margin-left: 1em;
         }
         
-        #navigation-desktop {
-          grid-column: 3 / 4;
-          
-          display: flex;
-          justify-content: space-evenly;
-          
-          a {
-            color: white;
-            font-family: $header-font;
-            font-size: 1.3em;
+        #contact-form {
+          max-width: 35em;
+          margin: 1em 1em 1em 1em;
+          /*padding: 2em 2em 1em 2em;
+          border: .3em double black;
+          border-radius: .5em;*/
+    
+          /*label {
+            display: block;
+            margin-bottom: .1em;
+            font-size: 1.2em;
+          }*/
+        
+          #text-message-sent {
+            width: 100%;
+            padding: .1em;
+            margin-bottom: .3em;
+            border: 1px solid #ffcbc4;
+            border-radius: .2em;
+            font-size: 1em;
             
+            &:focus { 
+              outline: none;
+              border: 1px solid #39cfdf;
+              background-color: #f4f9f9;
+    
+            }
+          }
+          
+          #send-message-button {
+            background: $button-color;
+            color: #fff;
+            margin-top: 1em;
+            padding: .4em .6em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 65%;
+            font-family: $text-font;
+            font-size: 1em;
+  
+        
             &:hover {
-            color: $link-hover;
+              background: $button-hover;
             }
           }
         }
       }
       
-      #navigation,
-      #burger,
-      #adresse-accueil{
-        display: none;
-      }
-      
-  
-    /* DEBUT MAIN ACCUEIL*/
-    
-    main {
-    
-      #div-accueil {
+      #contact-redirection {
+        margin-top: 1.5em;
+        text-align: center;
+        font-size: 1.1em;
         display: flex;
-        flex-flow: row nowrap; 
-        justify-content: space-evenly;
-        margin: 1rem;
-      
-        #photo-accueil {  
-          max-width: 20rem;
-          padding: .6em;
-          border: .5em double black;
-        }
+        flex-flow: column nowrap; 
+        align-items: center;
         
-        #message-accueil {
-          font-size: 1.7em;
-          word-spacing: .09em;
-          padding: 0 2em 0 2em;
-        } 
-        
-        hr {
-          display: none;
-        }
-        
-      }
-      
-      /*CARTE*/
-      
-      #map {
-        display: block;
-        height: 20rem;
-        /*width: 100%;*/
-        margin: 1em 0 1em 0;
-        border-top: 2px solid black;
-        border-bottom: 2px solid black;
-
-          
-        iframe {
-          min-width: 100%;
-          height: 100%;
-          }
       }
     }
-    /*FIN MAIN ACCUEIL*/ 
 
+    
+    //FIN CONTACT contact.phtml
+    
+    //DÉBUT CGU cgu.phtml
+    
+    #cgu-wrapper,
+    #ml-wrapper,
+    #aboutus-wrapper,
+    #privacypolicy-wrapper {
+      margin: .4em;
+      
+      h1{
+        text-align: center;
+      }
+      
+      p {
+        font-family: $long-text-font;
+        margin-top: .7em;
+      }
+      
+      #thx-text {
+        text-align: justify;
+        margin: 1em 0 1em 0;
+        font-size: 1.3em;
+      }
+      
+      ul {
+        li {
+          font-family: $long-text-font;
+        }
+      }
+    }
+    
+    //FIN CGU cgu.phtml
+  
+  }
+  //Fin CSS MAIN
+  
+//RESPONSIVE POUR DESKTOP
+
+  @media only screen and (min-width: 768px) {
+    header {
+      width: auto;
+      height: 7rem;
+      display: grid;
+      grid-template-columns: 6fr 1fr 70%;
+      
+      
+      #logo {
+        grid-column: 1 / 2;
+        height: 100%;
+        width: 100%;
+      }
+      
+      #insta-link {
+        grid-column: 2 / 3;
+        justify-self: center;
+      }
+      
+      #navigation-desktop {
+        grid-column: 3 / 4;
+        
+        display: flex;
+        justify-content: space-evenly;
+        
+        a {
+          color: white;
+          font-family: $link-font;
+          font-size: 1.3em;
+          
+          &:hover {
+          color: $link-hover;
+          }
+        }
+      }
+    }
+      
+    #navigation,
+    #burger
+    {
+      display: none;
+    }
+      
+  
+    // DEBUT MAIN
+    main {
+    // DEBUT MAIN ACCUEIL index.phtml
+      #accueil-wrapper {
+      
+        #div-photo-accueil {
+          display: flex;
+          flex-flow: row nowrap; 
+          justify-content: space-evenly;
+          margin: 1rem;
+        
+          #photo-accueil {  
+            max-width: 20rem;
+            padding: .6em;
+            border: .5em double black;
+          }
+          
+          #message-accueil {
+            font-size: 1.7em;
+            word-spacing: .09em;
+            padding: 0 2em 0 2em;
+          } 
+          
+          hr {
+            display: none;
+          }
+        }
+        
+        #adresse-accueil {
+            display: none;
+          }
+        
+        //CARTE
+        
+        #map {
+          display: block;
+          height: 20rem;
+          /*width: 100%;*/
+          margin: 1em 0 1em 0;
+          border-top: 2px solid black;
+          border-bottom: 2px solid black;
+  
+            
+          iframe {
+            min-width: 100%;
+            height: 100%;
+            }
+        }
+      }
+    //FIN MAIN ACCUEIL
+  
+    }
   }
 }
