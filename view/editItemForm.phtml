@@ -1,17 +1,21 @@
-<form method="POST" enctype="multipart/form-data">
-    
-    <select name="categorie">
-        <option value="bagues" <?php if ($item->getCategorie()==="bagues") { echo "selected"; } ?>>Bagues</option>
-        <option value="bracelets" <?php if ($item->getCategorie()==="bracelets") { echo "selected"; } ?>>Bracelets</option>
-        <option value="colliers" <?php if ($item->getCategorie()==="colliers") { echo "selected"; } ?>>Colliers</option>
-        <option value="earrings" <?php if ($item->getCategorie()==="earrings") { echo "selected"; } ?>>Boucles d'oreilles</option>
-        <option value="autre" <?php if ($item->getCategorie()==="autre") { echo "selected"; } ?>>Autre</option>
-    </select><br>
-    
-    <label for="edit-nom"></label>Modifier le nom/titre<input type="text" name="nom" value="<?= $item->getNom() ?>" id="edit-nom"/><br>
-    <label for="edit-description">Modifier la description</label><input type="text" name="description" value="<?= $item->getDescription() ?>" id="edit-description"/><br>
-    <label for="edit-prix">Modifier le prix</label><input type="number" name="prix" value="<?= $item->getPrix() ?>"id="edit-prix"/><br>
-    <label for="edit-image">Modifier l'image</label><input type="file" name="image" value="<?= $item->getImage() ?>" id="edit-image"/><br>
-    <input type="hidden" name="current_image" value="<?= $item->getImage() ?>" />
-    <button type="submit" name="modifier">Modifier</button><br>
-</form>
+<div id="edititemform-wrapper">    
+    <h1>Modification</h1>
+    <form id="edititem-form" method="POST" enctype="multipart/form-data">
+        
+        <label for="edit-categorie">Modifier la catégorie</label>
+        <select id="edit-categorie" name="categorie">
+            <option value="bagues" <?php if ($item->getCategorie()==="bagues") { echo "selected"; } ?>>Bagues</option>
+            <option value="bracelets" <?php if ($item->getCategorie()==="bracelets") { echo "selected"; } ?>>Bracelets</option>
+            <option value="colliers" <?php if ($item->getCategorie()==="colliers") { echo "selected"; } ?>>Colliers</option>
+            <option value="earrings" <?php if ($item->getCategorie()==="earrings") { echo "selected"; } ?>>Boucles d'oreilles</option>
+            <option value="autre" <?php if ($item->getCategorie()==="autre") { echo "selected"; } ?>>Autre</option>
+        </select>
+        
+        <label for="edit-nom">Modifier le nom/titre</label><input type="text" name="nom" value="<?= $item->getNom() ?>" id="edit-nom"/>
+        <label for="edit-description">Modifier la description</label><input type="text" name="description" value="<?= $item->getDescription() ?>" id="edit-description"/>
+        <label for="edit-prix">Modifier le prix</label><input type="number" name="prix" value="<?= $item->getPrix() ?>"id="edit-prix"/>
+        <label for="edit-image">Modifier l'image</label><input type="file" name="image" value="<?= $item->getImage() ?>" id="edit-image"/>
+        <input type="hidden" name="current_image" value="<?= $item->getImage() ?>" />
+        <button id="edititemform-button" type="submit" name="modifier">Modifier</button>
+    </form>
+</div>

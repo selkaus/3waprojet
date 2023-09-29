@@ -15,11 +15,11 @@
     <?php if (isset($_SESSION['ID'])) { ?>
     
     <div id="contact-form-wrapper">
-        <span id="contact-us-onwebsite">Contactez-nous sur le site</span>
+        <span id="contact-us-onwebsite">Ou contactez-nous directement</span>
         <form id="contact-form" method="POST" action="index.php?page=sendmessage">
-            <span>Message de </span>
-            <textarea rows="7" cols="70" id="text-message-sent" name="text" placeholder="N'hésitez-pas à ajouter votre numéro de téléphone si vous souhaitez être recontacté par ce moyen plutôt que par email"></textarea>
-            <button id="send-message-button" name="sendMessage">Envoyer</button>
+            <label for="text-message-sent">*N'hésitez pas à inclure votre numéro si vous souhaitez être recontacté par téléphone </label>
+            <textarea rows="6" cols="70" id="text-message-sent" name="text" placeholder="Entrez votre message"></textarea>
+            <button id="send-message-button" name="send_message">Envoyer</button>
         </form>
     </div>
     <?php } else { ?>

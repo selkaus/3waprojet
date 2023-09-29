@@ -119,9 +119,6 @@ class AdminController {
         }
     }
     
-    
-    
-    
     /*MODIF ITEM ORIGINAL
     public static function modifItem() {
         // Si l'objet existe, accès à sa page de modification

@@ -7,7 +7,7 @@ class UserController {
             // Instancier un objet User
             $user = new User();
 
-            // Mettre les valeurs POST dans l'objet
+            // Mettre les valeurs POST dans l'objet User
             $user->setNom($_POST['nom']);
             $user->setPrenom($_POST['prenom']);
             $user->setEmail($_POST['email']);
@@ -106,4 +106,68 @@ class UserController {
         require_once("view/template.phtml");
 
     }
+    
+    //Permet à l'utilisateur de mettre à jour ses informations personnelles
+    //Ne fonctionne pas. A corriger.
+    public static function editPersonalInformation() {
+        if (isset($_GET['id'])) {
+            $userId = intval($_GET['id']);
+            $user = User::findById($userId);
+    
+            if ($user) {
+                if (isset($_POST['edit_info'])) {
+                    // Update user properties
+                    $user->setNom($_POST['nom']);
+                    $user->setPrenom($_POST['prenom']);
+                    $user->setEmail($_POST['email']);
+                    $user->setUsername($_POST['username']);
+    
+                    // Save the updated info
+                    $user->editUser();
+    
+                    header("Location: index.php?page=espace");
+                    die;
+                }
+    
+                $vue = "view/espacePersonnel.phtml";
+                require_once("view/template.phtml");
+            }
+        }  else {
+            $vue = "view/index.phtml";
+            require_once("view/template.phtml");
+        }
+    }
+    
+    //Autre version
+    //Ditto
+    public function editPersonalInformationV2() {
+        if (isset($_SESSION['ID'])) {
+            
+            $user = User::findById($_SESSION['ID']);
+            
+                if (isset($_POST['edit_info'])) {
+                    // Update les propriétés
+                    $user->setNom($_POST['nom']);
+                    $user->setPrenom($_POST['prenom']);
+                    $user->setEmail($_POST['email']);
+                    $user->setUsername($_POST['username']);
+    
+                    // Save les updated info dans l'user
+                    $user->editUser();
+                    
+                    header("Location: index.php");
+                    die;
+                }
+                
+                /*$vue = "view/espacePersonnel.phtml";
+                require_once("view/template.phtml");*/
+            }
+            
+        else {
+            $vue = "view/index.phtml";
+            require_once("view/template.phtml");
+        }
+    }
+
+    
 }

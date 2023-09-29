@@ -1,8 +1,33 @@
-<h1>Bienvenue sur votre espace personnel, <?= $user->getUsername() ?></h1>
+<div id="espacepersonnel-wrapper">
 
-<h2>Vos informations personnelles:</h2>
-<p>Nom: <?= $user->getNom() ?> </p>
-<p>Prénom: <?= $user->getPrenom() ?></p>
-<p>Email: <?= $user->getEmail() ?></p>
+    <h1>Bienvenue sur votre espace personnel, <?= $user->getUsername() ?></h1>
+    
+    <h2>Vos informations personnelles:</h2>
+    <form id="editinfo-form" method="POST">
+        <div class="editinput-wrapper">
+            <p>Nom: <?= $user->getNom() ?></p>
+            <input type="text" name="nom" value="<?= $user->getNom() ?>" id="editinfo-nom" class="editinfo-input editinfo-hidden" />
+        </div>
 
-<h2>Vos favoris</h2>
+        <div class="editinput-wrapper">
+            <p>Prénom: <?= $user->getPrenom() ?></p>
+            <input type="text" name="prenom" value="<?= $user->getPrenom() ?>" id="editinfo-prenom" class="editinfo-input editinfo-hidden" />
+        </div>
+
+        <div class="editinput-wrapper">
+            <p>Email: <?= $user->getEmail() ?></p>
+            <input type="email" name="email" value="<?= $user->getEmail() ?>" id="editinfo-email" class="editinfo-input editinfo-hidden" />
+        </div>
+        
+        <div class="editinput-wrapper">
+            <p>Username: <?= $user->getUsername() ?></p>
+            <input type="text" name="username" value="<?= $user->getUsername() ?>" id="editinfo-username" class="editinfo-input editinfo-hidden" />
+        </div>
+        
+        <div id="editinfo-button">Modifier</div>
+        <button type="submit" name="edit_info" id="editinfoform-button">Valider</button>
+        
+    </form>
+    
+    <h2>Vos favoris</h2>
+</div>

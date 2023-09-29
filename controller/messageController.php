@@ -3,7 +3,7 @@
 class MessageController {
     
     public static function sendMessage() {
-        if (isset($_POST['sendMessage'])) {
+        if (isset($_POST['send_message'])) {
             
             // Instancie un objet message
             $message = new Message();

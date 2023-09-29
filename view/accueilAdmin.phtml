@@ -1,39 +1,46 @@
-<div>Liste des utilisateurs:
-
-<?php 
-
-if (!empty($users)) {
-?>
-<table>
-    <thead>
-        <tr>
-            <th>Utilisateur</th>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Email</th>
-        </tr>
-    </thead>
-    <tbody>
-<?php
-    foreach ($users as $user) {
-?>
-        <tr>
-            <td><?= $user->getUsername() ?></td>
-            <td><?= $user->getNom() ?></td>
-            <td><?= $user->getPrenom() ?></td>
-            <td><?= $user->getEmail() ?></td>
-        </tr>
-<?php
+<div id="accueilAdmin-wrapper">
+    <h1>Gestion Administrative</h1>
+    
+    <div id="accueilAdmin-redirect">
+        <a class="admin-redirect" href="index.php?page=additem">Ajouter des objets</a>
+        <a class="admin-redirect" href="index.php?page=gestionitem">Gestion des objets</a>
+        <a class="admin-redirect" href="index.php?page=messagerie">Messagerie</a>
+    </div>
+    
+    <h4>Liste des utilisateurs:</h4>
+        
+    <?php 
+    
+    if (!empty($users)) {
+    ?>
+    <div id="listusers-wrapper">    
+        <table>
+            <thead>
+                <tr>
+                    <th>Utilisateur</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php
+            foreach ($users as $user) {
+        ?>
+                <tr>
+                    <td><?= $user->getUsername() ?></td>
+                    <td><?= $user->getNom() ?></td>
+                    <td><?= $user->getPrenom() ?></td>
+                    <td><?= $user->getEmail() ?></td>
+                </tr>
+        <?php
+            }
+        ?>
+            </tbody>
+        </table>
+    </div>
+    <?php
     }
-?>
-    </tbody>
-</table>
-<?php
-}
-?>
+    ?>
 
 </div>
-
-<a href="index.php?page=additem">Ajouter des objets</a>
-<a href="index.php?page=gestionitem">Gérer les objets</a>
-<a href="index.php?page=messagerie">Messagerie</a>

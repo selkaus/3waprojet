@@ -34,9 +34,15 @@ class Router {
                 MessageController::sendMessage();
             }
             
-            //Page de personnelle
             if ($_GET['page'] == "espace") {
-                UserController::espacePersonnel();
+                if (isset($_SESSION['ID'])) {
+                   UserController::espacePersonnel();
+                }
+                //Si un visiteur accède à la page espace, redirection automatique vers la page de connexion
+                else {
+                    header("Location: index.php?page=connexion");
+                    die;
+                }
             }
             
             //Page des Mentions Légales

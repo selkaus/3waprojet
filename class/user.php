@@ -175,4 +175,21 @@ class User {
         $sth->execute();
         return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
     }
+    
+    
+
+    //Enregistre les modification
+    //Possiblement incorrect
+    public function editUser(){
+        if (!empty($this->id)) {
+            $query="UPDATE user SET nom=:nom, prenom=:prenom, email=:email, username=:username WHERE id=:id";
+            $sth = Db::getDbh()->prepare($query);
+            $sth->execute([
+                ':nom' => $this->nom,
+                ':prenom' => $this->prenom,
+                ':email' => $this->email,
+                ':username' => $this->username,
+            ]);
+        }
+    }
 }

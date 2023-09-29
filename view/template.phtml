@@ -28,20 +28,19 @@
             <a id="insta-link" href="https://www.instagram.com/symbolique_paris/"><svg id="instagram" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify" viewBox="0 0 37.5 37.499999" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="918b003c25"><path d="M 3.75 3.75 L 33.75 3.75 L 33.75 33.75 L 3.75 33.75 Z M 3.75 3.75 " clip-rule="nonzero"/></clipPath><clipPath id="d15611966b"><path d="M 10.5 3.75 L 27 3.75 C 28.789062 3.75 30.507812 4.460938 31.773438 5.726562 C 33.039062 6.992188 33.75 8.710938 33.75 10.5 L 33.75 27 C 33.75 28.789062 33.039062 30.507812 31.773438 31.773438 C 30.507812 33.039062 28.789062 33.75 27 33.75 L 10.5 33.75 C 6.773438 33.75 3.75 30.726562 3.75 27 L 3.75 10.5 C 3.75 6.773438 6.773438 3.75 10.5 3.75 Z M 10.5 3.75 " clip-rule="nonzero"/></clipPath><clipPath id="5d763ce78f"><path d="M 25.5 8.699219 L 28.5 8.699219 L 28.5 11.699219 L 25.5 11.699219 Z M 25.5 8.699219 " clip-rule="nonzero"/></clipPath><clipPath id="1a243ed6c0"><path d="M 27 8.699219 C 26.171875 8.699219 25.5 9.371094 25.5 10.199219 C 25.5 11.027344 26.171875 11.699219 27 11.699219 C 27.828125 11.699219 28.5 11.027344 28.5 10.199219 C 28.5 9.371094 27.828125 8.699219 27 8.699219 Z M 27 8.699219 " clip-rule="nonzero"/></clipPath><clipPath id="62a3ce72f2"><path d="M 11.550781 11.699219 L 25.800781 11.699219 L 25.800781 25.949219 L 11.550781 25.949219 Z M 11.550781 11.699219 " clip-rule="nonzero"/></clipPath><clipPath id="c611a2d7e5"><path d="M 18.675781 11.699219 C 14.738281 11.699219 11.550781 14.890625 11.550781 18.824219 C 11.550781 22.761719 14.738281 25.949219 18.675781 25.949219 C 22.609375 25.949219 25.800781 22.761719 25.800781 18.824219 C 25.800781 14.890625 22.609375 11.699219 18.675781 11.699219 Z M 18.675781 11.699219 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#918b003c25)"><g clip-path="url(#d15611966b)"><path stroke-linecap="butt" transform="matrix(0.75, 0, 0, 0.75, 3.75, 3.749999)" fill="none" stroke-linejoin="miter" d="M 9.000001 0.00000073114 L 31.000004 0.00000073114 C 33.385421 0.00000073114 35.677088 0.947918 37.364588 2.635418 C 39.052088 4.322918 40.000005 6.614585 40.000005 9.000002 L 40.000005 31.000004 C 40.000005 33.385421 39.052088 35.677088 37.364588 37.364589 C 35.677088 39.052089 33.385421 40.000006 31.000004 40.000006 L 9.000001 40.000006 C 4.031251 40.000006 0.0000000644737 35.968755 0.0000000644737 31.000004 L 0.0000000644737 9.000002 C 0.0000000644737 4.031251 4.031251 0.00000073114 9.000001 0.00000073114 Z M 9.000001 0.00000073114 " stroke="#ffffff" stroke-width="2" stroke-opacity="1" stroke-miterlimit="4"/></g></g><g clip-path="url(#5d763ce78f)"><g clip-path="url(#1a243ed6c0)"><path fill="#ffffff" d="M 25.5 8.699219 L 28.5 8.699219 L 28.5 11.699219 L 25.5 11.699219 Z M 25.5 8.699219 " fill-opacity="1" fill-rule="nonzero"/></g></g><g clip-path="url(#62a3ce72f2)"><g clip-path="url(#c611a2d7e5)"><path stroke-linecap="butt" transform="matrix(0.742671, 0, 0, 0.742671, 11.549999, 11.699999)" fill="none" stroke-linejoin="miter" d="M 9.594805 -0.00105023 C 4.292995 -0.00105023 0.00105351 4.296151 0.00105351 9.592701 C 0.00105351 14.894512 4.292995 19.186453 9.594805 19.186453 C 14.891356 19.186453 19.188557 14.894512 19.188557 9.592701 C 19.188557 4.296151 14.891356 -0.00105023 9.594805 -0.00105023 Z M 9.594805 -0.00105023 " stroke="#ffffff" stroke-width="2" stroke-opacity="1" stroke-miterlimit="4"/></g></g></svg></a>
             
             <nav id="navigation-desktop" >
-            <a href="index.php">Accueil</a>
-            <a href="index.php?page=categories">Nos pièces</a>
-            <a href="index.php?page=contact">Contact</a>
+            <a href="index.php" class="nav-link">Accueil</a>
+            <a href="index.php?page=categories" class="nav-link">Nos pièces</a>
+            <a href="index.php?page=contact" class="nav-link">Contact</a>
                 <?php if (isset($_SESSION['ID'])) { ?>
-                    <a href="index.php?page=espace">Espace Personnel</a>
-                    <a href="index.php?page=deconnexion">Déconnexion</a>
+                    <a href="index.php?page=espace" class="nav-link">Espace Personnel</a>
+                    <a href="index.php?page=deconnexion" class="nav-link">Déconnexion</a>
                     <?php if (isset($_SESSION['admin'])) { ?>
-                        <a href="index.php?page=administration">Administration</a>
+                        <a href="index.php?page=administration" class="nav-link">Administration</a>
                     <?php }
                 } else { ?>
-                    <a href="index.php?page=inscription">Inscription</a>
-                    <a href="index.php?page=connexion">Connexion</a>
+                    <a href="index.php?page=inscription" class="nav-link">Inscription</a>
+                    <a href="index.php?page=connexion" class="nav-link">Connexion</a>
                 <?php } ?>
-                
             </nav>
         
         </header>

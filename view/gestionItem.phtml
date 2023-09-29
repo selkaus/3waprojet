@@ -1,11 +1,13 @@
 <div id="gestionitem-wrapper">
     
-    <h1>Liste des objets actuellement en vente:</h1>
+    <h1>Gestion Administrative</h1>
+    
+    <span>Liste des objets actuellement en vente:</span>
     
     <?php 
     if (!empty($items)) {
     ?>
-    <div id="tableitem-wrapper">
+    <div id="tableitems-wrapper">
         <table>
             <thead>
                 <tr>
@@ -29,10 +31,10 @@
                     <td><img src="<?= $item->getImage() ?>" alt="<?= $item->getNom() ?>"></td>
                     <td>
                         <form method="POST">
-                            <button name="modifItem" value="<?= $item->getId() ?>">Modifier</button>
+                            <button name="modifItem" id="edit-item" value="<?= $item->getId() ?>">Modifier</button>
                         </form>
                         <form method="POST" class="form-delete">
-                            <button name="supprItem" value="<?= $item->getId() ?>">Supprimer</button>                
+                            <button name="supprItem" id="delete-item" value="<?= $item->getId() ?>">Supprimer</button>                
                         </form>
                     </td>
                     
@@ -49,4 +51,4 @@
     
 </div>
 
-<a href="index.php?page=administration">Retour page administration</a>
+<a class="admin-redirect" href="index.php?page=administration">Retour page administration</a>
