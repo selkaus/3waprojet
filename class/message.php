@@ -35,7 +35,7 @@ class Message {
     }
     
     
-    // @TODO: Vérifier que le message n'est pas vide
+    // TODO: Vérifier que le message n'est pas vide
 
 
     // Fonction qui enregistre le message dans la BDD
@@ -47,4 +47,13 @@ class Message {
                 ':id_user' => $this->id_user,
             ]);
         }
+        
+    //Fonction qui liste les messages sur la page 'messagerie'
+    public static function listAllMessages(): mixed {
+        $query = "SELECT * FROM message";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Message");
+    }
+    
 }

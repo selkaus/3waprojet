@@ -9,6 +9,8 @@ class Item {
     private $prix;
     private $image;
     
+    private $isInFavorites;
+    
     public function getId(): int {
         return $this->id;
     }
@@ -50,6 +52,18 @@ class Item {
     public function setImage(string $image): void {
         $this->image = $image;
     }
+    
+    
+    
+    public function getIsInFavorites(): bool {
+        return $this->isInFavorites;
+    }
+
+    public function setIsInFavorites(bool $isInFavorites): void {
+        $this->isInFavorites = $isInFavorites;
+    }
+    
+    
     
     
     // Function vérifiant la validité du formulaire d'ajout d'objet
@@ -136,6 +150,7 @@ class Item {
         return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Item");
     }
     
+    
     public static function listAllItemsByCategory($categorie): mixed {
         $query = "SELECT * FROM item WHERE categorie=:categorie";
         $sth = Db::getDbh()->prepare($query);
@@ -145,6 +160,7 @@ class Item {
         return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Item");
     }
         
+        
     public static function supprime($id): void {
         $query = "DELETE FROM item WHERE id=:id";
         $sth = Db::getDbh()->prepare($query);
@@ -152,5 +168,7 @@ class Item {
             ':id' => $id
         ]);
     }
+    
+    
 }
     

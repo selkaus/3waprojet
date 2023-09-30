@@ -91,9 +91,13 @@ class UserController {
             header("Location: index.php?page=administration");
             die();
         }
-
-        $user = new User();
-        $user = $user->findById($_SESSION['ID']);
+        
+        // Récupère les informations de l'utilisateur
+        $userId = $_SESSION['ID'];
+        $user = User::findById($userId);
+        
+        // Récupère la liste des favoris de l'utilisateur
+        $favoris = Favoris::findFavorisByUser($userId);
 
         // Affichage de la vue
         $vue = "view/espacePersonnel.phtml";

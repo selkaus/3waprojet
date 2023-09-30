@@ -23,13 +23,13 @@ class MessageController {
         }
     }
     
-   /* public function AdminMessages() {
+   public static function messagesRecus(){
         
-        if ($_SESSION['admin']) {
-            // Code to fetch and display admin's messages
-            $messages = Message::getAdminMessages();
-            include('views/admin_messages.php');
-        }
-    }*/
+        $messages = Message::listAllMessages();
+        
+        //Affichage de la vue
+        $vue = "view/messagerie.phtml";
+        require_once("view/template.phtml");
+    }
 
 }

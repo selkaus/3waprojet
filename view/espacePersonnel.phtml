@@ -29,5 +29,25 @@
         
     </form>
     
-    <h2>Vos favoris</h2>
+    <h2>Vos favoris:</h2>
+    <div id="liste-favoris-wrapper">
+        <?php foreach ($favoris as $favori) : ?>
+            <?php $item = Item::findById($favori->getIdItem()); ?>
+            <?php if ($item) : ?>
+                <div class="favorite-item-unique">
+                    <h4><?= $item->getNom() ?></h3>
+                    <img src="<?= $item->getImage() ?>" alt="<?= $item->getNom() ?>">
+                    <p><?= $item->getDescription() ?></p>
+                    <div class="favorite-price-remove">
+                        <p>Prix: <?= $item->getPrix() ?> euros</p>
+                        <form method="post" action="index.php?page=remove-fav">
+                            <input type="hidden" name="id_item" value="<?= $item->getId() ?>">
+                            <button type="submit" name="remove_fav" class="remove-fav"><img src="public/uploads/poubelle.png" alt="Retirer des favoris" class="remove-icon"/></button>
+                        </form>
+                    </div>    
+                </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+    </div>
+
 </div>

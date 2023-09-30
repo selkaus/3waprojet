@@ -9,18 +9,28 @@
         <a href="index.php?page=categories&categorie=autre">Autre</a>
     </div>
     
-    <div id="items-list">
-        <?php
-            foreach ($items as $item) {
-        ?>
+     <div id="items-list">
+        <?php foreach ($items as $item) { ?>
             <div class="item-unique">
                 <h4><?= $item->getNom() ?></h4>
                 <img src="<?= $item->getImage() ?>" alt="<?= $item->getNom() ?>">
                 <p><?= $item->getDescription() ?></p>
-                <p>Prix: <?= $item->getPrix() ?> euros</p>
+                <div class="price-bookmark">
+                    <p class="categorie-prix">Prix: <?= $item->getPrix() ?> euros</p>
+    
+                    <?php if (isset($_SESSION['ID'])) { ?>
+                        <?php if (!$item->getIsInFavorites()) { ?>
+                            <form method="post" action="index.php?page=favoris">
+                                <input type="hidden" name="id_item" value="<?= $item->getId() ?>">
+                                <button type="submit" class="add-to-fav">Ajouter aux Favoris</button>
+                            </form>
+                            <?php } else { ?>
+                            <img class="bookmark" src="public/uploads/bookmark.png"/>
+                            <?php } ?>
+                    <?php } ?>
+                </div>
             </div>
-        <?php
-            }
-        ?>
+        <?php } ?>
     </div>
+    
 </div>    

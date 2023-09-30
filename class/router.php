@@ -45,6 +45,20 @@ class Router {
                 }
             }
             
+            if ($_GET['page'] == "favoris") {
+                if (isset($_SESSION['ID'])) {
+                    ItemController::addToFavoris(); 
+                }
+                else {
+                    $vue = "view/categories.phtml";
+                    require_once("view/template.phtml");
+                }
+            }
+            
+            if ($_GET['page'] == "remove-fav") {
+                ItemController::removeFromFavoris();
+            }
+            
             //Page des Mentions Légales
             if ($_GET['page'] == "mention-legales") {
                 $vue = "view/mentionLegales.phtml";
@@ -127,12 +141,12 @@ class Router {
                     header("Location: index.php?page=contact");
                     die;
                 }
+            }
                 
-                //Messages pour l'administrateur
+            //Messages pour l'administrateur
             if ($_GET['page'] == "messagerie") {
                 if (isset($_SESSION['admin'])) {
-                    $vue = "view/messagerie.phtml";
-                    require_once("view/template.phtml");
+                    MessageController::messagesRecus();
                 }
                 //Ditto
                 else {
@@ -140,7 +154,7 @@ class Router {
                     die;
                 }
             }
-            }
+            
         }
         else {
         // Affichage de la page principale

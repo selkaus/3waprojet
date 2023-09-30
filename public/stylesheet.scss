@@ -19,19 +19,18 @@
 /*Variables*/
 
 $link-font: 'Poiret One', serif;
-$text-font: 'Cormorant', serif;
+$text-font: 'Cormorant Garamond', serif;
 $title-font: 'Vogue', serif;
 $long-text-font: 'Linden Hill', serif;
 $buttonlike-link-font: 'FeFCsc2', serif;
 
-$gen-teal: #9FCDC3;
-
-$button-color: linear-gradient(to right, #5ED3C2, #9FCDC3);
-$button-hover: linear-gradient(to right, #9FCDC3, #5ED3C2);
+$button-color: linear-gradient(to right, #89D6CB, #9FCDC3);
+$button-hover: linear-gradient(to right, #9FCDC3, #89D6CB);
 $cancel-color: linear-gradient(to right, #F57575, #FFCBC4);
 $cancel-hover: linear-gradient(to right, #FFCBC4, #F57575);
 $link-hover: #39dfc6;
 
+$gen-teal: #BEE0D9;
 $peach: #FFCBC4;
 
 
@@ -105,7 +104,7 @@ body  {
     
     #burger {
       height: 3em;
-      fill: white;
+      fill: purple;
     }
     
     #logo-link {
@@ -120,11 +119,9 @@ body  {
         /*overflow: hidden;*/
       }
     }
-    
-    #instagram {
-      height: 2em;
-      fill: white;
-    }
+      #instagram {
+        height: 2em;
+      }
     
     #navigation-desktop {
       display: none;
@@ -233,12 +230,13 @@ body  {
     //DÉBUT ACCUEIL index.phtml
     
     #accueil-wrapper {
+      margin-bottom: 3em;
       
       #div-photo-accueil {
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
-        margin-top: .5rem;
+        margin: .5em ;
         
         #photo-accueil {  
           max-width: 20rem;
@@ -253,14 +251,14 @@ body  {
           height: 1px;
           margin-top: 1.5em;
           margin-bottom: 1.5em;
-          background-image: linear-gradient(to right, white, #adadad, black, #adadad, white);
+          background-image: linear-gradient(to right, white, pink, red, pink, white);
         }
         
         #message-accueil {
           padding: 1em 1em 0.5em 1em;
-          text-align: justify;
+          text-align: center;
           font-family: $text-font;
-          font-size: 1.5em;
+          font-size: 1.4em;
           align-self: center;
         }  
       }
@@ -278,7 +276,7 @@ body  {
           display: inline-block; 
           background-image: linear-gradient(to right, white, #9FCDC3, #5ED3C2, #9FCDC3, white);
           padding-bottom: .15em;
-          background-size: 90% .1em;
+          background-size: 90% .05em;
           background-position: 0% 100%;
           background-repeat: no-repeat;
           }
@@ -352,13 +350,14 @@ body  {
         .item-unique {
           
           margin: .5em;
-          padding: .8em .9em 0 .9em;
+          padding: .5em .7em 0 .7em;
           display: flex;
           flex-flow: column nowrap;
           align-items: center;
+          justify-content: space-between;
           text-align: justify;
           width: 17em;
-          height: 25em;
+          height: 26em;
           border: .05em solid $gen-teal; 
           border-radius: 1px;
           
@@ -369,7 +368,7 @@ body  {
           
           img {
             background-color: $gen-teal;
-            max-width: 13em;
+            max-width: 12em;
             padding: .5em;
           }
           
@@ -377,17 +376,32 @@ body  {
             margin-top: 1em;
           }
           
-          p:last-child {
-            margin-top: auto;
-            margin-bottom: .5em;
-            align-self: start;
-            text-shadow: black 0px .2px;
+          .price-bookmark {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 3em;
+            
+            .categorie-prix {
+              margin-top: auto;
+              margin-bottom: .5em;
+              align-self: flex-start;
+              text-shadow: black 0px .2px;
+            }
+            
+            .bookmark {
+              padding: 0 0 .3em 0;
+              max-height: 3em;
+              background-color: transparent;
+              align-self: end;
+            }
           }
         }
         
       }
       
-      #categories-pagination {
+      /*#categories-pagination {
         display: flex;
         justify-content: center;
         margin-top: .7em;
@@ -402,7 +416,7 @@ body  {
         &:hover {
           border: .1em solid $gen-teal;
         }
-      }
+      }*/
       
     }
     
@@ -414,10 +428,10 @@ body  {
     
     #accueilAdmin-wrapper {
       
-      display: flex;
+      /*display: flex;
       flex-flow: column nowrap;
-      align-items: center;
-      overflow-x: auto;
+      align-items: center;*/
+
       
       h4 {
         margin-top: 1em;
@@ -431,9 +445,12 @@ body  {
       }
       
       #listusers-wrapper {
-        align-self: flex-start;
+        display: block;
+        //align-self: flex-start;
         margin: 1em;
         font-size: 1em;
+        overflow-x: auto;
+
 
         th, td {
           border: 1px solid $gen-teal;
@@ -448,23 +465,6 @@ body  {
         th {
             background-color: black;
             color: white;
-        }
-        
-      #edit-item,
-      #delete-item {
-          background: white;
-          margin-top: 1em;
-          padding: .4em .6em;
-          border: .05em solid $gen-teal;
-          border-radius: 4px;
-          cursor: pointer;
-          font-family: $text-font;
-          font-size: 1em;
-          
-          &:hover {
-            color: white;
-            background: $button-hover;
-          }
         }
       }
     }
@@ -545,8 +545,8 @@ body  {
       
       #tableitems-wrapper {
         display: block;
-        overflow-x: auto;
         margin-top: 2em;
+        overflow-x: auto;
         
         img {
           max-height: 5em;
@@ -657,6 +657,44 @@ body  {
     
     
     
+    //DÉBUT MESSAGERIE ADMIN messagerie.phtml
+    
+    #messagerie-admin-wrapper {
+      
+      #table-message-wrapper {
+        display: block;
+        margin-top: 2em;
+        overflow-x: auto;
+        
+        table {
+          th {
+              background-color: black;
+              color: white;
+          }
+          
+          th, td {
+            border: 1px solid $gen-teal;
+            padding: 8px;
+            text-align: left;
+          }
+          
+          td {
+            #div-td-message-username {
+              font-weight: 700;
+            }
+          }
+          
+          tr:nth-child(even) {
+              background-color: $gen-teal;
+          }
+          
+        }
+      }
+    }
+    
+    //FIN MESSAGERIE ADMIN messagerie.phtml
+    
+    
     
     //DÉBUT ESPACE PERSONNEL espacePersonnel.phtml
     
@@ -741,11 +779,83 @@ body  {
           }
         }
       }
+    
+    //Début Favoris
+    
+      #liste-favoris-wrapper {
+        margin-bottom: 1em;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: 1em;
+        
+        .favorite-item-unique {
+          
+          margin: .5em;
+          padding: .5em .7em 0 .7em;
+          display: flex;
+          flex-flow: column nowrap;
+          align-items: center;
+          justify-content: space-between;
+          text-align: justify;
+          width: 17em;
+          height: 26em;
+          border: .05em solid $gen-teal; 
+          border-radius: 1px;
+          
+          h4 {
+            padding-bottom: .2em;
+            
+          }
+          
+          img {
+            background-color: $gen-teal;
+            max-width: 10em;
+            padding: .5em;
+          }
+          
+          p:nth-child(3) {
+            margin-top: 1em;
+          }
+          
+          .favorite-price-remove {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 3em;
+            
+            .categorie-prix {
+              margin-top: auto;
+              margin-bottom: .5em;
+              align-self: flex-start;
+              text-shadow: black 0px .2px;
+            }
+            
+            .remove-fav {
+              padding: 0;
+              max-height: 3em;
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              
+              img {
+                padding: .2em;
+                height: 3em;
+                background-color: $gen-teal;
+                border: .05em solid #2C9685;
+              }
+            }
+          }
+        }
+        
+      }
+      
     }
     
+    //Fin Favoris
     //FIN ESPACE PERSONNEL espacePersonnel.phtml
     
-
     
     //DÉBUT INSCRIPTION inscription.phtml
     
@@ -812,6 +922,8 @@ body  {
     }
     
     //FIN INSCRIPTION inscription.phtml
+    
+    
     
     //DÉBUT CONNEXION connexion.phtml
     
@@ -888,6 +1000,10 @@ body  {
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
+        
+        img {
+          max-width: 3em;
+        }
         
         p {
           font-size: 1.4em;
@@ -1063,9 +1179,11 @@ body  {
     }
       
       
-    // DEBUT MAIN
+    // DÉBUT MAIN
+    
     main {
-    // DEBUT MAIN ACCUEIL index.phtml
+      
+    // DÉBUT MAIN ACCUEIL index.phtml
       #accueil-wrapper {
       
         #div-photo-accueil {
@@ -1077,13 +1195,14 @@ body  {
           #photo-accueil {  
             max-width: 20rem;
             padding: .6em;
-            border: .5em double black;
+            border: .3em double black;
           }
           
           #message-accueil {
             font-size: 1.7em;
             word-spacing: .09em;
             padding: 0 2em 0 2em;
+            text-align: center;
           } 
           
           hr {
@@ -1112,16 +1231,60 @@ body  {
             }
         }
       }
-    //FIN MAIN ACCUEIL
+    // FIN MAIN ACCUEIL index.phtml
     
-    //GESTION ADMIN
+    
+    
+    // DÉBUT ACCUEIL ADMIN accueilAdmin.phtml
     
       #accueilAdmin-wrapper {
+      
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+  
+        
+        h4 {
+          margin-top: 1em;
+        }
+        
+        #accueilAdmin-redirect {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: space-evenly;
+          gap: 1em;
+        }
         
         #listusers-wrapper {
           align-self: center;
+          margin: 1em;
+          font-size: 1em;
+
+          th, td {
+            border: 1px solid $gen-teal;
+            padding: 8px;
+            text-align: left;
+          }
+          
+          tr:nth-child(even) {
+              background-color: $gen-teal;
+          }
+          
+          th {
+              background-color: black;
+              color: white;
+          }
         }
       }
+    
+    // FIN ACCUEIL ADMIN accueilAdmin.phtml
+    
+    
+    //FIN GESTION ITEM gestionItem.phtml
+    
+    
+      
+    //FIN GESTION ITEM gestionItem.phtml
     }
   }
 }

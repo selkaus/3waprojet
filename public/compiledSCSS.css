@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  font-family: "Cormorant", serif, serif;
+  font-family: "Cormorant Garamond", serif, serif;
   min-height: 100vh;
   position: relative;
 }
@@ -33,7 +33,7 @@ body h3,
 body h4,
 body h5,
 body h6 {
-  font-family: "Cormorant", serif;
+  font-family: "Cormorant Garamond", serif;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -44,7 +44,7 @@ body p {
   font-size: 1.2em;
 }
 body button {
-  font-family: "Cormorant", serif;
+  font-family: "Cormorant Garamond", serif;
 }
 body a {
   text-decoration: none;
@@ -65,7 +65,7 @@ body header {
 }
 body header #burger {
   height: 3em;
-  fill: white;
+  fill: purple;
 }
 body header #logo-link {
   display: flex;
@@ -80,7 +80,6 @@ body header #logo-link #logo {
 }
 body header #instagram {
   height: 2em;
-  fill: white;
 }
 body header #navigation-desktop {
   display: none;
@@ -143,7 +142,7 @@ body main .admin-redirect {
   display: inline-block;
   margin: 0.4em 0 0.7em 0;
   padding: 0.4em 0.6em;
-  background: linear-gradient(to right, #5ED3C2, #9FCDC3);
+  background: linear-gradient(to right, #89D6CB, #9FCDC3);
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
@@ -151,13 +150,16 @@ body main .admin-redirect {
 body main .connexion-redirect:hover,
 body main .inscription-redirect:hover,
 body main .admin-redirect:hover {
-  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
+}
+body main #accueil-wrapper {
+  margin-bottom: 3em;
 }
 body main #accueil-wrapper #div-photo-accueil {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  margin-top: 0.5rem;
+  margin: 0.5em;
 }
 body main #accueil-wrapper #div-photo-accueil #photo-accueil {
   max-width: 20rem;
@@ -171,13 +173,13 @@ body main #accueil-wrapper #div-photo-accueil hr {
   height: 1px;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
-  background-image: linear-gradient(to right, white, #adadad, black, #adadad, white);
+  background-image: linear-gradient(to right, white, pink, red, pink, white);
 }
 body main #accueil-wrapper #div-photo-accueil #message-accueil {
   padding: 1em 1em 0.5em 1em;
-  text-align: justify;
-  font-family: "Cormorant", serif;
-  font-size: 1.5em;
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4em;
   align-self: center;
 }
 body main #accueil-wrapper #adresse-accueil {
@@ -193,7 +195,7 @@ body main #accueil-wrapper #adresse-accueil span:nth-child(2) {
   display: inline-block;
   background-image: linear-gradient(to right, white, #9FCDC3, #5ED3C2, #9FCDC3, white);
   padding-bottom: 0.15em;
-  background-size: 90% 0.1em;
+  background-size: 90% 0.05em;
   background-position: 0% 100%;
   background-repeat: no-repeat;
 }
@@ -204,13 +206,13 @@ body main #accueil-wrapper #adresse-accueil .contact-redirect {
   display: inline-block;
   margin-top: 0.4em;
   padding: 0.3em 0.3em;
-  background: linear-gradient(to right, #5ED3C2, #9FCDC3);
+  background: linear-gradient(to right, #89D6CB, #9FCDC3);
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
 }
 body main #accueil-wrapper #adresse-accueil .contact-redirect:hover {
-  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
 }
 body main #accueil-wrapper #map {
   display: none;
@@ -218,6 +220,22 @@ body main #accueil-wrapper #map {
 body main #categories-wrapper {
   display: flex;
   flex-flow: column nowrap;
+  /*#categories-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: .7em;
+
+    a {
+      font-family: $link-font;
+      padding: .3em; 
+      margin: 0 .1em 0 0;
+      border: .1em solid black;
+    }
+
+    &:hover {
+      border: .1em solid $gen-teal;
+    }
+  }*/
 }
 body main #categories-wrapper h1 {
   margin: 0.7em 0 1.2em 0;
@@ -229,7 +247,7 @@ body main #categories-wrapper #categories-list {
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  background-color: #9FCDC3;
+  background-color: #BEE0D9;
   padding: 1em;
   gap: 0.3em;
 }
@@ -251,52 +269,51 @@ body main #categories-wrapper #items-list {
 }
 body main #categories-wrapper #items-list .item-unique {
   margin: 0.5em;
-  padding: 0.8em 0.9em 0 0.9em;
+  padding: 0.5em 0.7em 0 0.7em;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: space-between;
   text-align: justify;
   width: 17em;
-  height: 25em;
-  border: 0.05em solid #9FCDC3;
+  height: 26em;
+  border: 0.05em solid #BEE0D9;
   border-radius: 1px;
 }
 body main #categories-wrapper #items-list .item-unique h4 {
   padding-bottom: 0.2em;
 }
 body main #categories-wrapper #items-list .item-unique img {
-  background-color: #9FCDC3;
-  max-width: 13em;
+  background-color: #BEE0D9;
+  max-width: 12em;
   padding: 0.5em;
 }
 body main #categories-wrapper #items-list .item-unique p:nth-child(3) {
   margin-top: 1em;
 }
-body main #categories-wrapper #items-list .item-unique p:last-child {
+body main #categories-wrapper #items-list .item-unique .price-bookmark {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 3em;
+}
+body main #categories-wrapper #items-list .item-unique .price-bookmark .categorie-prix {
   margin-top: auto;
   margin-bottom: 0.5em;
-  align-self: start;
+  align-self: flex-start;
   text-shadow: black 0px 0.2px;
 }
-body main #categories-wrapper #categories-pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.7em;
-}
-body main #categories-wrapper #categories-pagination a {
-  font-family: "Poiret One", serif;
-  padding: 0.3em;
-  margin: 0 0.1em 0 0;
-  border: 0.1em solid black;
-}
-body main #categories-wrapper #categories-pagination:hover {
-  border: 0.1em solid #9FCDC3;
+body main #categories-wrapper #items-list .item-unique .price-bookmark .bookmark {
+  padding: 0 0 0.3em 0;
+  max-height: 3em;
+  background-color: transparent;
+  align-self: end;
 }
 body main #accueilAdmin-wrapper {
-  display: flex;
+  /*display: flex;
   flex-flow: column nowrap;
-  align-items: center;
-  overflow-x: auto;
+  align-items: center;*/
 }
 body main #accueilAdmin-wrapper h4 {
   margin-top: 1em;
@@ -308,37 +325,22 @@ body main #accueilAdmin-wrapper #accueilAdmin-redirect {
   gap: 1em;
 }
 body main #accueilAdmin-wrapper #listusers-wrapper {
-  align-self: flex-start;
+  display: block;
   margin: 1em;
   font-size: 1em;
+  overflow-x: auto;
 }
 body main #accueilAdmin-wrapper #listusers-wrapper th, body main #accueilAdmin-wrapper #listusers-wrapper td {
-  border: 1px solid #9FCDC3;
+  border: 1px solid #BEE0D9;
   padding: 8px;
   text-align: left;
 }
 body main #accueilAdmin-wrapper #listusers-wrapper tr:nth-child(even) {
-  background-color: #9FCDC3;
+  background-color: #BEE0D9;
 }
 body main #accueilAdmin-wrapper #listusers-wrapper th {
   background-color: black;
   color: white;
-}
-body main #accueilAdmin-wrapper #listusers-wrapper #edit-item,
-body main #accueilAdmin-wrapper #listusers-wrapper #delete-item {
-  background: white;
-  margin-top: 1em;
-  padding: 0.4em 0.6em;
-  border: 0.05em solid #9FCDC3;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: "Cormorant", serif;
-  font-size: 1em;
-}
-body main #accueilAdmin-wrapper #listusers-wrapper #edit-item:hover,
-body main #accueilAdmin-wrapper #listusers-wrapper #delete-item:hover {
-  color: white;
-  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
 }
 body main #additemform-wrapper {
   display: flex;
@@ -382,7 +384,7 @@ body main #additemform-wrapper #additem-form #add-image {
   border: none;
 }
 body main #additemform-wrapper #additem-form #additemform-button {
-  background: linear-gradient(to right, #5ED3C2, #9FCDC3);
+  background: linear-gradient(to right, #89D6CB, #9FCDC3);
   color: #fff;
   padding: 0.4em 0.6em;
   border: none;
@@ -392,23 +394,23 @@ body main #additemform-wrapper #additem-form #additemform-button {
   margin-left: 80%;
 }
 body main #additemform-wrapper #additem-form #additemform-button:hover {
-  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
 }
 body main #gestionitem-wrapper #tableitems-wrapper {
   display: block;
-  overflow-x: auto;
   margin-top: 2em;
+  overflow-x: auto;
 }
 body main #gestionitem-wrapper #tableitems-wrapper img {
   max-height: 5em;
 }
 body main #gestionitem-wrapper #tableitems-wrapper th, body main #gestionitem-wrapper #tableitems-wrapper td {
-  border: 1px solid #9FCDC3;
+  border: 1px solid #BEE0D9;
   padding: 8px;
   text-align: left;
 }
 body main #gestionitem-wrapper #tableitems-wrapper tr:nth-child(even) {
-  background-color: #9FCDC3;
+  background-color: #BEE0D9;
 }
 body main #gestionitem-wrapper #tableitems-wrapper th {
   background-color: black;
@@ -419,16 +421,16 @@ body main #gestionitem-wrapper #tableitems-wrapper #delete-item {
   background: white;
   margin-top: 1em;
   padding: 0.4em 0.6em;
-  border: 0.05em solid #9FCDC3;
+  border: 0.05em solid #BEE0D9;
   border-radius: 4px;
   cursor: pointer;
-  font-family: "Cormorant", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 1em;
 }
 body main #gestionitem-wrapper #tableitems-wrapper #edit-item:hover,
 body main #gestionitem-wrapper #tableitems-wrapper #delete-item:hover {
   color: white;
-  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
 }
 body main #edititemform-wrapper {
   display: flex;
@@ -472,7 +474,7 @@ body main #edititemform-wrapper #edititem-form #edit-image {
   border: none;
 }
 body main #edititemform-wrapper #edititem-form #edititemform-button {
-  background: linear-gradient(to right, #5ED3C2, #9FCDC3);
+  background: linear-gradient(to right, #89D6CB, #9FCDC3);
   color: #fff;
   padding: 0.4em 0.6em;
   border: none;
@@ -482,7 +484,27 @@ body main #edititemform-wrapper #edititem-form #edititemform-button {
   margin-left: 80%;
 }
 body main #edititemform-wrapper #edititem-form #edititemform-button:hover {
-  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
+}
+body main #messagerie-admin-wrapper #table-message-wrapper {
+  display: block;
+  margin-top: 2em;
+  overflow-x: auto;
+}
+body main #messagerie-admin-wrapper #table-message-wrapper table th {
+  background-color: black;
+  color: white;
+}
+body main #messagerie-admin-wrapper #table-message-wrapper table th, body main #messagerie-admin-wrapper #table-message-wrapper table td {
+  border: 1px solid #BEE0D9;
+  padding: 8px;
+  text-align: left;
+}
+body main #messagerie-admin-wrapper #table-message-wrapper table td #div-td-message-username {
+  font-weight: 700;
+}
+body main #messagerie-admin-wrapper #table-message-wrapper table tr:nth-child(even) {
+  background-color: #BEE0D9;
 }
 body main #espacepersonnel-wrapper .editinfo-hidden {
   display: none;
@@ -513,13 +535,13 @@ body main #espacepersonnel-wrapper #editinfo-form #editinfo-button {
   display: inline-block;
   margin-right: 1em;
   padding: 0.4em 0.6em;
-  background: linear-gradient(to right, #5ED3C2, #9FCDC3);
+  background: linear-gradient(to right, #89D6CB, #9FCDC3);
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
 }
 body main #espacepersonnel-wrapper #editinfo-form #editinfo-button:hover {
-  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
 }
 body main #espacepersonnel-wrapper #editinfo-form #editinfo-button.annuler {
   background: linear-gradient(to right, #F57575, #FFCBC4);
@@ -533,7 +555,7 @@ body main #espacepersonnel-wrapper #editinfo-form #editinfoform-button {
   justify-self: end;
   margin-right: 1em;
   padding: 0.4em 0.8em;
-  background: linear-gradient(to right, #5ED3C2, #9FCDC3);
+  background: linear-gradient(to right, #89D6CB, #9FCDC3);
   font-size: 1em;
   color: white;
   border: none;
@@ -541,7 +563,64 @@ body main #espacepersonnel-wrapper #editinfo-form #editinfoform-button {
   cursor: pointer;
 }
 body main #espacepersonnel-wrapper #editinfo-form #editinfoform-button:hover {
-  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
+}
+body main #espacepersonnel-wrapper #liste-favoris-wrapper {
+  margin-bottom: 1em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1em;
+}
+body main #espacepersonnel-wrapper #liste-favoris-wrapper .favorite-item-unique {
+  margin: 0.5em;
+  padding: 0.5em 0.7em 0 0.7em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  text-align: justify;
+  width: 17em;
+  height: 26em;
+  border: 0.05em solid #BEE0D9;
+  border-radius: 1px;
+}
+body main #espacepersonnel-wrapper #liste-favoris-wrapper .favorite-item-unique h4 {
+  padding-bottom: 0.2em;
+}
+body main #espacepersonnel-wrapper #liste-favoris-wrapper .favorite-item-unique img {
+  background-color: #BEE0D9;
+  max-width: 10em;
+  padding: 0.5em;
+}
+body main #espacepersonnel-wrapper #liste-favoris-wrapper .favorite-item-unique p:nth-child(3) {
+  margin-top: 1em;
+}
+body main #espacepersonnel-wrapper #liste-favoris-wrapper .favorite-item-unique .favorite-price-remove {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 3em;
+}
+body main #espacepersonnel-wrapper #liste-favoris-wrapper .favorite-item-unique .favorite-price-remove .categorie-prix {
+  margin-top: auto;
+  margin-bottom: 0.5em;
+  align-self: flex-start;
+  text-shadow: black 0px 0.2px;
+}
+body main #espacepersonnel-wrapper #liste-favoris-wrapper .favorite-item-unique .favorite-price-remove .remove-fav {
+  padding: 0;
+  max-height: 3em;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+body main #espacepersonnel-wrapper #liste-favoris-wrapper .favorite-item-unique .favorite-price-remove .remove-fav img {
+  padding: 0.2em;
+  height: 3em;
+  background-color: #BEE0D9;
+  border: 0.05em solid #2C9685;
 }
 body main #inscription-wrapper {
   margin-top: 0.5em;
@@ -585,7 +664,7 @@ body main #inscription-wrapper #inscription-form #confirmation-password:focus {
   background-color: #f4f9f9;
 }
 body main #inscription-wrapper #inscription-form #inscription-button {
-  background: linear-gradient(to right, #5ED3C2, #9FCDC3);
+  background: linear-gradient(to right, #89D6CB, #9FCDC3);
   color: #fff;
   margin-top: 1em;
   padding: 0.4em 0.6em;
@@ -593,11 +672,11 @@ body main #inscription-wrapper #inscription-form #inscription-button {
   border-radius: 4px;
   cursor: pointer;
   margin-left: 65%;
-  font-family: "Cormorant", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 1em;
 }
 body main #inscription-wrapper #inscription-form #inscription-button:hover {
-  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
 }
 body main #connexion-wrapper {
   margin-top: 0.5em;
@@ -633,7 +712,7 @@ body main #connexion-wrapper #connexion-form #connexion-password:focus {
   background-color: #f4f9f9;
 }
 body main #connexion-wrapper #connexion-form #connexion-button {
-  background: linear-gradient(to right, #5ED3C2, #9FCDC3);
+  background: linear-gradient(to right, #89D6CB, #9FCDC3);
   color: #fff;
   margin-top: 1em;
   padding: 0.4em 0.6em;
@@ -641,11 +720,11 @@ body main #connexion-wrapper #connexion-form #connexion-button {
   border-radius: 4px;
   cursor: pointer;
   margin-left: 56%;
-  font-family: "Cormorant", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 1em;
 }
 body main #connexion-wrapper #connexion-form #connexion-button:hover {
-  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
 }
 body main #contact-wrapper {
   margin-top: 0.5em;
@@ -658,6 +737,9 @@ body main #contact-wrapper .contact-infos {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+}
+body main #contact-wrapper .contact-infos img {
+  max-width: 3em;
 }
 body main #contact-wrapper .contact-infos p {
   font-size: 1.4em;
@@ -705,7 +787,7 @@ body main #contact-wrapper #contact-form-wrapper #contact-form #text-message-sen
   background-color: #f4f9f9;
 }
 body main #contact-wrapper #contact-form-wrapper #contact-form #send-message-button {
-  background: linear-gradient(to right, #5ED3C2, #9FCDC3);
+  background: linear-gradient(to right, #89D6CB, #9FCDC3);
   color: #fff;
   margin-top: 1em;
   padding: 0.4em 0.6em;
@@ -713,11 +795,11 @@ body main #contact-wrapper #contact-form-wrapper #contact-form #send-message-but
   border-radius: 4px;
   cursor: pointer;
   margin-left: 65%;
-  font-family: "Cormorant", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 1em;
 }
 body main #contact-wrapper #contact-form-wrapper #contact-form #send-message-button:hover {
-  background: linear-gradient(to right, #9FCDC3, #5ED3C2);
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
 }
 body main #contact-wrapper #contact-redirection {
   margin-top: 1.5em;
@@ -806,12 +888,13 @@ body main #privacypolicy-wrapper ul li {
   body main #accueil-wrapper #div-photo-accueil #photo-accueil {
     max-width: 20rem;
     padding: 0.6em;
-    border: 0.5em double black;
+    border: 0.3em double black;
   }
   body main #accueil-wrapper #div-photo-accueil #message-accueil {
     font-size: 1.7em;
     word-spacing: 0.09em;
     padding: 0 2em 0 2em;
+    text-align: center;
   }
   body main #accueil-wrapper #div-photo-accueil hr {
     display: none;
@@ -831,8 +914,36 @@ body main #privacypolicy-wrapper ul li {
     min-width: 100%;
     height: 100%;
   }
+  body main #accueilAdmin-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  body main #accueilAdmin-wrapper h4 {
+    margin-top: 1em;
+  }
+  body main #accueilAdmin-wrapper #accueilAdmin-redirect {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    gap: 1em;
+  }
   body main #accueilAdmin-wrapper #listusers-wrapper {
     align-self: center;
+    margin: 1em;
+    font-size: 1em;
+  }
+  body main #accueilAdmin-wrapper #listusers-wrapper th, body main #accueilAdmin-wrapper #listusers-wrapper td {
+    border: 1px solid #BEE0D9;
+    padding: 8px;
+    text-align: left;
+  }
+  body main #accueilAdmin-wrapper #listusers-wrapper tr:nth-child(even) {
+    background-color: #BEE0D9;
+  }
+  body main #accueilAdmin-wrapper #listusers-wrapper th {
+    background-color: black;
+    color: white;
   }
 }
 

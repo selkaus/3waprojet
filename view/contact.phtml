@@ -1,13 +1,15 @@
 <div id="contact-wrapper">
-    <h1 id="Cont">Pour nous contacter</h1>
+    <h1>Pour nous contacter</h1>
     
     <div class="contact-infos">
-        <p>Par téléphone</p>
+        <!--<p>Par téléphone</p>-->
+        <img src="public/uploads/phone.png" alt="Par téléphone">
         <span>06.23.26.02.51</span>
     </div>
     
     <div class="contact-infos">
-        <p>Par email</p>
+        <!--<p>Par email</p>-->
+        <img src="public/uploads/mail.png" alt="Par email">
         <span>symbolique_paris@yahoo.com</span>
     </div>
     
@@ -15,7 +17,7 @@
     <?php if (isset($_SESSION['ID'])) { ?>
     
     <div id="contact-form-wrapper">
-        <span id="contact-us-onwebsite">Ou contactez-nous directement</span>
+        <span id="contact-us-onwebsite">Ou contactez-nous directement ici</span>
         <form id="contact-form" method="POST" action="index.php?page=sendmessage">
             <label for="text-message-sent">*N'hésitez pas à inclure votre numéro si vous souhaitez être recontacté par téléphone </label>
             <textarea rows="6" cols="70" id="text-message-sent" name="text" placeholder="Entrez votre message"></textarea>

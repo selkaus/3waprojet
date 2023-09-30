@@ -10,7 +10,7 @@ class AdminController {
         require_once("view/template.phtml");
     }
     
-    
+
     public static function addItem() {
         if (isset($_POST['add'])) {
             // Instancier un objet item
@@ -118,34 +118,6 @@ class AdminController {
             require_once("view/template.phtml");
         }
     }
-    
-    /*MODIF ITEM ORIGINAL
-    public static function modifItem() {
-        // Si l'objet existe, accès à sa page de modification
-        if (isset($_GET['id'])) {
-            $item = Item::findById($_GET['id']);
-            
-            if (isset($_POST['modifier'])) {
-                //Mettre les valeur POST dans l'objet Item
-                $item->setCategorie($_POST['categorie']);
-                $item->setNom($_POST['nom']);
-                $item->setDescription($_POST['description']);
-                $item->setPrix(intval($_POST['prix']));
-
-                $item->editItem();
-                
-                header("Location: index.php?page=gestionitem");
-                die;
-            }
-            
-            $vue = "view/editItemForm.phtml";
-            require_once("view/template.phtml");
-        } else {
-            //Sinon, affichage de la vue de gestion des objets
-            $vue = "view/gestionItem.phtml";
-            require_once("view/template.phtml");
-        }
-    }*/
     
     
     public static function gestionItem(){
