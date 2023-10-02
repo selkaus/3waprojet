@@ -134,6 +134,7 @@ body footer a {
   font-size: 1em;
 }
 body main {
+  margin-bottom: 3em;
   flex-grow: 1;
 }
 body main .connexion-redirect,
@@ -151,9 +152,6 @@ body main .connexion-redirect:hover,
 body main .inscription-redirect:hover,
 body main .admin-redirect:hover {
   background: linear-gradient(to right, #9FCDC3, #89D6CB);
-}
-body main #accueil-wrapper {
-  margin-bottom: 3em;
 }
 body main #accueil-wrapper #div-photo-accueil {
   display: flex;
@@ -754,6 +752,11 @@ body main #contact-wrapper .contact-infos span:last-child {
   background-repeat: no-repeat;
   text-shadow: black 0px 0.2px;
 }
+body main #contact-wrapper #contact-message-admin {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 1em;
+}
 body main #contact-wrapper #contact-form-wrapper {
   margin-top: 0.5em;
   font-size: 1.5em;
@@ -944,6 +947,10 @@ body main #privacypolicy-wrapper ul li {
   body main #accueilAdmin-wrapper #listusers-wrapper th {
     background-color: black;
     color: white;
+  }
+  body main #espacepersonnel-wrapper .editinfo-hidden {
+    align-items: space-around;
+    justify-content: sspace-around;
   }
 }
 

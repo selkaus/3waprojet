@@ -14,17 +14,20 @@
     </div>
     
     
-    <?php if (isset($_SESSION['ID'])) { ?>
-    
+    <?php if (isset($_SESSION['ID'])) {
+            if (isset($_SESSION['admin'])) { ?>
+        <p id="contact-message-admin">Vous êtes connecté en tant qu'Administrateur. Si vous souhaitez modifier les informations de contact, merci de contacter la développeuse du site.</p>
+        <?php } else { ?>
     <div id="contact-form-wrapper">
         <span id="contact-us-onwebsite">Ou contactez-nous directement ici</span>
         <form id="contact-form" method="POST" action="index.php?page=sendmessage">
-            <label for="text-message-sent">*N'hésitez pas à inclure votre numéro si vous souhaitez être recontacté par téléphone </label>
+            <label for="text-message-sent">*N'hésitez pas à inclure votre numéro si vous souhaitez être recontacté par téléphone plutôt que par email. </label>
             <textarea rows="6" cols="70" id="text-message-sent" name="text" placeholder="Entrez votre message"></textarea>
             <button id="send-message-button" name="send_message">Envoyer</button>
         </form>
     </div>
-    <?php } else { ?>
+    <?php }}
+    else { ?>
     <div id="contact-redirection">
         <p>Vous avez eu un coup de cœur ?<br>
         Connectez vous pour nous contacter immédiatement !</p>
