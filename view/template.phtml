@@ -32,32 +32,35 @@
             <a href="index.php?page=categories" class="nav-link">Nos pièces</a>
             <a href="index.php?page=contact" class="nav-link">Contact</a>
                 <?php if (isset($_SESSION['ID'])) { ?>
-                    <a href="index.php?page=espace" class="nav-link">Espace Personnel</a>
-                    <a href="index.php?page=deconnexion" class="nav-link">Déconnexion</a>
-                    <?php if (isset($_SESSION['admin'])) { ?>
+                    <?php if (!isset($_SESSION['admin'])) { ?>
+                        <a href="index.php?page=espace" class="nav-link">Espace Personnel</a>
+                    <?php } else { ?>
                         <a href="index.php?page=administration" class="nav-link">Administration</a>
-                    <?php }
-                } else { ?>
+                    <?php } ?>
+                    
+                    <a href="index.php?page=deconnexion" class="nav-link">Déconnexion</a>
+                <?php } else { ?>
                     <a href="index.php?page=inscription" class="nav-link">Inscription</a>
                     <a href="index.php?page=connexion" class="nav-link">Connexion</a>
                 <?php } ?>
             </nav>
-        
         </header>
         
         <nav id="navigation" class="hidden">
-            <a href="index.php">Accueil</a>
-            <a href="index.php?page=categories">Nos pièces</a>
-            <a href="index.php?page=contact">Contact</a>
+            <a href="index.php" class="nav-link">Accueil</a>
+            <a href="index.php?page=categories" class="nav-link">Nos pièces</a>
+            <a href="index.php?page=contact" class="nav-link">Contact</a>
                 <?php if (isset($_SESSION['ID'])) { ?>
-                    <a href="index.php?page=espace">Espace Personnel</a>
-                    <a href="index.php?page=deconnexion">Déconnexion</a>
-                    <?php if (isset($_SESSION['admin'])) { ?>
-                        <a href="index.php?page=administration">Administration</a>
-                    <?php }
-                } else { ?>
-                    <a href="index.php?page=inscription">Inscription</a>
-                    <a href="index.php?page=connexion">Connexion</a>
+                    <?php if (!isset($_SESSION['admin'])) { ?>
+                        <a href="index.php?page=espace" class="nav-link">Espace Personnel</a>
+                    <?php } else { ?>
+                        <a href="index.php?page=administration" class="nav-link">Administration</a>
+                    <?php } ?>
+                    
+                    <a href="index.php?page=deconnexion" class="nav-link">Déconnexion</a>
+                <?php } else { ?>
+                    <a href="index.php?page=inscription" class="nav-link">Inscription</a>
+                    <a href="index.php?page=connexion" class="nav-link">Connexion</a>
                 <?php } ?>
                 
         </nav>
@@ -73,7 +76,7 @@
         <footer>
             <a id="mention-legales" href="index.php?page=mention-legales">Mentions Légales</a>
             <a id="condition-generales" href="index.php?page=cgu">Conditions Générales d'Utilisation</a>
-            <a id="privacy-policy" href="index.php?page=politique-de-confidetialite">Politique de Confidentialité</a>
+            <a id="privacy-policy" href="index.php?page=politique-de-confidentialite">Politique de Confidentialité</a>
             <a id="about-us" href="index.php?page=aboutus">À propos de nous</a>
         </footer>
     </body>

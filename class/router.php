@@ -30,7 +30,7 @@ class Router {
             if ($_GET['page'] == "contact") {
                 UserController::contact();
             }
-            if ($_GET['page'] == "sendmessage") {
+            if ($_GET['page'] == "message") {
                 MessageController::sendMessage();
             }
             
@@ -72,7 +72,7 @@ class Router {
             }
             
             //Page de la Politique de Confidentialité
-            if ($_GET['page'] == "politique-de-confidetialite") {
+            if ($_GET['page'] == "politique-de-confidentialite") {
                 $vue = "view/privacyPolicy.phtml";
                 require_once("view/template.phtml"); 
             }
@@ -127,18 +127,6 @@ class Router {
                 //Ditto
                 else {
                     header("Location: index.php?page=categories");
-                    die;
-                }
-            }
-            
-            //Confirmation envoi de message
-            if ($_GET['page'] == "confirmationmessage") {
-                if (isset($_SESSION['ID'])) {
-                    MessageController::confirmMessage();
-                }
-                //Pour la sécurité, si un user ou visiteur accède à la page administrative, redirection automatique vers la page de contact
-                else {
-                    header("Location: index.php?page=contact");
                     die;
                 }
             }

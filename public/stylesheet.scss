@@ -38,7 +38,7 @@ $peach: #FFCBC4;
 
 body  {
   
-//Début du CSS Général
+//Début du CSS Template
 
   display: flex;
   flex-direction: column;
@@ -48,6 +48,11 @@ body  {
   
   min-height: 100vh;
   position: relative;
+  
+  .anymessage-redirection {
+    padding: 1em;
+    font-size: 1.3em;
+  }
   
   
   h1 {
@@ -114,7 +119,7 @@ body  {
       
       #logo {
         align-self: center;
-        height: 80%;
+        height: 65%;
         width: auto;
         /*overflow: hidden;*/
       }
@@ -156,7 +161,7 @@ body  {
     }
   }
   
-  //JAVASCRIPT DISPLAY
+  //JAVASCRIPT BURGER MENU
   #navigation.hidden {
     overflow: hidden;
     max-height: 0;
@@ -199,7 +204,7 @@ body  {
   
   //FIN FOOTER
   
-//Fin du CSS Général
+//Fin du CSS Template
 
 
 //Début CSS MAIN
@@ -212,12 +217,13 @@ body  {
     
     .connexion-redirect,
     .inscription-redirect,
+    .contact-redirect,
     .admin-redirect{
         display: inline-block;
         margin: .4em 0 .7em 0;
-        padding: .4em .6em;
+        padding: .4em .5em;
         background: $button-color;
-        color: #fff;
+        color: white;
         border-radius: 4px;
         cursor: pointer;
         
@@ -227,6 +233,8 @@ body  {
       }
     
     //Fin du CSS Main Général
+    
+    
     
     //DÉBUT ACCUEIL index.phtml
     
@@ -258,7 +266,7 @@ body  {
           padding: 1em 1em 0.5em 1em;
           text-align: center;
           font-family: $text-font;
-          font-size: 1.4em;
+          font-size: 1.5em;
           align-self: center;
         }  
       }
@@ -279,24 +287,8 @@ body  {
           background-size: 90% .05em;
           background-position: 0% 100%;
           background-repeat: no-repeat;
+          margin-bottom: 1em;
           }
-        span:nth-child(3) {
-          padding-top: 1em;
-        }
-        
-        .contact-redirect {
-          display: inline-block;
-          margin-top: .4em;
-          padding: .3em .3em;
-          background: $button-color;
-          color: #fff;
-          border-radius: 4px;
-          cursor: pointer;
-          
-          &:hover {
-            background: $button-hover;
-          }
-        }
       }
       
       #map {
@@ -307,7 +299,7 @@ body  {
     //FIN ACCUEIL index.phtml
     
     
-    //DÉBUT CATEGORIES categories.phtml
+    //DÉBUT LISTE DES OBJETS/CATEGORIES categories.phtml
     
     #categories-wrapper {
       display: flex;
@@ -339,6 +331,12 @@ body  {
             border: .1em solid $peach;
           }
         }
+      }
+      
+      #find-your-fav {
+        padding-bottom: .2em;
+        text-align: center;
+        background-color: $gen-teal;
       }
       
       #items-list {
@@ -396,6 +394,22 @@ body  {
               background-color: transparent;
               align-self: end;
             }
+            
+            .add-to-fav {
+              padding: 0;
+              max-height: 3em;
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              
+              .star-to-fav {
+                padding: .2em;
+                height: 3em;
+                background-color: transparent;
+              }
+            }
+            
+            
           }
         }
         
@@ -424,285 +438,14 @@ body  {
     
     
     
-    //DÉBUT ACCUEIL ADMIN accueilAdminphtml
-    
-    #accueilAdmin-wrapper {
-      
-      /*display: flex;
-      flex-flow: column nowrap;
-      align-items: center;*/
-
-      
-      h4 {
-        margin-top: 1em;
-      }
-      
-      #accueilAdmin-redirect {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-evenly;
-        gap: 1em;
-      }
-      
-      #listusers-wrapper {
-        display: block;
-        //align-self: flex-start;
-        margin: 1em;
-        font-size: 1em;
-        overflow-x: auto;
-
-
-        th, td {
-          border: 1px solid $gen-teal;
-          padding: 8px;
-          text-align: left;
-        }
-        
-        tr:nth-child(even) {
-            background-color: $gen-teal;
-        }
-        
-        th {
-            background-color: black;
-            color: white;
-        }
-      }
-    }
-    
-    //FIN ACCUEIL ADMIN accueilAdmin.phtml
-    
-    
-    
-    //DÉBUT AJOUT OBJET ADMIN addItemForm.phtml
-      
-    #additemform-wrapper{
-      display: flex;
-      flex-flow: column nowrap;
-      align-items: center;
-      
-      
-      #additem-form {
-        max-width: 35em;
-        margin: 1em;
-        padding: 2em;
-        border: .3em double black;
-        border-radius: .5em;
-  
-        label {
-          display: block;
-          margin-bottom: .1em;
-          font-size: 1.2em;
-        }
-      
-        #add-categorie,
-        #add-nom,
-        #add-prix,
-        #add-image,
-        #add-description
-        {
-          width: 90%;
-          padding: .1em;
-          margin-bottom: .3em;
-          border: 1px solid $peach;
-          border-radius: .2em;
-          font-size: 1em;
-          
-          &:focus { 
-            outline: none;
-            border: 1px solid #39cfdf;
-            background-color: #f4f9f9;
-            
-          }
-        }
-        
-        #add-image {
-          border: none;
-        }
-        
-        #additemform-button {
-          background: $button-color;
-          color: #fff;
-          padding: .4em .6em;
-          border: none;
-          border-radius: 3px;
-          font-size: 16px;
-          cursor: pointer;
-          margin-left: 80%;
-      
-          &:hover {
-            background: $button-hover;
-          }
-        }
-      }
-    }
-    //FIN AJOUT OBJET ADMIN addItemForm.phtml
-    
-    
-    
-    //DÉBUT GESTION DES OBJETS gestionItem.phtml
-    
-    #gestionitem-wrapper {
-      
-      #tableitems-wrapper {
-        display: block;
-        margin-top: 2em;
-        overflow-x: auto;
-        
-        img {
-          max-height: 5em;
-        } 
-        
-        th, td {
-          border: 1px solid $gen-teal;
-          padding: 8px;
-          text-align: left;
-        }
-        
-        tr:nth-child(even) {
-            background-color: $gen-teal;
-        }
-        
-        th {
-            background-color: black;
-            color: white;
-        }
-        
-      #edit-item,
-      #delete-item {
-          background: white;
-          margin-top: 1em;
-          padding: .4em .6em;
-          border: .05em solid $gen-teal;
-          border-radius: 4px;
-          cursor: pointer;
-          font-family: $text-font;
-          font-size: 1em;
-          
-          &:hover {
-            color: white;
-            background: $button-hover;
-          }
-        }
-      }
-    }
-    
-    //FIN GESTION DES OBJETS gestionItem.phtml
-    
-    
-    
-    //DÉBUT MODIFICATION DES OBJETS editItemForm.phtml
-    
-    #edititemform-wrapper{
-      display: flex;
-      flex-flow: column nowrap;
-      align-items: center;
-      
-      
-      #edititem-form {
-        max-width: 35em;
-        margin: 1em;
-        padding: 2em;
-        border: .3em double black;
-        border-radius: .5em;
-  
-        label {
-          display: block;
-          margin-bottom: .1em;
-          font-size: 1.2em;
-        }
-      
-        #edit-categorie,
-        #edit-nom,
-        #edit-prix,
-        #edit-image,
-        #edit-description
-        {
-          width: 90%;
-          padding: .1em;
-          margin-bottom: .3em;
-          border: 1px solid $peach;
-          border-radius: .2em;
-          font-size: 1em;
-          
-          &:focus { 
-            outline: none;
-            border: 1px solid #39cfdf;
-            background-color: #f4f9f9;
-            
-          }
-        }
-        
-        #edit-image {
-          border: none;
-        }
-        
-        #edititemform-button {
-          background: $button-color;
-          color: #fff;
-          padding: .4em .6em;
-          border: none;
-          border-radius: 3px;
-          font-size: 16px;
-          cursor: pointer;
-          margin-left: 80%;
-      
-          &:hover {
-            background: $button-hover;
-          }
-        }
-      }
-    }
-    
-    //FIN MODIFICATION DES OBJETS editItemForm.phtml
-    
-    
-    
-    //DÉBUT MESSAGERIE ADMIN messagerie.phtml
-    
-    #messagerie-admin-wrapper {
-      
-      #table-message-wrapper {
-        display: block;
-        margin-top: 2em;
-        overflow-x: auto;
-        
-        table {
-          th {
-              background-color: black;
-              color: white;
-          }
-          
-          th, td {
-            border: 1px solid $gen-teal;
-            padding: 8px;
-            text-align: left;
-          }
-          
-          td {
-            #div-td-message-username {
-              font-weight: 700;
-            }
-          }
-          
-          tr:nth-child(even) {
-              background-color: $gen-teal;
-          }
-          
-        }
-      }
-    }
-    
-    //FIN MESSAGERIE ADMIN messagerie.phtml
-    
-    
-    
     //DÉBUT ESPACE PERSONNEL espacePersonnel.phtml
     
     #espacepersonnel-wrapper {
       
       .editinfo-hidden {
-        //Prevent la suite du JS au niveau du boutton. A corriger
+        //A retirer quand JS et PHP fixé pour l'édition d'infos
         display: none;
+        //A retirer quand JS et PHP fixé pour l'édition d'infos
       }
       
       #editinfo-form {
@@ -758,9 +501,9 @@ body  {
         
         #editinfoform-button {
           
-              //Display à retirer quand JS et PHP fixé
-              display: none;
-              //Display à retirer quand JS et PHP fixé
+          //A retirer quand JS et PHP fixé pour l'édition d'infos
+          display: none;
+          //A retirer quand JS et PHP fixé pour l'édition d'infos
               
           grid-area: 3 / 2 / 4 / 3;
           
@@ -848,13 +591,126 @@ body  {
             }
           }
         }
-        
       }
-      
     }
     
     //Fin Favoris
     //FIN ESPACE PERSONNEL espacePersonnel.phtml
+    
+    
+    
+    //DÉBUT CONTACT contact.phtml
+    
+    #contact-wrapper {
+      margin-top: .5em;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      
+      .contact-infos {
+        margin-bottom: 1em;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        
+        img {
+          max-width: 3em;
+        }
+        
+        .blue-underline {
+            display: inline-block; 
+            font-size: 1.4em;
+            background-image: linear-gradient(to right, white, #9FCDC3, #5ED3C2, #9FCDC3, white);
+            padding-bottom: .15em;
+            background-size: 100% .1em;
+            background-position: 0% 100%;
+            background-repeat: no-repeat;
+            text-shadow: black 0px .2px;
+          }
+            
+        address {
+          p {
+            font-style: normal;
+            font-size: 1em;
+          }
+        }
+      }
+      
+      #contact-message-admin {
+        font-size: 1.5em;
+        text-align: center;
+        margin: 1.5em;
+      }
+      
+      #contact-form-wrapper {
+        margin-top: .5em;
+        font-size: 1.5em;
+        
+        #contact-us-onwebsite {
+          margin-left: 1em;
+        }
+        
+        #contact-form {
+          max-width: 35em;
+          margin: 1em 1em 1em 1em;
+          
+          label {
+              font-family: $long-text-font;
+              font-size: .7em;
+          }
+          
+          #text-message-sent {
+            width: 90%;
+            padding: .5em;
+            margin-bottom: .3em;
+            border: 1px solid $peach;
+            border-radius: .2em;
+            font-family: $long-text-font;
+            font-size: 1em;
+            
+            &::placeholder {
+              font-size: .8em;
+            }
+            
+            &:focus { 
+              outline: none;
+              border: 1px solid #39cfdf;
+              background-color: #f4f9f9;
+            }
+          }
+          
+          #send-message-button {
+            background: $button-color;
+            color: #fff;
+            margin-top: 1em;
+            padding: .4em .6em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 65%;
+            font-family: $text-font;
+            font-size: 1em;
+            
+            
+            &:hover {
+              background: $button-hover;
+            }
+          }
+        }
+      }
+      
+      #contact-redirection {
+        margin-top: 1.5em;
+        text-align: center;
+        font-size: 1.1em;
+        display: flex;
+        flex-flow: column nowrap; 
+        align-items: center;
+      }
+    }
+    
+    //FIN CONTACT contact.phtml
+    
     
     
     //DÉBUT INSCRIPTION inscription.phtml
@@ -897,7 +753,6 @@ body  {
             outline: none;
             border: 1px solid #39cfdf;
             background-color: #f4f9f9;
-  
           }
         }
         
@@ -948,8 +803,7 @@ body  {
         }
       
         #connexion-username,
-        #connexion-password,
-        {
+        #connexion-password {
           width: 90%;
           padding: .1em;
           margin-bottom: .3em;
@@ -987,133 +841,293 @@ body  {
     
     //FIN CONNEXION connexion.phtml
     
-    //DÉBUT CONTACT contact.phtml
     
-    #contact-wrapper {
-      margin-top: .5em;
+    
+    //DÉBUT ACCUEIL ADMIN accueilAdmin.phtml
+    
+    #accueilAdmin-wrapper {
+      
+      h4 {
+        margin-top: 1em;
+      }
+      
+      #accueilAdmin-redirect {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        gap: 1em;
+      }
+      
+      #listusers-wrapper {
+        display: block;
+        //align-self: flex-start;
+        margin: 1em;
+        font-size: 1em;
+        overflow-x: auto;
+
+
+        th, td {
+          border: 1px solid $gen-teal;
+          padding: 8px;
+          text-align: left;
+        }
+        
+        tr:nth-child(even) {
+            background-color: $gen-teal;
+        }
+        
+        th {
+            background-color: black;
+            color: white;
+        }
+      }
+    }
+    
+    //FIN ACCUEIL ADMIN accueilAdmin.phtml
+    
+    
+    
+    //DÉBUT AJOUT OBJET ADMIN addItemForm.phtml
+      
+    #add-item-form-wrapper{
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
       
-      .contact-infos {
-        margin-bottom: 1em;
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
+      p {
+        font-size: 1.1em;
+      }
+      
+      #add-item-form {
+        max-width: 35em;
+        margin: 1em;
+        padding: 2em;
+        border: .3em double black;
+        border-radius: .5em;
+  
+        label {
+          display: block;
+          margin-bottom: .1em;
+          font-size: 1.2em;
+        }
+      
+        #add-categorie,
+        #add-nom,
+        #add-prix,
+        #add-image,
+        #add-description {
+          width: 90%;
+          padding: .1em;
+          margin-bottom: .3em;
+          border: 1px solid $peach;
+          border-radius: .2em;
+          font-size: 1em;
+          
+          &:focus { 
+            outline: none;
+            border: 1px solid #39cfdf;
+            background-color: #f4f9f9;
+          }
+        }
+        
+        #add-image {
+          border: none;
+        }
+        
+        #additemform-button {
+          background: $button-color;
+          color: #fff;
+          padding: .4em .6em;
+          border: none;
+          border-radius: 3px;
+          font-size: 16px;
+          cursor: pointer;
+          margin-left: 80%;
+      
+          &:hover {
+            background: $button-hover;
+          }
+        }
+      }
+    }
+    //FIN AJOUT OBJET ADMIN addItemForm.phtml
+    
+    
+    
+    //DÉBUT GESTION DES OBJETS gestionItem.phtml
+    
+    #gestionitem-wrapper {
+      
+      #tableitems-wrapper {
+        display: block;
+        margin-top: 2em;
+        overflow-x: auto;
         
         img {
-          max-width: 3em;
+          max-height: 5em;
+        } 
+        
+        th, td {
+          border: 1px solid $gen-teal;
+          padding: 8px;
+          text-align: left;
         }
         
-        p {
-          font-size: 1.4em;
+        tr:nth-child(even) {
+            background-color: $gen-teal;
         }
         
-        span:last-child {
-            display: inline-block; 
-            font-size: 1.4em;
-            background-image: linear-gradient(to right, white, #9FCDC3, #5ED3C2, #9FCDC3, white);
-            padding-bottom: .15em;
-            background-size: 100% .1em;
-            background-position: 0% 100%;
-            background-repeat: no-repeat;
-            text-shadow: black 0px .2px;
-          }
-      }
-      
-      #contact-message-admin {
-        font-size: 1.5em;
-        text-align: center;
-        margin: 1.5em;
-      }
-      
-      #contact-form-wrapper {
-        margin-top: .5em;
-        font-size: 1.5em;
-        
-        #contact-us-onwebsite {
-          margin-left: 1em;
+        th {
+            background-color: black;
+            color: white;
         }
         
-        #contact-form {
-          max-width: 35em;
-          margin: 1em 1em 1em 1em;
+      #edit-item,
+      #delete-item {
+          background: white;
+          margin-top: 1em;
+          padding: .4em .6em;
+          border: .05em solid $gen-teal;
+          border-radius: 4px;
+          cursor: pointer;
+          font-family: $text-font;
+          font-size: 1em;
           
-          label {
-              font-family: $long-text-font;
-              font-size: .7em;
-          }
-          
-          #text-message-sent {
-            width: 90%;
-            padding: .5em;
-            margin-bottom: .3em;
-            border: 1px solid $peach;
-            border-radius: .2em;
-            font-family: $long-text-font;
-            font-size: 1em;
-            
-            &::placeholder {
-              font-size: .8em;
-            }
-            
-            &:focus { 
-              outline: none;
-              border: 1px solid #39cfdf;
-              background-color: #f4f9f9;
-              
-            }
-          }
-          
-          #send-message-button {
-            background: $button-color;
-            color: #fff;
-            margin-top: 1em;
-            padding: .4em .6em;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-left: 65%;
-            font-family: $text-font;
-            font-size: 1em;
-            
-            
-            &:hover {
-              background: $button-hover;
-            }
+          &:hover {
+            color: white;
+            background: $button-hover;
           }
         }
-      }
-      
-      #contact-redirection {
-        margin-top: 1.5em;
-        text-align: center;
-        font-size: 1.1em;
-        display: flex;
-        flex-flow: column nowrap; 
-        align-items: center;
-        
       }
     }
     
+    //FIN GESTION DES OBJETS gestionItem.phtml
     
-    //FIN CONTACT contact.phtml
     
-    //DÉBUT CGU cgu.phtml
+    
+    //DÉBUT MODIFICATION DES OBJETS editItemForm.phtml
+    
+    #edititemform-wrapper {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      
+      
+      #edititem-form {
+        max-width: 35em;
+        margin: 1em;
+        padding: 2em;
+        border: .3em double black;
+        border-radius: .5em;
+  
+        label {
+          display: block;
+          margin-bottom: .1em;
+          font-size: 1.2em;
+        }
+      
+        #edit-categorie,
+        #edit-nom,
+        #edit-prix,
+        #edit-image,
+        #edit-description {
+          width: 90%;
+          padding: .1em;
+          margin-bottom: .3em;
+          border: 1px solid $peach;
+          border-radius: .2em;
+          font-size: 1em;
+          
+          &:focus { 
+            outline: none;
+            border: 1px solid #39cfdf;
+            background-color: #f4f9f9;
+          }
+        }
+        
+        #edit-image {
+          border: none;
+        }
+        
+        #edititemform-button {
+          background: $button-color;
+          color: #fff;
+          padding: .4em .6em;
+          border: none;
+          border-radius: 3px;
+          font-size: 16px;
+          cursor: pointer;
+          margin-left: 80%;
+      
+          &:hover {
+            background: $button-hover;
+          }
+        }
+      }
+    }
+    
+    //FIN MODIFICATION DES OBJETS editItemForm.phtml
+    
+    
+    
+    //DÉBUT MESSAGERIE ADMIN messagerie.phtml
+    
+    #messagerie-admin-wrapper {
+      
+      #table-message-wrapper {
+        display: block;
+        margin-top: 2em;
+        overflow-x: auto;
+        
+        table {
+          th {
+              background-color: black;
+              color: white;
+          }
+          
+          th, td {
+            border: 1px solid $gen-teal;
+            padding: 8px;
+            text-align: left;
+          }
+          
+          td {
+            #div-td-message-username {
+              font-weight: 700;
+            }
+          }
+          
+          tr:nth-child(even) {
+              background-color: $gen-teal;
+          }
+        }
+      }
+    }
+    
+    //FIN MESSAGERIE ADMIN messagerie.phtml
+    
+    
+    
+    //DÉBUT INFORMATIONS GENERALES cgu.phtml, mentionLegales.phtml, privacyPolicy.phtml, aboutUs.phtml
     
     #cgu-wrapper,
     #ml-wrapper,
     #aboutus-wrapper,
-    #privacypolicy-wrapper {
+    #privacy-policy-wrapper {
       margin: .4em;
       
       h1{
         text-align: center;
       }
+      h2 {
+        margin: .5em;
+      }
       
       p {
         font-family: $long-text-font;
-        margin-top: .7em;
+        a {
+          text-decoration: underline;
+        }
       }
       
       #thx-text {
@@ -1122,17 +1136,24 @@ body  {
         font-size: 1.3em;
       }
       
+      .ml-infos {
+        display: flex;
+        flex-flow: column nowrap;
+        font-family: $long-text-font;
+      }
+      
       ul {
         li {
           font-family: $long-text-font;
+          font-size: 1.2em;
         }
       }
     }
-    
-    //FIN CGU cgu.phtml
-  
+    //FIN INFORMATIONS GENERALES cgu.phtml, mentionLegales.phtml, privacyPolicy.phtml, aboutUs.phtml
   }
   //Fin CSS MAIN
+  
+  
   
 //RESPONSIVE POUR DESKTOP
 
@@ -1286,6 +1307,8 @@ body  {
     // FIN ACCUEIL ADMIN accueilAdmin.phtml
     
     
+    
+      //DEBUT ESPACE PERSONNEL espacePersonnel.phtml
       #espacepersonnel-wrapper {
         
         .editinfo-hidden {
@@ -1294,6 +1317,8 @@ body  {
           justify-content: sspace-around;
         }
       }
+      //FIN ESPACE PERSONNEL espacePersonnel.phtml
+      
     } 
   }   
 }

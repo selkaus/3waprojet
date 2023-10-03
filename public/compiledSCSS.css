@@ -21,6 +21,10 @@ body {
   min-height: 100vh;
   position: relative;
 }
+body .anymessage-redirection {
+  padding: 1em;
+  font-size: 1.3em;
+}
 body h1 {
   font-family: "Vogue", serif;
   text-align: center;
@@ -74,7 +78,7 @@ body header #logo-link {
 }
 body header #logo-link #logo {
   align-self: center;
-  height: 80%;
+  height: 65%;
   width: auto;
   /*overflow: hidden;*/
 }
@@ -139,17 +143,19 @@ body main {
 }
 body main .connexion-redirect,
 body main .inscription-redirect,
+body main .contact-redirect,
 body main .admin-redirect {
   display: inline-block;
   margin: 0.4em 0 0.7em 0;
-  padding: 0.4em 0.6em;
+  padding: 0.4em 0.5em;
   background: linear-gradient(to right, #89D6CB, #9FCDC3);
-  color: #fff;
+  color: white;
   border-radius: 4px;
   cursor: pointer;
 }
 body main .connexion-redirect:hover,
 body main .inscription-redirect:hover,
+body main .contact-redirect:hover,
 body main .admin-redirect:hover {
   background: linear-gradient(to right, #9FCDC3, #89D6CB);
 }
@@ -177,7 +183,7 @@ body main #accueil-wrapper #div-photo-accueil #message-accueil {
   padding: 1em 1em 0.5em 1em;
   text-align: center;
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.4em;
+  font-size: 1.5em;
   align-self: center;
 }
 body main #accueil-wrapper #adresse-accueil {
@@ -196,21 +202,7 @@ body main #accueil-wrapper #adresse-accueil span:nth-child(2) {
   background-size: 90% 0.05em;
   background-position: 0% 100%;
   background-repeat: no-repeat;
-}
-body main #accueil-wrapper #adresse-accueil span:nth-child(3) {
-  padding-top: 1em;
-}
-body main #accueil-wrapper #adresse-accueil .contact-redirect {
-  display: inline-block;
-  margin-top: 0.4em;
-  padding: 0.3em 0.3em;
-  background: linear-gradient(to right, #89D6CB, #9FCDC3);
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-}
-body main #accueil-wrapper #adresse-accueil .contact-redirect:hover {
-  background: linear-gradient(to right, #9FCDC3, #89D6CB);
+  margin-bottom: 1em;
 }
 body main #accueil-wrapper #map {
   display: none;
@@ -258,6 +250,11 @@ body main #categories-wrapper #categories-list a {
 }
 body main #categories-wrapper #categories-list a:hover {
   border: 0.1em solid #FFCBC4;
+}
+body main #categories-wrapper #find-your-fav {
+  padding-bottom: 0.2em;
+  text-align: center;
+  background-color: #BEE0D9;
 }
 body main #categories-wrapper #items-list {
   display: flex;
@@ -308,201 +305,17 @@ body main #categories-wrapper #items-list .item-unique .price-bookmark .bookmark
   background-color: transparent;
   align-self: end;
 }
-body main #accueilAdmin-wrapper {
-  /*display: flex;
-  flex-flow: column nowrap;
-  align-items: center;*/
-}
-body main #accueilAdmin-wrapper h4 {
-  margin-top: 1em;
-}
-body main #accueilAdmin-wrapper #accueilAdmin-redirect {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  gap: 1em;
-}
-body main #accueilAdmin-wrapper #listusers-wrapper {
-  display: block;
-  margin: 1em;
-  font-size: 1em;
-  overflow-x: auto;
-}
-body main #accueilAdmin-wrapper #listusers-wrapper th, body main #accueilAdmin-wrapper #listusers-wrapper td {
-  border: 1px solid #BEE0D9;
-  padding: 8px;
-  text-align: left;
-}
-body main #accueilAdmin-wrapper #listusers-wrapper tr:nth-child(even) {
-  background-color: #BEE0D9;
-}
-body main #accueilAdmin-wrapper #listusers-wrapper th {
-  background-color: black;
-  color: white;
-}
-body main #additemform-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-}
-body main #additemform-wrapper #additem-form {
-  max-width: 35em;
-  margin: 1em;
-  padding: 2em;
-  border: 0.3em double black;
-  border-radius: 0.5em;
-}
-body main #additemform-wrapper #additem-form label {
-  display: block;
-  margin-bottom: 0.1em;
-  font-size: 1.2em;
-}
-body main #additemform-wrapper #additem-form #add-categorie,
-body main #additemform-wrapper #additem-form #add-nom,
-body main #additemform-wrapper #additem-form #add-prix,
-body main #additemform-wrapper #additem-form #add-image,
-body main #additemform-wrapper #additem-form #add-description {
-  width: 90%;
-  padding: 0.1em;
-  margin-bottom: 0.3em;
-  border: 1px solid #FFCBC4;
-  border-radius: 0.2em;
-  font-size: 1em;
-}
-body main #additemform-wrapper #additem-form #add-categorie:focus,
-body main #additemform-wrapper #additem-form #add-nom:focus,
-body main #additemform-wrapper #additem-form #add-prix:focus,
-body main #additemform-wrapper #additem-form #add-image:focus,
-body main #additemform-wrapper #additem-form #add-description:focus {
-  outline: none;
-  border: 1px solid #39cfdf;
-  background-color: #f4f9f9;
-}
-body main #additemform-wrapper #additem-form #add-image {
+body main #categories-wrapper #items-list .item-unique .price-bookmark .add-to-fav {
+  padding: 0;
+  max-height: 3em;
+  background-color: transparent;
   border: none;
-}
-body main #additemform-wrapper #additem-form #additemform-button {
-  background: linear-gradient(to right, #89D6CB, #9FCDC3);
-  color: #fff;
-  padding: 0.4em 0.6em;
-  border: none;
-  border-radius: 3px;
-  font-size: 16px;
   cursor: pointer;
-  margin-left: 80%;
 }
-body main #additemform-wrapper #additem-form #additemform-button:hover {
-  background: linear-gradient(to right, #9FCDC3, #89D6CB);
-}
-body main #gestionitem-wrapper #tableitems-wrapper {
-  display: block;
-  margin-top: 2em;
-  overflow-x: auto;
-}
-body main #gestionitem-wrapper #tableitems-wrapper img {
-  max-height: 5em;
-}
-body main #gestionitem-wrapper #tableitems-wrapper th, body main #gestionitem-wrapper #tableitems-wrapper td {
-  border: 1px solid #BEE0D9;
-  padding: 8px;
-  text-align: left;
-}
-body main #gestionitem-wrapper #tableitems-wrapper tr:nth-child(even) {
-  background-color: #BEE0D9;
-}
-body main #gestionitem-wrapper #tableitems-wrapper th {
-  background-color: black;
-  color: white;
-}
-body main #gestionitem-wrapper #tableitems-wrapper #edit-item,
-body main #gestionitem-wrapper #tableitems-wrapper #delete-item {
-  background: white;
-  margin-top: 1em;
-  padding: 0.4em 0.6em;
-  border: 0.05em solid #BEE0D9;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1em;
-}
-body main #gestionitem-wrapper #tableitems-wrapper #edit-item:hover,
-body main #gestionitem-wrapper #tableitems-wrapper #delete-item:hover {
-  color: white;
-  background: linear-gradient(to right, #9FCDC3, #89D6CB);
-}
-body main #edititemform-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-}
-body main #edititemform-wrapper #edititem-form {
-  max-width: 35em;
-  margin: 1em;
-  padding: 2em;
-  border: 0.3em double black;
-  border-radius: 0.5em;
-}
-body main #edititemform-wrapper #edititem-form label {
-  display: block;
-  margin-bottom: 0.1em;
-  font-size: 1.2em;
-}
-body main #edititemform-wrapper #edititem-form #edit-categorie,
-body main #edititemform-wrapper #edititem-form #edit-nom,
-body main #edititemform-wrapper #edititem-form #edit-prix,
-body main #edititemform-wrapper #edititem-form #edit-image,
-body main #edititemform-wrapper #edititem-form #edit-description {
-  width: 90%;
-  padding: 0.1em;
-  margin-bottom: 0.3em;
-  border: 1px solid #FFCBC4;
-  border-radius: 0.2em;
-  font-size: 1em;
-}
-body main #edititemform-wrapper #edititem-form #edit-categorie:focus,
-body main #edititemform-wrapper #edititem-form #edit-nom:focus,
-body main #edititemform-wrapper #edititem-form #edit-prix:focus,
-body main #edititemform-wrapper #edititem-form #edit-image:focus,
-body main #edititemform-wrapper #edititem-form #edit-description:focus {
-  outline: none;
-  border: 1px solid #39cfdf;
-  background-color: #f4f9f9;
-}
-body main #edititemform-wrapper #edititem-form #edit-image {
-  border: none;
-}
-body main #edititemform-wrapper #edititem-form #edititemform-button {
-  background: linear-gradient(to right, #89D6CB, #9FCDC3);
-  color: #fff;
-  padding: 0.4em 0.6em;
-  border: none;
-  border-radius: 3px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: 80%;
-}
-body main #edititemform-wrapper #edititem-form #edititemform-button:hover {
-  background: linear-gradient(to right, #9FCDC3, #89D6CB);
-}
-body main #messagerie-admin-wrapper #table-message-wrapper {
-  display: block;
-  margin-top: 2em;
-  overflow-x: auto;
-}
-body main #messagerie-admin-wrapper #table-message-wrapper table th {
-  background-color: black;
-  color: white;
-}
-body main #messagerie-admin-wrapper #table-message-wrapper table th, body main #messagerie-admin-wrapper #table-message-wrapper table td {
-  border: 1px solid #BEE0D9;
-  padding: 8px;
-  text-align: left;
-}
-body main #messagerie-admin-wrapper #table-message-wrapper table td #div-td-message-username {
-  font-weight: 700;
-}
-body main #messagerie-admin-wrapper #table-message-wrapper table tr:nth-child(even) {
-  background-color: #BEE0D9;
+body main #categories-wrapper #items-list .item-unique .price-bookmark .add-to-fav .star-to-fav {
+  padding: 0.2em;
+  height: 3em;
+  background-color: transparent;
 }
 body main #espacepersonnel-wrapper .editinfo-hidden {
   display: none;
@@ -620,6 +433,95 @@ body main #espacepersonnel-wrapper #liste-favoris-wrapper .favorite-item-unique 
   background-color: #BEE0D9;
   border: 0.05em solid #2C9685;
 }
+body main #contact-wrapper {
+  margin-top: 0.5em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+body main #contact-wrapper .contact-infos {
+  margin-bottom: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+body main #contact-wrapper .contact-infos img {
+  max-width: 3em;
+}
+body main #contact-wrapper .contact-infos .blue-underline {
+  display: inline-block;
+  font-size: 1.4em;
+  background-image: linear-gradient(to right, white, #9FCDC3, #5ED3C2, #9FCDC3, white);
+  padding-bottom: 0.15em;
+  background-size: 100% 0.1em;
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  text-shadow: black 0px 0.2px;
+}
+body main #contact-wrapper .contact-infos address p {
+  font-style: normal;
+  font-size: 1em;
+}
+body main #contact-wrapper #contact-message-admin {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 1.5em;
+}
+body main #contact-wrapper #contact-form-wrapper {
+  margin-top: 0.5em;
+  font-size: 1.5em;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-us-onwebsite {
+  margin-left: 1em;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-form {
+  max-width: 35em;
+  margin: 1em 1em 1em 1em;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-form label {
+  font-family: "Linden Hill", serif;
+  font-size: 0.7em;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-form #text-message-sent {
+  width: 90%;
+  padding: 0.5em;
+  margin-bottom: 0.3em;
+  border: 1px solid #FFCBC4;
+  border-radius: 0.2em;
+  font-family: "Linden Hill", serif;
+  font-size: 1em;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-form #text-message-sent::placeholder {
+  font-size: 0.8em;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-form #text-message-sent:focus {
+  outline: none;
+  border: 1px solid #39cfdf;
+  background-color: #f4f9f9;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-form #send-message-button {
+  background: linear-gradient(to right, #89D6CB, #9FCDC3);
+  color: #fff;
+  margin-top: 1em;
+  padding: 0.4em 0.6em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 65%;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1em;
+}
+body main #contact-wrapper #contact-form-wrapper #contact-form #send-message-button:hover {
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
+}
+body main #contact-wrapper #contact-redirection {
+  margin-top: 1.5em;
+  text-align: center;
+  font-size: 1.1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
 body main #inscription-wrapper {
   margin-top: 0.5em;
   display: flex;
@@ -724,126 +626,252 @@ body main #connexion-wrapper #connexion-form #connexion-button {
 body main #connexion-wrapper #connexion-form #connexion-button:hover {
   background: linear-gradient(to right, #9FCDC3, #89D6CB);
 }
-body main #contact-wrapper {
-  margin-top: 0.5em;
+body main #accueilAdmin-wrapper h4 {
+  margin-top: 1em;
+}
+body main #accueilAdmin-wrapper #accueilAdmin-redirect {
   display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  gap: 1em;
 }
-body main #contact-wrapper .contact-infos {
-  margin-bottom: 1em;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-}
-body main #contact-wrapper .contact-infos img {
-  max-width: 3em;
-}
-body main #contact-wrapper .contact-infos p {
-  font-size: 1.4em;
-}
-body main #contact-wrapper .contact-infos span:last-child {
-  display: inline-block;
-  font-size: 1.4em;
-  background-image: linear-gradient(to right, white, #9FCDC3, #5ED3C2, #9FCDC3, white);
-  padding-bottom: 0.15em;
-  background-size: 100% 0.1em;
-  background-position: 0% 100%;
-  background-repeat: no-repeat;
-  text-shadow: black 0px 0.2px;
-}
-body main #contact-wrapper #contact-message-admin {
-  font-size: 1.5em;
-  text-align: center;
+body main #accueilAdmin-wrapper #listusers-wrapper {
+  display: block;
   margin: 1em;
+  font-size: 1em;
+  overflow-x: auto;
 }
-body main #contact-wrapper #contact-form-wrapper {
-  margin-top: 0.5em;
-  font-size: 1.5em;
+body main #accueilAdmin-wrapper #listusers-wrapper th, body main #accueilAdmin-wrapper #listusers-wrapper td {
+  border: 1px solid #BEE0D9;
+  padding: 8px;
+  text-align: left;
 }
-body main #contact-wrapper #contact-form-wrapper #contact-us-onwebsite {
-  margin-left: 1em;
+body main #accueilAdmin-wrapper #listusers-wrapper tr:nth-child(even) {
+  background-color: #BEE0D9;
 }
-body main #contact-wrapper #contact-form-wrapper #contact-form {
+body main #accueilAdmin-wrapper #listusers-wrapper th {
+  background-color: black;
+  color: white;
+}
+body main #add-item-form-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+body main #add-item-form-wrapper p {
+  font-size: 1.1em;
+}
+body main #add-item-form-wrapper #add-item-form {
   max-width: 35em;
-  margin: 1em 1em 1em 1em;
+  margin: 1em;
+  padding: 2em;
+  border: 0.3em double black;
+  border-radius: 0.5em;
 }
-body main #contact-wrapper #contact-form-wrapper #contact-form label {
-  font-family: "Linden Hill", serif;
-  font-size: 0.7em;
+body main #add-item-form-wrapper #add-item-form label {
+  display: block;
+  margin-bottom: 0.1em;
+  font-size: 1.2em;
 }
-body main #contact-wrapper #contact-form-wrapper #contact-form #text-message-sent {
+body main #add-item-form-wrapper #add-item-form #add-categorie,
+body main #add-item-form-wrapper #add-item-form #add-nom,
+body main #add-item-form-wrapper #add-item-form #add-prix,
+body main #add-item-form-wrapper #add-item-form #add-image,
+body main #add-item-form-wrapper #add-item-form #add-description {
   width: 90%;
-  padding: 0.5em;
+  padding: 0.1em;
   margin-bottom: 0.3em;
   border: 1px solid #FFCBC4;
   border-radius: 0.2em;
-  font-family: "Linden Hill", serif;
   font-size: 1em;
 }
-body main #contact-wrapper #contact-form-wrapper #contact-form #text-message-sent::placeholder {
-  font-size: 0.8em;
-}
-body main #contact-wrapper #contact-form-wrapper #contact-form #text-message-sent:focus {
+body main #add-item-form-wrapper #add-item-form #add-categorie:focus,
+body main #add-item-form-wrapper #add-item-form #add-nom:focus,
+body main #add-item-form-wrapper #add-item-form #add-prix:focus,
+body main #add-item-form-wrapper #add-item-form #add-image:focus,
+body main #add-item-form-wrapper #add-item-form #add-description:focus {
   outline: none;
   border: 1px solid #39cfdf;
   background-color: #f4f9f9;
 }
-body main #contact-wrapper #contact-form-wrapper #contact-form #send-message-button {
+body main #add-item-form-wrapper #add-item-form #add-image {
+  border: none;
+}
+body main #add-item-form-wrapper #add-item-form #additemform-button {
   background: linear-gradient(to right, #89D6CB, #9FCDC3);
   color: #fff;
-  margin-top: 1em;
   padding: 0.4em 0.6em;
   border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 80%;
+}
+body main #add-item-form-wrapper #add-item-form #additemform-button:hover {
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
+}
+body main #gestionitem-wrapper #tableitems-wrapper {
+  display: block;
+  margin-top: 2em;
+  overflow-x: auto;
+}
+body main #gestionitem-wrapper #tableitems-wrapper img {
+  max-height: 5em;
+}
+body main #gestionitem-wrapper #tableitems-wrapper th, body main #gestionitem-wrapper #tableitems-wrapper td {
+  border: 1px solid #BEE0D9;
+  padding: 8px;
+  text-align: left;
+}
+body main #gestionitem-wrapper #tableitems-wrapper tr:nth-child(even) {
+  background-color: #BEE0D9;
+}
+body main #gestionitem-wrapper #tableitems-wrapper th {
+  background-color: black;
+  color: white;
+}
+body main #gestionitem-wrapper #tableitems-wrapper #edit-item,
+body main #gestionitem-wrapper #tableitems-wrapper #delete-item {
+  background: white;
+  margin-top: 1em;
+  padding: 0.4em 0.6em;
+  border: 0.05em solid #BEE0D9;
   border-radius: 4px;
   cursor: pointer;
-  margin-left: 65%;
   font-family: "Cormorant Garamond", serif;
   font-size: 1em;
 }
-body main #contact-wrapper #contact-form-wrapper #contact-form #send-message-button:hover {
+body main #gestionitem-wrapper #tableitems-wrapper #edit-item:hover,
+body main #gestionitem-wrapper #tableitems-wrapper #delete-item:hover {
+  color: white;
   background: linear-gradient(to right, #9FCDC3, #89D6CB);
 }
-body main #contact-wrapper #contact-redirection {
-  margin-top: 1.5em;
-  text-align: center;
-  font-size: 1.1em;
+body main #edititemform-wrapper {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
+body main #edititemform-wrapper #edititem-form {
+  max-width: 35em;
+  margin: 1em;
+  padding: 2em;
+  border: 0.3em double black;
+  border-radius: 0.5em;
+}
+body main #edititemform-wrapper #edititem-form label {
+  display: block;
+  margin-bottom: 0.1em;
+  font-size: 1.2em;
+}
+body main #edititemform-wrapper #edititem-form #edit-categorie,
+body main #edititemform-wrapper #edititem-form #edit-nom,
+body main #edititemform-wrapper #edititem-form #edit-prix,
+body main #edititemform-wrapper #edititem-form #edit-image,
+body main #edititemform-wrapper #edititem-form #edit-description {
+  width: 90%;
+  padding: 0.1em;
+  margin-bottom: 0.3em;
+  border: 1px solid #FFCBC4;
+  border-radius: 0.2em;
+  font-size: 1em;
+}
+body main #edititemform-wrapper #edititem-form #edit-categorie:focus,
+body main #edititemform-wrapper #edititem-form #edit-nom:focus,
+body main #edititemform-wrapper #edititem-form #edit-prix:focus,
+body main #edititemform-wrapper #edititem-form #edit-image:focus,
+body main #edititemform-wrapper #edititem-form #edit-description:focus {
+  outline: none;
+  border: 1px solid #39cfdf;
+  background-color: #f4f9f9;
+}
+body main #edititemform-wrapper #edititem-form #edit-image {
+  border: none;
+}
+body main #edititemform-wrapper #edititem-form #edititemform-button {
+  background: linear-gradient(to right, #89D6CB, #9FCDC3);
+  color: #fff;
+  padding: 0.4em 0.6em;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 80%;
+}
+body main #edititemform-wrapper #edititem-form #edititemform-button:hover {
+  background: linear-gradient(to right, #9FCDC3, #89D6CB);
+}
+body main #messagerie-admin-wrapper #table-message-wrapper {
+  display: block;
+  margin-top: 2em;
+  overflow-x: auto;
+}
+body main #messagerie-admin-wrapper #table-message-wrapper table th {
+  background-color: black;
+  color: white;
+}
+body main #messagerie-admin-wrapper #table-message-wrapper table th, body main #messagerie-admin-wrapper #table-message-wrapper table td {
+  border: 1px solid #BEE0D9;
+  padding: 8px;
+  text-align: left;
+}
+body main #messagerie-admin-wrapper #table-message-wrapper table td #div-td-message-username {
+  font-weight: 700;
+}
+body main #messagerie-admin-wrapper #table-message-wrapper table tr:nth-child(even) {
+  background-color: #BEE0D9;
+}
 body main #cgu-wrapper,
 body main #ml-wrapper,
 body main #aboutus-wrapper,
-body main #privacypolicy-wrapper {
+body main #privacy-policy-wrapper {
   margin: 0.4em;
 }
 body main #cgu-wrapper h1,
 body main #ml-wrapper h1,
 body main #aboutus-wrapper h1,
-body main #privacypolicy-wrapper h1 {
+body main #privacy-policy-wrapper h1 {
   text-align: center;
+}
+body main #cgu-wrapper h2,
+body main #ml-wrapper h2,
+body main #aboutus-wrapper h2,
+body main #privacy-policy-wrapper h2 {
+  margin: 0.5em;
 }
 body main #cgu-wrapper p,
 body main #ml-wrapper p,
 body main #aboutus-wrapper p,
-body main #privacypolicy-wrapper p {
+body main #privacy-policy-wrapper p {
   font-family: "Linden Hill", serif;
-  margin-top: 0.7em;
+}
+body main #cgu-wrapper p a,
+body main #ml-wrapper p a,
+body main #aboutus-wrapper p a,
+body main #privacy-policy-wrapper p a {
+  text-decoration: underline;
 }
 body main #cgu-wrapper #thx-text,
 body main #ml-wrapper #thx-text,
 body main #aboutus-wrapper #thx-text,
-body main #privacypolicy-wrapper #thx-text {
+body main #privacy-policy-wrapper #thx-text {
   text-align: justify;
   margin: 1em 0 1em 0;
   font-size: 1.3em;
 }
+body main #cgu-wrapper .ml-infos,
+body main #ml-wrapper .ml-infos,
+body main #aboutus-wrapper .ml-infos,
+body main #privacy-policy-wrapper .ml-infos {
+  display: flex;
+  flex-flow: column nowrap;
+  font-family: "Linden Hill", serif;
+}
 body main #cgu-wrapper ul li,
 body main #ml-wrapper ul li,
 body main #aboutus-wrapper ul li,
-body main #privacypolicy-wrapper ul li {
+body main #privacy-policy-wrapper ul li {
   font-family: "Linden Hill", serif;
+  font-size: 1.2em;
 }
 @media only screen and (min-width: 768px) {
   body header {

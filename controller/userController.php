@@ -21,11 +21,11 @@ class UserController {
             if ($result === true) {
                 // Si tout est ok, on sauvegarde l'user
                 $user->save();
-                header( "refresh:5;url=index.php" );
                 
-                echo "Inscription confirmée, vous pouvez vous connecter.<br>Redirection vers la page de connexion.";
+                header( "refresh:5;url=index.php?page=connexion" );
                 
-                die;
+                $vue = "view/confirmInscrip.phtml";
+                require_once("view/template.phtml");
             }
             
             // En cas d'échec d'inscription

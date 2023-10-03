@@ -13,7 +13,7 @@ class AdminController {
 
     public static function addItem() {
         if (isset($_POST['add'])) {
-            // Instancier un objet item
+            // Instancier un objet Item
             $item = new Item();
             
             //Mettre les valeur POST dans l'objet Item
@@ -35,16 +35,12 @@ class AdminController {
                 $target_file = $target_dir . basename($_FILES["image"]["name"]);
                 $uploadOk = true;
                 
-                //Securite = vérifier le type de fichier (l'extension)
-                //$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-                
-                // Check if image file is a actual image or fake image
+                // N'upload pas si l'élément ajouté n'est pas une image. 
+                //TODO: Ajouter un message d'erreur
                 $check = getimagesize($_FILES["image"]["tmp_name"]);
                 if ($check === true) {
-                    //echo "File is an image - " . $check["mime"] . ".";
                     $uploadOk = true;
                 } else {
-                    //echo "File is not an image.";
                     $uploadOk = false;
                 }
                 
@@ -55,14 +51,15 @@ class AdminController {
                 
                 // Si tout est ok, l'objet est ajouté dans la BDD
                 $item->saveItem();
-                header("Location: index.php?page=additem&success");                
+                header("Location: index.php?page=additem&success=1");
                 die;
             }
             
         }
         
-        if (isset($_GET['success'])) {
-            echo "Objet ajouté avec succès !";
+        $successMessage = '';
+        if (isset($_GET['success']) && $_GET['success'] == 1) {
+            $successMessage = '<p class="success">Objet ajouté avec succès !</p>';
         }
         
         //Affichage de la vue

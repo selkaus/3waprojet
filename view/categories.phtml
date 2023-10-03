@@ -8,6 +8,11 @@
         <a href="index.php?page=categories&categorie=earrings">Boucles d`oreille</a>
         <a href="index.php?page=categories&categorie=autre">Autre</a>
     </div>
+    <?php if (isset($_SESSION['ID'])) {?>
+    <span id="find-your-fav">Retrouvez et gérez vos favoris dans votre espace personnel</span>
+    <?php } else {?>
+    <span id="find-your-fav">Connectez-vous pour accèder à vos favoris</span>
+    <?php }?>
     
      <div id="items-list">
         <?php foreach ($items as $item) { ?>
@@ -18,14 +23,14 @@
                 <div class="price-bookmark">
                     <p class="categorie-prix">Prix: <?= $item->getPrix() ?> euros</p>
     
-                    <?php if (isset($_SESSION['ID'])) { ?>
-                        <?php if (!$item->getIsInFavorites()) { ?>
+                    <?php if (isset($_SESSION['ID'])) {
+                         if (!$item->getIsInFavorites()) { ?>
                             <form method="post" action="index.php?page=favoris">
                                 <input type="hidden" name="id_item" value="<?= $item->getId() ?>">
-                                <button type="submit" class="add-to-fav">Ajouter aux Favoris</button>
+                                <button type="submit" class="add-to-fav"><img class="star-to-fav" src="public/uploads/favorite.png" alt="Ajouter aux favoris"></button>
                             </form>
                             <?php } else { ?>
-                            <img class="bookmark" src="public/uploads/bookmark.png"/>
+                            <img class="bookmark" src="public/uploads/bookmark.png" alt="Favoris">
                             <?php } ?>
                     <?php } ?>
                 </div>

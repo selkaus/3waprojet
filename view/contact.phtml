@@ -2,21 +2,28 @@
     <h1>Pour nous contacter</h1>
     
     <div class="contact-infos">
-        <!--<p>Par téléphone</p>-->
-        <img src="public/uploads/phone.png" alt="Par téléphone">
-        <span>06.23.26.02.51</span>
+        <img src="public/uploads/address.png" alt="Adresse">
+        <address class="blue-underline">
+            <p>Symbolique Paris</p>
+            <p>16 Rue de Cotte</p>
+            <p>75012 PARIS 12</p>
+        </address>
     </div>
     
     <div class="contact-infos">
-        <!--<p>Par email</p>-->
+        <img src="public/uploads/phone.png" alt="Par téléphone">
+        <p class="blue-underline">06.23.26.02.51</p>
+    </div>
+    
+    <div class="contact-infos">
         <img src="public/uploads/mail.png" alt="Par email">
-        <span>symbolique_paris@yahoo.com</span>
+        <p class="blue-underline">symbolique_paris@yahoo.com</p>
     </div>
     
     
     <?php if (isset($_SESSION['ID'])) {
             if (isset($_SESSION['admin'])) { ?>
-        <p id="contact-message-admin">Vous êtes connecté en tant qu'Administrateur. Si vous souhaitez modifier les informations de contact, merci de contacter la développeuse du site.</p>
+        <p id="contact-message-admin">Vous êtes connecté en tant qu'Administrateur.</p>
         <?php } else { ?>
     <div id="contact-form-wrapper">
         <span id="contact-us-onwebsite">Ou contactez-nous directement ici</span>
